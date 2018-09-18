@@ -18,6 +18,10 @@
 			width: 100%;
 			height: 100%;
 		}
+		
+		a {
+			text-decoration: none;
+		}
 	</style>
 </head>
 <body>
@@ -47,16 +51,17 @@
 						<a href="admin">관리자님 환영합니다.</a>
 					</c:when>
 					<c:otherwise>
-						<a href="member/${sessionScope.session_id}">${sessionScope.session_id}</a> 님 환영해요
+						<a href="member/${sessionScope.session_id}">${sessionScope.session_id}</a>
+						님 환영해요
 					</c:otherwise>
 				</c:choose>
-					<button onclick="location.href='member/logout'">Logout</button>
+					<button class="btn btn-outline-danger" onclick="location.href='/beauty/member/logout'">Logout</button>
 			</c:when>
 			
 			<c:otherwise>
 				<div style="float: right;">
 					<button class="btn btn-outline-primary" data-toggle="modal" data-target="#loginModal">Login</button> 
-					<button class="btn btn-outline-danger" onclick="location.href='/beauty/member/signUp'">Sign Up</button>
+					<button class="btn btn-outline-success" onclick="location.href='/beauty/member/signUp'">Sign Up</button>
 				</div>
 			</c:otherwise>
 		</c:choose>

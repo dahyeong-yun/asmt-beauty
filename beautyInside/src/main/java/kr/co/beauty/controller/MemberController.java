@@ -3,6 +3,7 @@ package kr.co.beauty.controller;
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +21,16 @@ public class MemberController {
 	private MemberService memberService;
 	private ModelAndView modelAndView;
 	
-	// 로그인
+	@Autowired
+	HttpSession session;
+	
+	//회원가입 페이지
+	@RequestMapping(value = "/member/signUp", method = RequestMethod.GET)
+	public String signUp() {
+		return "joinMember";
+	}
+	
+	//로그인
 	@RequestMapping(value = "/member/login", method = RequestMethod.POST)
 	public ModelAndView login(@ModelAttribute MemberVO memberVO, HttpServletResponse response) throws IOException {
 		modelAndView = new ModelAndView();
@@ -28,9 +38,11 @@ public class MemberController {
 		return modelAndView;
 	}
 	
-	//회원가입 페이지로 이동
-	@RequestMapping(value = "/member/signUp", method = RequestMethod.GET)
-	public String signUp() {
-		return "joinMember";
+	//로그아웃
+	@RequestMapping(value = "/member/logout", method = RequestMethod.GET)
+	public String logout() {
+		session.invalidate();
+		return "main";
 	}
+	
 }
