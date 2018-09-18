@@ -2,6 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Member">
+	<!-- 회원가입 -->
+	<insert id="memberJoin" parameterType="Member">
+		INSERT INTO MEMBER VALUES(#{MEM_ID}, #{MEM_PW}, #{MEM_NAME}, #{MEM_AGE}, #{MEM_EMAIL}, #{GENDER_ID}, #{SKINTYPE_ID}, #{AGE_ID})
+	</insert>
+	
 	<!-- 로그인 -->
 	<select id="memberLogin" parameterType="Member" resultType="Member">
 		SELECT * FROM MEMBER WHERE MEM_ID = #{MEM_ID}

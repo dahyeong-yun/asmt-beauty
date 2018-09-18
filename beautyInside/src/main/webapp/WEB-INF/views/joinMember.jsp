@@ -24,8 +24,9 @@
 	<!-- 회원가입 양식 -->
 	<div class="jumbotron">
 		<div class="container">
-		
-			<form class="form" action="">
+		<h4 class="display-4">회원가입</h4>
+			<form class="form mt-4" action="/beauty/member/join" method="post">
+				
 				<div class="form-row">
 					<div class="form-group col-md-6">
 						<label for="MEM_ID">아이디</label>
@@ -38,46 +39,46 @@
 					</div>
 				</div>
 				
-				<div class="form-group">
-					<label for="inputAddress">삭제 예정</label>
-					<input type="text"
-						class="form-control" id="inputAddress" placeholder="1234 Main St">
-				</div>
-				
-				<div class="form-group">
-					<label for="inputAddress2">삭제 예정</label>
-					<input type="text"
-						class="form-control" id="inputAddress2"
-						placeholder="Apartment, studio, or floor">
-				</div>
-				
 				<div class="form-row">
 					<div class="form-group col-md-6">
-						<label for="inputCity">City</label>
-						<input type="text"
-							class="form-control" id="inputCity">
+						<label for="MEM_NAME">이름</label>
+					<input type="text"
+						class="form-control" id="MEM_NAME" name="MEM_NAME" placeholder="이름을 입력하세요">
 					</div>
-					
-					<div class="form-group col-md-4">
-						<label for="inputState">State</label>
-						<select id="inputState"
-							class="form-control">
-							<option selected>Choose...</option>
-							<option>...</option>
-						</select>
-					</div>
-					
-					<div class="form-group col-md-2">
-						<label for="inputZip">Zip</label>
-						<input type="text" class="form-control" id="inputZip">
+					<div class="form-group col-md-6">
+						<label for="MEM_EMAIL">이메일</label>
+						<input type="email" class="form-control" id="MEM_EMAIL" name="MEM_EMAIL" placeholder="이메일을 입력하세요">
 					</div>
 				</div>
 				
-				<div class="form-group">
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" id="gridCheck">
-						<label class="form-check-label" for="gridCheck"> Check me out </label>
+				<div class="form-row mt-4">
+					<div class="form-group col-md-6">
+						<p>성별</p>
+						<div class="btn-group" data-toggle="buttons">
+							<label class="btn btn-secondary">
+								<input type="radio" name="GENDER_ID" value="1" /> 남자
+							</label>
+							<label class="btn btn-secondary active">
+								<input type="radio" name="GENDER_ID" value="2" /> 여자
+							</label>
+						</div>
 					</div>
+					
+					<div class="form-group col-md-6">
+						<p>피부타입</p>
+						<div class="btn-group" data-toggle="buttons">
+							<label class="btn btn-secondary active">
+								<input type="radio" name="SKINTYPE_ID" value="1" /> 지성
+							</label>
+							<label class="btn btn-secondary">
+								<input type="radio" name="SKINTYPE_ID" value="2" /> 건성
+							</label>
+							<label class="btn btn-secondary">
+								<input type="radio" name="SKINTYPE_ID" value="3" /> 복합성
+							</label>
+						</div>
+					</div>
+					
 				</div>
 				
 				<button type="submit" class="btn btn-primary">가입하기</button>

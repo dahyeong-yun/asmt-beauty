@@ -45,4 +45,18 @@ public class MemberService {
 		return modelAndView;
 	}
 
+	public ModelAndView memberJoin(MemberVO memberVO) {
+		modelAndView = new ModelAndView();
+		int result = memberDAO.memberJoin(memberVO);
+		
+		// 가입 성공 여부에 따른 view 결정
+		if (result == 0) {
+			modelAndView.setViewName("joinMember");
+		} else {
+			modelAndView.setViewName("main");
+		}
+		
+		return modelAndView;
+	}
+
 }

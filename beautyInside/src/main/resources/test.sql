@@ -5,6 +5,13 @@ CREATE TABLE MEMBER(
     MEM_AGE int,
     MEM_EMAIL varchar(200) not null,
     GENDER_ID int,
-    SKINTYPE int,
+    SKINTYPE_ID int,
     AGE_ID int
 );
+drop table Member;
+
+INSERT INTO MEMBER VALUES('asd','asd','jhon',23,'asd@naver.com','1','1','2');
+
+select * from MEMBER;
+
+commit;
