@@ -19,4 +19,7 @@ public class MemberDAO {
 		return sqlSession.insert("Member.memberJoin", memberVO);
 	}
 
+	public MemberVO memberInfoAuth(MemberVO memberVO) {
+		return sqlSession.selectOne("Member.memberInfoAuth", memberVO);
+	}
 }

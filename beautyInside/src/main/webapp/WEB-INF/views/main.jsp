@@ -26,7 +26,7 @@
 
 	<!-- 추천 화장품(carousel) -->
 	<div class="jumbotron">
-		<div class="container mt-3">
+		<div class="container">
 			<h2 class="font-weight-bold">추천 제품 리스트</h2>
 			<div id="demo" class="carousel slide" data-ride="carousel">
 				<!-- indicators -->

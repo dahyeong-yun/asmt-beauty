@@ -26,17 +26,17 @@
 </head>
 <body>
 	<!-- 상단바 -->
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark mb-3">
 		<!-- 로고 -->
 		<a class="navbar-brand" href="/beauty/">Logo</a>
 
 		<!-- 메뉴 -->
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item">
-				<a class="nav-link" href="#">item</a>
+				<a class="nav-link" href="/beauty/search/">item</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">tips!</a>
+				<a class="nav-link" href="/beauty/tip/">tips!</a>
 			</li>
 		</ul>
 		
@@ -51,7 +51,7 @@
 						<a href="admin">관리자님 환영합니다.</a>
 					</c:when>
 					<c:otherwise>
-						<a href="member/${sessionScope.session_id}">${sessionScope.session_id}</a>
+						<a href="/beauty/member/info/${sessionScope.session_id}">${sessionScope.session_id}</a>
 						님 환영해요
 					</c:otherwise>
 				</c:choose>
@@ -83,7 +83,7 @@
 					<form class="form" action="/beauty/member/login" method="post">
 					<div class="form-group">
 						<label for="id">아이디</label>
-						<input type="text" class="form-control" id="MEM_ID" name="MEM_ID" aria-describedby="emailHelp" placeholder="Enter id">
+						<input type="text" class="form-control" id="MEM_ID" name="MEM_ID" aria-describedby="idHelp" placeholder="Enter id">
 						<small id="idHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 					</div>
 					<div class="form-group">

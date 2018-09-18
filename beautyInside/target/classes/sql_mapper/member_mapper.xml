@@ -11,4 +11,9 @@
 	<select id="memberLogin" parameterType="Member" resultType="Member">
 		SELECT * FROM MEMBER WHERE MEM_ID = #{MEM_ID}
 	</select>
+	
+	<!-- 마이페이지_인증 -->
+	<select id="memberInfoAuth" parameterType="Member" resultType="Member">
+		SELECT * FROM MEMBER WHERE MEM_ID = #{MEM_ID} AND MEM_PW = #{MEM_PW}
+	</select>
 </mapper>

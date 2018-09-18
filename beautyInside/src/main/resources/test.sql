@@ -8,7 +8,20 @@ CREATE TABLE MEMBER(
     SKINTYPE_ID int,
     AGE_ID int
 );
-drop table Member;
+
+CREATE TABLE AGE(
+	AGE_ID int primary key
+);
+
+CREATE TABLE SKINTYPE(
+	SKINTYPE_ID int primary key
+);
+
+CREATE TABLE GENDER(
+	GENDER_ID int primary key
+);
+
+-- drop table Member;
 
 INSERT INTO MEMBER VALUES('asd','asd','jhon',23,'asd@naver.com','1','1','2');
 

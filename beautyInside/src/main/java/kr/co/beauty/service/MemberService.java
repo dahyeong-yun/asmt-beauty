@@ -3,6 +3,7 @@ package kr.co.beauty.service;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -56,6 +57,26 @@ public class MemberService {
 			modelAndView.setViewName("main");
 		}
 		
+		return modelAndView;
+	}
+
+	public ModelAndView memberInfoAuth(String password, HttpSession session) {
+		modelAndView = new ModelAndView();
+		
+		memberVO = new MemberVO();
+		
+		//this.session = session;
+		String mEM_ID = (String) session.getAttribute("session_id");
+		memberVO.setMEM_ID(mEM_ID);
+		memberVO.setMEM_PW(password);
+		
+		MemberVO authMember = memberDAO.memberInfoAuth(memberVO);
+		
+		if(authMember.getMEM_ID().equals(memberVO.getMEM_ID())) {
+			modelAndView.setViewName("myPageRivision");
+		} else {
+			modelAndView.setViewName("myPageAuth");
+		}
 		return modelAndView;
 	}
 

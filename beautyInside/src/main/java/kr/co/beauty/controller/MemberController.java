@@ -2,6 +2,7 @@ package kr.co.beauty.controller;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.beauty.service.MemberService;
@@ -67,4 +69,20 @@ public class MemberController {
 		return "main";
 	}
 	
+	// 마이페이지_인증 페이지
+	@RequestMapping(value = "/member/info/*", method = RequestMethod.GET)
+	public String myPage() {
+		return "myPageAuth";
+	}
+	
+	// 마이페이지_정보 수정 페이지
+	@RequestMapping(value = "/member/info/*", method = RequestMethod.POST)
+	public ModelAndView myPageRivision(HttpServletRequest request, HttpSession session) {
+		modelAndView = new ModelAndView();
+		
+		String password = request.getParameter("MEM_PW");
+		
+		modelAndView = memberService.memberInfoAuth(password, session);
+		return modelAndView;
+	}
 }
