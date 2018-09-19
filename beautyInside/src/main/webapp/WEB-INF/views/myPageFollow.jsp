@@ -17,7 +17,7 @@
 <style>
 </style>
 </head>
-<body>
+<body class="bg-light">
 	<!-- 상단바 -->
 	<%@include file="navbar.jsp" %>
 	

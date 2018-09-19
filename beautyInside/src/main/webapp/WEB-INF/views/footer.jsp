@@ -6,7 +6,7 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
-<body>
+<body class="bg-light">
 	<!-- 하단 -->
 	<footer class="container mt-3">
 		<p class="float-right"><a href="#">Back to top</a></p>

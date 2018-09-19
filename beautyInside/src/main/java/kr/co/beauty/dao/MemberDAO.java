@@ -22,4 +22,8 @@ public class MemberDAO {
 	public MemberVO memberInfoAuth(MemberVO memberVO) {
 		return sqlSession.selectOne("Member.memberInfoAuth", memberVO);
 	}
+
+	public int memberRevise(MemberVO memberVO) {
+		return sqlSession.update("Member.memberInfoRevise", memberVO);
+	}
 }
