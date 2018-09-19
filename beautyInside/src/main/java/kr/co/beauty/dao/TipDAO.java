@@ -23,4 +23,9 @@ public class TipDAO {
 	public List<TipVO> tipList(MemberVO memberVO) {
 		return sqlSession.selectList("Tip.tipList", memberVO);
 	}
+
+	//로그인 안하고 팁리스트 클릭스 모든 팁리스트 띄우기
+	public List<TipVO> tipListAll() {
+		return sqlSession.selectList("Tip.tipListAll");
+	}
 }
