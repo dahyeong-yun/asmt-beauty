@@ -36,7 +36,7 @@
 				<a class="nav-link" href="/beauty/search/">item</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="/beauty/tip/">tips!</a>
+				<a class="nav-link" href="/beauty/item/tipList?MEM_ID=${sessionScope.session_id }">tips!</a>
 			</li>
 		</ul>
 		

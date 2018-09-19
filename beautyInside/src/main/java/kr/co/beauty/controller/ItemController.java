@@ -1,7 +1,8 @@
 package kr.co.beauty.controller;
 
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class ItemController {
-	private ModelAndView modelAndView;
+
 }

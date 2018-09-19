@@ -36,13 +36,23 @@
 				</div>
 			</div>
 
-			<!-- 본문 -->
+			<!-- 마이페이지 우측 메뉴 -->
 			<div class="col-md-9">
 				<div class="container" >
-					
-					<form action="/beauty/member/info/rivison/${session.session_id}" method="post" class="form-inline" style="text-align:center; margin: auto; max-width:350px; max-height:350px;">
-					
-					</form>
+					<div class="p-4 bg-white rounded shadow-sm">
+						<div class="row">
+							<!-- 팔로워 리스트(나를 팔로우 하고 있는 사람들) -->
+							<div class="col">
+							
+							</div>
+							
+							<!-- 팔로잉 리스트(내가 팔로우 하고 있는 사람들) -->
+							<div class="col">
+							
+							</div>
+						</div>
+					</div>
+	
 				</div>
 			</div>
 		
