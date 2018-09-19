@@ -1,5 +1,7 @@
 package kr.co.beauty.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -25,5 +27,15 @@ public class MemberDAO {
 
 	public int memberRevise(MemberVO memberVO) {
 		return sqlSession.update("Member.memberInfoRevise", memberVO);
+	}
+
+	// 팔로워 목록 (나를 팔로우 하는 사람)
+	public List<MemberVO> memberFollowerList(MemberVO memberVO) {
+		return sqlSession.selectList("Member.memberFollowerList", memberVO);
+	}
+	
+	// 팔로잉 목록(내가 팔로우 하고 있는 사람) 
+	public List<MemberVO> memberFollowingList(MemberVO memberVO) {
+		return sqlSession.selectList("Member.memberFollowingList", memberVO);
 	}
 }

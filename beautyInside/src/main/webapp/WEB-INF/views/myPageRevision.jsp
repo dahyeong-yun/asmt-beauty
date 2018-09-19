@@ -27,12 +27,12 @@
 			<!-- 마이페이지 좌측 메뉴 -->
 			<div class="col-md-3">
 				<div class="list-group">
-					<a href="/beauty/member/info/${sessionScop.session_id}" class="list-group-item active">개인 정보 수정</a>
-					<a href="/beauty/member/orders/${sessionScop.session_id}" class="list-group-item">주문목록 / 배송조회</a>
-					<a href="/beauty/member/reviews/${sessionScop.session_id}" class="list-group-item">내가 쓴 리뷰</a>
-					<a href="/beauty/member/liked/${sessionScop.session_id}" class="list-group-item">좋아요 한 리뷰</a>
-					<a href="/beauty/member/stored/${sessionScop.session_id}" class="list-group-item">제품 찜 목록</a>
-					<a href="/beauty/member/follow/${sessionScop.session_id}" class="list-group-item">팔로워 팔로잉</a>
+					<a href="/beauty/member/info/${loginMember.MEM_ID}" class="list-group-item active">개인 정보 수정</a>
+					<a href="/beauty/member/orders/${loginMember.MEM_ID}" class="list-group-item">주문목록 / 배송조회</a>
+					<a href="/beauty/member/reviews/${loginMember.MEM_ID}" class="list-group-item">내가 쓴 리뷰</a>
+					<a href="/beauty/member/liked/${loginMember.MEM_ID}" class="list-group-item">좋아요 한 리뷰</a>
+					<a href="/beauty/member/stored/${loginMember.MEM_ID}" class="list-group-item">제품 찜 목록</a>
+					<a href="/beauty/member/follow/${loginMember.MEM_ID}" class="list-group-item">팔로워 팔로잉</a>
 				</div>
 			</div>
 

@@ -121,7 +121,9 @@ public class MemberController {
 	
 	// (page link) 마이페이지_팔로워/팔로잉 페이지
 	@RequestMapping(value = "/member/follow/*", method = RequestMethod.GET)
-	public String myPageFollow() {
-		return "myPageFollow";
+	public ModelAndView myPageFollow(HttpSession session) {
+		modelAndView = new ModelAndView();
+		modelAndView = memberService.memberFollowList(session);
+		return modelAndView;
 	}
 }
