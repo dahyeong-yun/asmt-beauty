@@ -11,4 +11,7 @@
 	<select id="tipList" parameterType="Member" resultType="Tip">
 		SELECT * FROM TIP WHERE AGE_ID = #{AGE_ID} OR GENDER_ID = #{GENDER_ID} OR SKINTYPE_ID = #{SKINTYPE_ID}
 	</select>
+	<select id="tipListAll" parameterType="Tip" resultType="Tip">
+		SELECT * FROM TIP
+	</select>
 </mapper>
