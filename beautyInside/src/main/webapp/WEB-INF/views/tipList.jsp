@@ -17,6 +17,7 @@
 	<!-- 상단바 -->
 	<%@include file="navbar.jsp" %>
 	
+	<!-- 팁 -->
 	<div class="album py-5 bg-light">
 		<h2>&emsp;&emsp;&emsp;&lt;TIP!&gt;</h2>
 		<div class="container">
