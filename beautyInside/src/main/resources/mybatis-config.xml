@@ -4,6 +4,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="Member" type="kr.co.beauty.vo.MemberVO" />
+		<typeAlias alias="Tip" type="kr.co.beauty.vo.TipVO" />
 	</typeAliases>
 </configuration>
 

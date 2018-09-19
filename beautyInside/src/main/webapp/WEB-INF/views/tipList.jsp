@@ -21,10 +21,10 @@
 		<h2>&emsp;&emsp;&emsp;&lt;TIP!&gt;</h2>
 		<div class="container">
 			<div class="row">
-				<c:forEach var="list" items="#">
+				<c:forEach var="tipList" items="${tipList }">
 				    <div class="col-md-4">
 						<div class="card mb-4 shadow-sm">
-							<img class="card-img-top" data-src="<!-- DB에서 불러올 이미지링크값 -->" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+							<a href="${tipList.TIP_URL}"><img class="card-img-top" src="${tipList.TIP_THUMBNAIL}" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;"></a>
 						</div>
 					</div>
 				</c:forEach>
@@ -36,3 +36,5 @@
 	<%@include file="footer.jsp" %>
 </body>
 </html>
+
+

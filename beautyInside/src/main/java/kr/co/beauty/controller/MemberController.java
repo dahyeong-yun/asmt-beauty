@@ -18,6 +18,7 @@ import kr.co.beauty.vo.MemberVO;
 public class MemberController {
 	@Autowired
 	private MemberService memberService;
+	
 	private ModelAndView modelAndView;
 	
 	// 로그인
