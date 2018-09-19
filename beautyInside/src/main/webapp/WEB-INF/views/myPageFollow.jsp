@@ -27,12 +27,12 @@
 			<!-- 마이페이지 좌측 메뉴 -->
 			<div class="col-md-3">
 				<div class="list-group">
-					<a href="/beauty/member/info/${session.session_id}" class="list-group-item">개인 정보 수정</a>
-					<a href="/beauty/member/orders/${session.session_id}" class="list-group-item">주문목록 / 배송조회</a>
-					<a href="/beauty/member/reviews/${session.session_id}" class="list-group-item">내가 쓴 리뷰</a>
-					<a href="/beauty/member/liked/${session.session_id}" class="list-group-item">좋아요 한 리뷰</a>
-					<a href="/beauty/member/stored/${session.session_id}" class="list-group-item">제품 찜 목록</a>
-					<a href="/beauty/member/follow/${session.session_id}" class="list-group-item active">팔로워 팔로잉</a>
+					<a href="/beauty/member/info/${loginMember.MEM_ID}" class="list-group-item">개인 정보 수정</a>
+					<a href="/beauty/member/orders/${loginMember.MEM_ID}" class="list-group-item">주문목록 / 배송조회</a>
+					<a href="/beauty/member/reviews/${loginMember.MEM_ID}" class="list-group-item">내가 쓴 리뷰</a>
+					<a href="/beauty/member/liked/${loginMember.MEM_ID}" class="list-group-item">좋아요 한 리뷰</a>
+					<a href="/beauty/member/stored/${loginMember.MEM_ID}" class="list-group-item">제품 찜 목록</a>
+					<a href="/beauty/member/follow/${loginMember.MEM_ID}" class="list-group-item active">팔로워 팔로잉</a>
 				</div>
 			</div>
 
@@ -41,21 +41,27 @@
 				<div class="container" >
 					<div class="p-4 bg-white rounded shadow-sm">
 						<div class="row">
+						
 							<!-- 팔로워 리스트(나를 팔로우 하고 있는 사람들) -->
 							<div class="col">
-							
+								<h4 class="display-4">팔로워 목록</h4>
+								<c:forEach var="follower" items="${followerList}">
+									<p>${follower.MEM_NAME}</p>
+								</c:forEach>
 							</div>
 							
 							<!-- 팔로잉 리스트(내가 팔로우 하고 있는 사람들) -->
 							<div class="col">
-							
+								<h4 class="display-4">팔로잉 목록</h4>
+								<c:forEach var="following" items="${followerList}">
+									<p>${following.MEM_NAME}</p>
+								</c:forEach>
 							</div>
 						</div>
 					</div>
-	
 				</div>
 			</div>
-		
+			
 		</div>
 	</div>
 	

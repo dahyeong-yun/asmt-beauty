@@ -18,18 +18,16 @@
 	<%@include file="navbar.jsp" %>
 	
 	<!-- 팁 -->
-	<div class="album py-5 bg-light">
-		<h2>&emsp;&emsp;&emsp;&lt;TIP!&gt;</h2>
-		<div class="container">
-			<div class="row">
-				<c:forEach var="tipList" items="${tipList }">
-				    <div class="col-md-4">
-						<div class="card mb-4 shadow-sm">
-							<a href="${tipList.TIP_URL}"><img class="card-img-top" src="${tipList.TIP_THUMBNAIL}" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;"></a>
-						</div>
+	<div class="container">
+		<h2>TIP!</h2>
+		<div class="row">
+			<c:forEach var="tipList" items="${tipList}">
+				<div class="col-md-4">
+					<div class="card mb-4 shadow-sm">
+						<a href="${tipList.TIP_URL}"><img class="card-img-top" src="${tipList.TIP_THUMBNAIL}" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;"></a>
 					</div>
-				</c:forEach>
-			</div>
+				</div>
+			</c:forEach>
 		</div>
 	</div>
 	

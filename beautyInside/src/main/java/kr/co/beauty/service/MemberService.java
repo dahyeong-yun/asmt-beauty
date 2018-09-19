@@ -2,6 +2,7 @@ package kr.co.beauty.service;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -49,7 +50,7 @@ public class MemberService {
 		PrintWriter out = response.getWriter();
 		
 		if (memberVO.getMEM_PW().equals(loginMember.getMEM_PW())) {
-			session.setAttribute("session_id", memberVO.getMEM_ID());
+			session.setAttribute("loginMember", loginMember);
 			modelAndView.setViewName("main");
 		} else {
 			// 로그인 실패 alert
@@ -94,6 +95,21 @@ public class MemberService {
 		} else {
 			modelAndView.setViewName("main"); // 변경 성공 시
 		}
+		
+		return modelAndView;
+	}
+
+	public ModelAndView memberFollowList(HttpSession session) {
+		modelAndView = new ModelAndView();
+		memberVO = (MemberVO) session.getAttribute("loginMember");
+		
+		List<MemberVO> followerList = memberDAO.memberFollowerList(memberVO);
+		List<MemberVO> followingList = memberDAO.memberFollowingList(memberVO);
+		
+		session.setAttribute("followerList", followerList);
+		session.setAttribute("followingList", followingList);
+		
+		modelAndView.setViewName("myPageFollow");
 		
 		return modelAndView;
 	}

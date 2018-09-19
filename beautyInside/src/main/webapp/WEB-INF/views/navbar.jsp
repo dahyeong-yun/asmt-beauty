@@ -45,13 +45,13 @@
 		</form>
 		
 		<c:choose>
-			<c:when test="${not empty sessionScope.session_id}">
+			<c:when test="${not empty loginMember.MEM_ID}">
 				<c:choose>
-					<c:when test="${sessionScope.session_id eq 'admin'}">
+					<c:when test="${loginMember.MEM_ID eq 'admin'}">
 						<a href="admin">관리자님 환영합니다.</a>
 					</c:when>
 					<c:otherwise>
-						<a href="/beauty/member/info/${sessionScope.session_id}">${sessionScope.session_id}</a>
+						<a href="/beauty/member/info/${loginMember.MEM_ID}">${loginMember.MEM_ID}</a>
 						님 환영해요
 					</c:otherwise>
 				</c:choose>
