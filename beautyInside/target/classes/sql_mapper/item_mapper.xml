@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Item">
+	<select id="search" parameterType="Item" resultType="Item">
+		SELECT * FROM ITEM WHERE ITEM_CATEGORY = #{ITEM_CATEGORY} AND (ITEM_NAME LIKE '%' + #{ITEM_NAME} + '%' OR ITEM_BRAND LIKE '%' + #{ITEM_NAME} + '%')
+	</select>
+	<select id="itemSearch" parameterType="Item" resultType="Item">
+		SELECT * FROM ITEM WHERE (ITEM_NAME LIKE '%' + #{ITEM_NAME} + '%' OR ITEM_BRAND LIKE '%' + #{ITEM_NAME} + '%')
+	</select>
+	<select id="categorySearch" parameterType="Item" resultType="Item">
+		SELECT * FROM ITEM WHERE ITEM_CATEGORY = #{ITEM_CATEGORY}
+	</select>
+	<select id="itemList" resultType="Item">
+		SELECT * FROM ITEM
+	</select>
+</mapper>

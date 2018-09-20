@@ -78,8 +78,8 @@
 	<!-- 검색창 -->
 	<div class="container mt-3">
 		<h2 class="font-weight-bold">제품 검색하기</h2>
-		<form class="form-inline mx-auto" action="searchItem" method="get">
-			<select name="itemCategory" class="form-control">
+		<form class="form-inline mx-auto" action="/beauty/item" method="get">
+			<select name="ITEM_CATEGORY" class="form-control">
 				<option value="default">카테고리</option>
 				<option value="hair">헤어</option>
 				<option value="skincare">스킨케어</option>
@@ -87,7 +87,7 @@
 				<option value="perfume">향수</option>
 			</select>
 			<div class="form-group">
-				<input type="text" class="form-control" id="search" placeholder="검색어를 입력하세요" name="search">
+				<input type="text" class="form-control" id="search" placeholder="검색어를 입력하세요" name="ITEM_NAME">
 			</div>
 			<input class="btn btn-success"type="submit" value="검색">
 		</form>

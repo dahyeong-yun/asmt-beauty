@@ -49,6 +49,7 @@
 
 			<!-- 검색 결과  -->
 			<div class="col-sm-6 col-md-8">
+			
 			</div>
 		</div>
 	</div>
