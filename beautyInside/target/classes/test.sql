@@ -28,6 +28,7 @@ CREATE TABLE MEMBER(
     MEM_NAME varchar(50) not null,
     MEM_AGE int,
     MEM_EMAIL varchar(200) not null,
+    MEM_PROFILE varchar(200),
     GENDER_ID int,
     SKINTYPE_ID int,
     AGE_ID int,
@@ -65,7 +66,23 @@ CREATE TABLE FOLLOW(
 );
 insert into follow values(1,'asd','qwe');
 insert into follow values(2,'qwe','asd');
+insert into follow values(3,'asd','zxc');
 
+CREATE TABLE ITEM(
+    ITEM_ID INT auto_increment primary KEY,
+    ITEM_NAME VARCHAR(100) NOT NULL,
+    ITEM_BRAND VARCHAR(100) NOT NULL,
+    ITEM_CATEGORY VARCHAR(100) NOT NULL,
+    AGE_ID INT,
+    SKINTYPE_ID INT,
+    GENDER_ID INT,
+    ITEM_PRICE INT NOT NULL,
+	ITEM_CAPA VARCHAR(100),
+    ITEM_IMAGE VARCHAR(100) NOT NULL,
+    CONSTRAINT FK_ITEM_AGE_ID FOREIGN KEY(AGE_ID) REFERENCES AGE(AGE_ID)  on delete cascade,
+    CONSTRAINT FK_ITEM_SKINTYPE_ID FOREIGN KEY(SKINTYPE_ID) REFERENCES SKINTYPE(SKINTYPE_ID) on delete cascade,
+    CONSTRAINT FK_ITEM_GENDER_ID FOREIGN KEY(GENDER_ID) REFERENCES GENDER(GENDER_ID) on delete cascade
+);
 
 /*
 drop table MEMBER;
@@ -79,5 +96,5 @@ select * from MEMBER;
 */
 
 select * FROM MEMBER WHERE MEM_ID = (SELECT MEM_ID FROM FOLLOW WHERE TARGET_MEM_ID = 'asd');
-
+alter table member add column  MEM_PROFILE varchar(200);
 commit;

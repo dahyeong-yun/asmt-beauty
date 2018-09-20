@@ -6,22 +6,24 @@ public class MemberVO {
 	private String MEM_NAME;
 	private int MEM_AGE;
 	private String MEM_EMAIL;
+	private String MEM_PROFILE;
 	private int GENDER_ID;
 	private int SKINTYPE_ID;
 	private int AGE_ID;
 	
-	
+
 	public MemberVO() {
 	}
 
-	public MemberVO(String mEM_ID, String mEM_PW, String mEM_NAME, int mEM_AGE, String mEM_EMAIL, int gENDER_ID,
-			int sKINTYPE_ID, int aGE_ID) {
+	public MemberVO(String mEM_ID, String mEM_PW, String mEM_NAME, int mEM_AGE, String mEM_EMAIL, String mEM_PROFILE,
+			int gENDER_ID, int sKINTYPE_ID, int aGE_ID) {
 		super();
 		MEM_ID = mEM_ID;
 		MEM_PW = mEM_PW;
 		MEM_NAME = mEM_NAME;
 		MEM_AGE = mEM_AGE;
 		MEM_EMAIL = mEM_EMAIL;
+		MEM_PROFILE = mEM_PROFILE;
 		GENDER_ID = gENDER_ID;
 		SKINTYPE_ID = sKINTYPE_ID;
 		AGE_ID = aGE_ID;
@@ -65,6 +67,14 @@ public class MemberVO {
 
 	public void setMEM_EMAIL(String mEM_EMAIL) {
 		MEM_EMAIL = mEM_EMAIL;
+	}
+
+	public String getMEM_PROFILE() {
+		return MEM_PROFILE;
+	}
+
+	public void setMEM_PROFILE(String mEM_PROFILE) {
+		MEM_PROFILE = mEM_PROFILE;
 	}
 
 	public int getGENDER_ID() {

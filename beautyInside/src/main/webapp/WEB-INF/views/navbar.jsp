@@ -26,14 +26,14 @@
 </head>
 <body class="bg-light">
 	<!-- 상단바 -->
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark mb-3">
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		<!-- 로고 -->
 		<a class="navbar-brand" href="/beauty/">Logo</a>
 
 		<!-- 메뉴 -->
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item">
-				<a class="nav-link" href="/beauty/search/">item</a>
+				<a class="nav-link" href="/beauty/item?ITEM_CATEGORY=&ITEM_NAME=">item</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="/beauty/item/tipList?MEM_ID=${sessionScope.session_id}">tips!</a>
@@ -51,8 +51,9 @@
 						<a href="admin">관리자님 환영합니다.</a>
 					</c:when>
 					<c:otherwise>
-						<a href="/beauty/member/info/${loginMember.MEM_ID}">${loginMember.MEM_ID}</a>
-						님 환영해요
+						<a style="color:white;" href="/beauty/member/info/${loginMember.MEM_ID}">${loginMember.MEM_ID}
+						<img src="/beauty/resources/img/defalutProfile.png" alt="..." width="35px" height="auto" class="rounded-circle">
+						님 환영해요</a>
 					</c:otherwise>
 				</c:choose>
 					<button class="btn btn-outline-danger" onclick="location.href='/beauty/member/logout'">Logout</button>
