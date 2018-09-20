@@ -49,7 +49,13 @@
 
 			<!-- 검색 결과  -->
 			<div class="col-sm-6 col-md-8">
-			
+				<table>
+				<c:forEach var="list" items="${searchResult}">
+						<tr>
+							<td>${list.ITEM_IMAGE}</td> <td>${list.ITEM_BRAND } ${list.ITEM_NAME} ${list.ITEM_PRICE}</td>
+						</tr>
+				</c:forEach>
+				</table>
 			</div>
 		</div>
 	</div>

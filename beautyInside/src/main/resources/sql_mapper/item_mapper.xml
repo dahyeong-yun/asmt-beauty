@@ -3,10 +3,10 @@
 
 <mapper namespace="Item">
 	<select id="search" parameterType="Item" resultType="Item">
-		SELECT * FROM ITEM WHERE ITEM_CATEGORY = #{ITEM_CATEGORY} AND (ITEM_NAME LIKE '%' + #{ITEM_NAME} + '%' OR ITEM_BRAND LIKE '%' + #{ITEM_NAME} + '%')
+		SELECT * FROM ITEM WHERE ITEM_CATEGORY = #{ITEM_CATEGORY} AND (ITEM_NAME LIKE '%' || #{ITEM_NAME} || '%' OR ITEM_BRAND LIKE '%' || #{ITEM_NAME} || '%')
 	</select>
 	<select id="itemSearch" parameterType="Item" resultType="Item">
-		SELECT * FROM ITEM WHERE (ITEM_NAME LIKE '%' + #{ITEM_NAME} + '%' OR ITEM_BRAND LIKE '%' + #{ITEM_NAME} + '%')
+		SELECT * FROM ITEM WHERE (ITEM_NAME LIKE '%' || #{ITEM_NAME} || '%' OR ITEM_BRAND LIKE '%' || #{ITEM_NAME} || '%')
 	</select>
 	<select id="categorySearch" parameterType="Item" resultType="Item">
 		SELECT * FROM ITEM WHERE ITEM_CATEGORY = #{ITEM_CATEGORY}

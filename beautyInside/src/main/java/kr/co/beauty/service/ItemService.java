@@ -19,10 +19,10 @@ public class ItemService {
 	public ModelAndView itemSearch(ItemVO itemVO) {
 		modelAndView = new ModelAndView();
 		List<ItemVO> result;
-		if(itemVO.getITEM_CATEGORY()=="") {
-			if(itemVO.getITEM_NAME()=="") {
+		if(itemVO.getITEM_CATEGORY().equals(" ")) {
+			if(itemVO.getITEM_NAME().equals("")) {
 				result = itemDAO.itemList();
-			}else {
+			}else{
 				result = itemDAO.itemSearch(itemVO);
 			}
 		}else {
