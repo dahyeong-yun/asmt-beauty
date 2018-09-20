@@ -41,7 +41,20 @@
 		</ul>
 		
 		<!-- 검색창  -->
-		<form class="form-inline">
+		<form class="form-inline mx-auto" action="/beauty/item" method="get">
+			<select name="ITEM_CATEGORY" class="form-control">
+				<option value=" ">카테고리</option>
+				<option value="A">A</option>
+				<option value="hair">헤어</option>
+				<option value="skincare">스킨케어</option>
+				<option value="cleansing">클렌징</option>
+				<option value="perfume">향수</option>
+				<option value="마스카라">마스카라</option>
+			</select>
+			<div class="form-group">
+				<input type="text" class="form-control" id="search" placeholder="검색어를 입력하세요" name="ITEM_NAME">
+			</div>
+			<input class="btn btn-success"type="submit" value="검색">
 		</form>
 		
 		<c:choose>

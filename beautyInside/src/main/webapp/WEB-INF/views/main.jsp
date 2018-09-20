@@ -130,6 +130,7 @@
 				<option value="skincare">스킨케어</option>
 				<option value="cleansing">클렌징</option>
 				<option value="perfume">향수</option>
+				<option value="마스카라">마스카라</option>
 			</select>
 			<div class="form-group">
 				<input type="text" class="form-control" id="search" placeholder="검색어를 입력하세요" name="ITEM_NAME">
