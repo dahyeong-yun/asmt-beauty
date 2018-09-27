@@ -1,8 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="Git">
-
+<mapper namespace="Member">
+	<!-- 회원가입 -->
+	<insert id="memberJoin" parameterType="Member">
+		INSERT INTO MEMBER VALUES(#{MEM_ID}, #{MEM_PW}, #{MEM_NAME}, #{MEM_AGE}, #{MEM_EMAIL}, #{GENDER_ID}, #{SKINTYPE_ID}, #{AGE_ID})
+	</insert>
+	
+	<!-- 로그인 -->
+	<select id="memberLogin" parameterType="Member" resultType="Member">
+		SELECT * FROM MEMBER WHERE MEM_ID = #{MEM_ID}
+	</select>
+	
+	<!-- 마이페이지_인증 -->
+	<select id="memberInfoAuth" parameterType="Member" resultType="Member">
+		SELECT * FROM MEMBER WHERE MEM_ID = #{MEM_ID} AND MEM_PW = #{MEM_PW}
+	</select>
+	
+	<!-- 마이페이지_개인정보 수정 -->
+	<select id="memberInfoRevise" parameterType="Member" resultType="Member">
+		UPDATE MEMBER SET MEM_PW=#{MEM_PW}, MEM_EMAIL=#{MEM_EMAIL}, GENDER_ID=#{GENDER_ID}, SKINTYPE_ID=#{SKINTYPE_ID} WHERE MEM_ID = #{MEM_ID}
+	</select>
+	
+	<!-- 마이페이지_팔로워 리스트-->
+	<select id="memberFollowerList" parameterType="Member" resultType="Member">
+		SELECT * FROM MEMBER WHERE MEM_ID = (SELECT MEM_ID FROM FOLLOW WHERE TARGET_MEM_ID = #{MEM_ID});
+	</select>
+	
+	<!-- 마이페이지_팔로잉 리스트 -->
+	<select id="memberFollowingList" parameterType="Member" resultType="Member">
+		SELECT * FROM MEMBER WHERE MEM_ID = (SELECT TARGET_MEM_ID FROM FOLLOW WHERE MEM_ID = #{MEM_ID});
+	</select>	
+	
 </mapper>
-
-

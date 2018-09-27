@@ -38,4 +38,8 @@ public class MemberDAO {
 	public List<MemberVO> memberFollowingList(MemberVO memberVO) {
 		return sqlSession.selectList("Member.memberFollowingList", memberVO);
 	}
+
+	public MemberVO idOverlap(String MEM_ID) {
+		return sqlSession.selectOne("Member.idOverlap", MEM_ID);
+	}
 }

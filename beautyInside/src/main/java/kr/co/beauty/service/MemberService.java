@@ -114,4 +114,15 @@ public class MemberService {
 		return modelAndView;
 	}
 
+	public void idOverlap(String MEM_ID, HttpServletResponse response) throws IOException {
+		memberVO = new MemberVO();
+		memberVO = memberDAO.idOverlap(MEM_ID);
+		if(memberVO == null) {
+			response.getWriter().print("1");
+			
+		} else {
+			response.getWriter().print("0");
+		}
+	}
+
 }

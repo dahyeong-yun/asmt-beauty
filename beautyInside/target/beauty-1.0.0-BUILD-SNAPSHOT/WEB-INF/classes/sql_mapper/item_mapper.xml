@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Item">
+	
+	<!-- 제품 검색(카테고리 지정 후, 검색 값 제품명, 브랜드 경우) -->
+	<select id="search" parameterType="Item" resultType="Item">
+		SELECT * FROM ITEM WHERE ITEM_CATEGORY = #{ITEM_CATEGORY} AND (ITEM_NAME LIKE '%' || #{ITEM_NAME} || '%' OR ITEM_BRAND LIKE '%' || #{ITEM_NAME} || '%')
+	</select>
+	
+	<!-- 제품 검색(카테고리 없이 검색 값 존재할 경우) -->
+	<select id="itemSearch" parameterType="Item" resultType="Item">
+		SELECT * FROM ITEM WHERE ITEM_NAME LIKE '%' || #{ITEM_NAME} || '%' OR ITEM_BRAND LIKE '%' || #{ITEM_NAME} || '%'
+	</select>
+	
+	<!-- 제품 검색(카테고리만 있을 경우) -->
+	<select id="categorySearch" parameterType="Item" resultType="Item">
+		SELECT * FROM ITEM WHERE ITEM_CATEGORY = #{ITEM_CATEGORY}
+	</select>
+	
+	<!-- 아이템 메뉴를 눌렀을 경우 -->
+	<select id="itemList" resultType="Item">
+		SELECT * FROM ITEM
+	</select>
+</mapper>

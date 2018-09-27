@@ -29,8 +29,8 @@
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="MEM_ID">아이디</label>
-					<input type="text"
-						class="form-control" id="MEM_ID" name="MEM_ID" placeholder="아이디를 입력하세요">
+					<input type="text" class="form-control" id="JOIN_MEM_ID" name="MEM_ID" placeholder="아이디를 입력하세요">
+					<button class="btn btn-info" type="button" onclick="idOverlap()">중복확인</button>
 				</div>
 				<div class="form-group col-md-6">
 					<label for="MEM_PW">비밀번호</label>
@@ -85,12 +85,38 @@
 		
 	</div>
 
+	<script type="text/javascript">
+	// 아이디 중복 체크 여부 확인(아이디 중복 = 0, 중복 아닐 시 = 1)	
+	var idcheck = 0;
+	function idOverlap() {
+		$.ajax({
+			type : "post",
+			url : "/beauty/member/idck",
+			data : {
+				"id" : $("#JOIN_MEM_ID").val()
+			},
+			datatype : "text",
+			success: function(data) {
+				if(data==1) {
+					alert("아이디 사용 가능");
+					idcheck = 1; // 중복 체크 완료
+					$("#JOIN_MEM_ID").attr("readonly", true);
+				} else {
+					alert("아이디 사용 불가");
+				}
+			},
+			error : function(request) {
+				console.log("AJAX에러");
+				alert("code : " + request.stauts + "\n"
+						+ "message :" + request.responseText);
+			}
+		});
+	}
+	</script>
+
 	
 	<!-- 하단 -->
 	<%@include file="footer.jsp" %>
 	
-	<script type="text/javascript">
-	
-	</script>
 </body>
 </html>

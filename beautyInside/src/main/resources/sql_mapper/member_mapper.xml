@@ -7,6 +7,11 @@
 		INSERT INTO MEMBER VALUES(#{MEM_ID}, #{MEM_PW}, #{MEM_NAME}, #{MEM_AGE}, #{MEM_EMAIL}, #{GENDER_ID}, #{SKINTYPE_ID}, #{AGE_ID})
 	</insert>
 	
+	<!-- 아이디 중복체크 -->
+	<select id="idOverlap" parameterType="String" resultType="Member">
+		SELECT * FROM MEMBER WHERE MEM_ID = #{MEM_ID}
+	</select>
+	
 	<!-- 로그인 -->
 	<select id="memberLogin" parameterType="Member" resultType="Member">
 		SELECT * FROM MEMBER WHERE MEM_ID = #{MEM_ID}
@@ -31,5 +36,7 @@
 	<select id="memberFollowingList" parameterType="Member" resultType="Member">
 		SELECT * FROM MEMBER WHERE MEM_ID = (SELECT TARGET_MEM_ID FROM FOLLOW WHERE MEM_ID = #{MEM_ID});
 	</select>	
+	
+	
 	
 </mapper>
