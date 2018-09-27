@@ -43,7 +43,7 @@
 		<!-- 검색창  -->
 		<form class="form-inline mx-auto" action="/beauty/item" method="get">
 			<select name="ITEM_CATEGORY" class="form-control">
-				<option value=" ">카테고리</option>
+				<option value="">카테고리</option>
 				<option value="A">A</option>
 				<option value="hair">헤어</option>
 				<option value="skincare">스킨케어</option>

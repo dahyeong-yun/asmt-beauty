@@ -15,13 +15,15 @@ public class ItemService {
 	@Autowired
 	private ItemDAO itemDAO;
 	private ModelAndView modelAndView;
+	private ItemVO itemVO;
 	
 	// 아이템 검색 기능
 	public ModelAndView itemSearch(ItemVO itemVO) {
 		modelAndView = new ModelAndView();
 		List<ItemVO> result;
 		
-		if(itemVO.getITEM_CATEGORY().equals(" ")) {// 카테고리 미지정 시,
+		
+		if(itemVO.getITEM_CATEGORY().equals("")) {// 카테고리 미지정 시,
 			if(itemVO.getITEM_NAME().equals("")) { // 검색 값이 없을 경우
 				System.out.println("카테고리 X, 검색 값 X");
 				result = itemDAO.itemList();
@@ -30,7 +32,7 @@ public class ItemService {
 				result = itemDAO.itemSearch(itemVO); // 검색 값이 있을 경우
 			}
 		} else {
-			if(itemVO.getITEM_NAME()==null) {// 카테고리 지정 시,
+			if(itemVO.getITEM_NAME().equals("")) {// 카테고리 지정 시,
 				System.out.println("카테고리 O, 검색 값 X");
 				result = itemDAO.categorySearch(itemVO);
 			} else {
@@ -44,5 +46,12 @@ public class ItemService {
 
 	}
 
-
+	// 아이템 상세 페이지
+	public ModelAndView itemDetail(int ITEM_ID) {
+		modelAndView = new ModelAndView();
+		itemVO = itemDAO.itemDetail(ITEM_ID);
+		modelAndView.addObject("detail",itemVO);
+		modelAndView.setViewName("itemDetail");
+		return modelAndView;
+	}
  }

@@ -124,8 +124,9 @@
 		<h2 class="font-weight-bold">제품 검색하기</h2>
 		<form class="form-inline mx-auto" action="/beauty/item" method="get">
 			<select name="ITEM_CATEGORY" class="form-control">
-				<option value=" ">카테고리</option>
+				<option value="">카테고리</option>
 				<option value="A">A</option>
+				<option value="립스틱">립스틱</option>
 				<option value="hair">헤어</option>
 				<option value="skincare">스킨케어</option>
 				<option value="cleansing">클렌징</option>
