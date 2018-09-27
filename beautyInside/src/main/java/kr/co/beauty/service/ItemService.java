@@ -7,15 +7,23 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.beauty.dao.ItemDAO;
+import kr.co.beauty.dao.ReviewDAO;
 import kr.co.beauty.vo.ItemVO;
+import kr.co.beauty.vo.ReviewVO;
 
 @Service
 public class ItemService {
 	
 	@Autowired
 	private ItemDAO itemDAO;
+
+	@Autowired
+	private ReviewDAO reviewDAO;
+
+	
 	private ModelAndView modelAndView;
 	private ItemVO itemVO;
+	private ReviewVO reviewVO;
 	
 	// 아이템 검색 기능
 	public ModelAndView itemSearch(ItemVO itemVO) {
@@ -50,6 +58,9 @@ public class ItemService {
 	public ModelAndView itemDetail(int ITEM_ID) {
 		modelAndView = new ModelAndView();
 		itemVO = itemDAO.itemDetail(ITEM_ID);
+		List<ReviewVO> reviewList = reviewDAO.reviewList(ITEM_ID);
+		
+		modelAndView.addObject("reviewList",reviewList);
 		modelAndView.addObject("detail",itemVO);
 		modelAndView.setViewName("itemDetail");
 		return modelAndView;

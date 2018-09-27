@@ -78,11 +78,31 @@ CREATE TABLE ITEM(
     GENDER_ID INT,
     ITEM_PRICE INT NOT NULL,
 	ITEM_CAPA VARCHAR(100),
-    ITEM_IMAGE VARCHAR(100) NOT NULL,
+    ITEM_IMAGE VARCHAR(400) NOT NULL,
     CONSTRAINT FK_ITEM_AGE_ID FOREIGN KEY(AGE_ID) REFERENCES AGE(AGE_ID)  on delete cascade,
     CONSTRAINT FK_ITEM_SKINTYPE_ID FOREIGN KEY(SKINTYPE_ID) REFERENCES SKINTYPE(SKINTYPE_ID) on delete cascade,
     CONSTRAINT FK_ITEM_GENDER_ID FOREIGN KEY(GENDER_ID) REFERENCES GENDER(GENDER_ID) on delete cascade
 );
+drop table item;
+insert into ITEM values(1,'룰루','아모레','클렌징',2,2,1,10000,'200ml','http://d9vmi5fxk1gsw.cloudfront.net/home/glowmee/upload/20180814/1534239707375.png');
+insert into ITEM values(2,'래쉬포머','케이트','마스카라',2,2,1,18000,'8.6g','http://d9vmi5fxk1gsw.cloudfront.net/home/glowmee/upload/20180814/1534239707375.png');
+
+CREATE TABLE REVIEW(
+    REVIEW_ID INT auto_increment primary KEY,
+    MEM_ID VARCHAR(100) NOT NULL,
+    REVIEW_TITLE VARCHAR(200) NOT NULL,
+    REVIEW_CONTENT VARCHAR(4000) NOT NULL,
+    ITEM_ID INT,
+    REVIEW_LIKE INT,
+    REVIEW_GRADE float,
+    CONSTRAINT FK_REVIEW_MEM_ID FOREIGN KEY(MEM_ID) REFERENCES MEMBER(MEM_ID)  on delete cascade,
+    CONSTRAINT FK_REVIEW_ITEM_ID FOREIGN KEY(ITEM_ID) REFERENCES ITEM(ITEM_ID) on delete cascade
+);
+insert into REVIEW values (1,'asd','이거 진짜 좋아요','그냥 좋음',1,12,3.4);
+insert into REVIEW values (2,'zxc','이거 진짜 싫어요','그냥 싫음',1,1,1.4);
+
+drop table REVIEW;
+
 
 /*
 drop table MEMBER;
@@ -92,9 +112,9 @@ drop table FOLLOW;
 drop table SKINTYPE;
 drop table GENDER;
 
-select * from MEMBER;
-*/
 
+*/
+select * from MEMBER;
 select * FROM MEMBER WHERE MEM_ID = (SELECT MEM_ID FROM FOLLOW WHERE TARGET_MEM_ID = 'asd');
 alter table member add column  MEM_PROFILE varchar(200);
 commit;
