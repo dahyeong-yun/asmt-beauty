@@ -15,6 +15,7 @@ public class ItemService {
 	@Autowired
 	private ItemDAO itemDAO;
 	private ModelAndView modelAndView;
+	private ItemVO itemVO;
 	
 	// 아이템 검색 기능
 	public ModelAndView itemSearch(ItemVO itemVO) {
@@ -45,5 +46,12 @@ public class ItemService {
 
 	}
 
-
+	// 아이템 상세 페이지
+	public ModelAndView itemDetail(int ITEM_ID) {
+		modelAndView = new ModelAndView();
+		itemVO = itemDAO.itemDetail(ITEM_ID);
+		modelAndView.addObject("detail",itemVO);
+		modelAndView.setViewName("itemDetail");
+		return modelAndView;
+	}
  }
