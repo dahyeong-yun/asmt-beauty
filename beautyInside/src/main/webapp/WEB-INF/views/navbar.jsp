@@ -24,7 +24,7 @@
 		}
 	</style>
 </head>
-<body class="bg-light">
+<body>
 	<!-- 상단바 -->
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		<!-- 로고 -->
