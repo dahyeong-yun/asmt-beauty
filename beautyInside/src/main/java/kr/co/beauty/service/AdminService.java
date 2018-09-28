@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.co.beauty.dao.AdminDAO;
 import kr.co.beauty.vo.ItemVO;
 import kr.co.beauty.vo.MemberVO;
+import kr.co.beauty.vo.ReviewVO;
 
 @Service
 public class AdminService {
@@ -28,7 +29,7 @@ public class AdminService {
 	//관리자페이지 제품 리스트
 	public ModelAndView adminPageItem() {
 		modelAndView = new ModelAndView();
-		List<ItemVO> allItems = adminDAO.adminpageItem();
+		List<ItemVO> allItems = adminDAO.adminPageItem();
 		modelAndView.addObject("allItems", allItems);
 		modelAndView.setViewName("adminPageItem");
 		return modelAndView;
@@ -45,6 +46,15 @@ public class AdminService {
 		} else {
 			modelAndView.setViewName("redirect:/adminPage/item");
 		}
+		return modelAndView;
+	}
+
+	//관리자 페이지 리뷰 리스트
+	public ModelAndView adminPageReview() {
+		modelAndView = new ModelAndView();
+		List<ReviewVO> allReviews = adminDAO.adminPageReview();
+		modelAndView.addObject("allReviews", allReviews);
+		modelAndView.setViewName("adminPageReview");
 		return modelAndView;
 	}
 

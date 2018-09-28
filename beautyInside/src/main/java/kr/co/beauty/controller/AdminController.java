@@ -65,9 +65,10 @@ public class AdminController {
 	
 	// (page link) 관리자 전용 페이지 리뷰 관리
 	@RequestMapping(value = "/adminPage/review", method = RequestMethod.GET)
-	public String adminPageReview() {
-		return "adminPageReview";
+	public ModelAndView adminPageReview() {
+		modelAndView = new ModelAndView();
+		modelAndView = adminService.adminPageReview();
+		return modelAndView;
 	}
 	
-	// (page link) 관리자 전용 페이지 제품 작성폼
 }

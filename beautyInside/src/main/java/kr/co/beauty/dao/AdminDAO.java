@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.beauty.vo.ItemVO;
 import kr.co.beauty.vo.MemberVO;
+import kr.co.beauty.vo.ReviewVO;
 @Repository
 public class AdminDAO {
 	@Autowired
@@ -19,7 +20,7 @@ public class AdminDAO {
 	}
 
 	//관리자 페이지에서 모든 제품리스트 보기
-	public List<ItemVO> adminpageItem() {
+	public List<ItemVO> adminPageItem() {
 		return sqlSession.selectList("Item.adminPageItem");
 	}
 
@@ -28,4 +29,8 @@ public class AdminDAO {
 		return sqlSession.insert("Item.itemInsert", itemVO);
 	}
 
+	//관리자 페이지에서 모든 리뷰리스트 보기
+	public List<ReviewVO> adminPageReview() {
+		return sqlSession.selectList("Review.adminPageReview");
+	}
 }

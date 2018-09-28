@@ -8,8 +8,13 @@
 		SELECT * FROM REVIEW WHERE ITEM_ID = #{ITEM_ID}
 	</select>
 	
-		<!-- 리뷰 상세 정보 -->
+	<!-- 리뷰 상세 정보 -->
 	<select id="reviewDetail" parameterType="String" resultType="Review">
 		SELECT * FROM REVIEW WHERE REVIEW_ID = #{REVIEW_ID}
+	</select>
+	
+	<!-- 관리자 페이지 모든 리뷰 보기 -->
+	<select id="adminPageReview" parameterType="Review" resultType="Review">
+		SELECT * FROM REVIEW
 	</select>
 </mapper>
