@@ -61,7 +61,7 @@
 			<c:when test="${not empty loginMember.MEM_ID}">
 				<c:choose>
 					<c:when test="${loginMember.MEM_ID eq 'admin'}">
-						<a href="/beauty/member/adminPage/dashboard">관리자님 환영합니다.</a>
+						<a href="/beauty/adminPage/dashboard">관리자님 환영합니다.</a>
 					</c:when>
 					<c:otherwise>
 						<a style="color:white;" href="/beauty/member/info/${loginMember.MEM_ID}">${loginMember.MEM_ID}

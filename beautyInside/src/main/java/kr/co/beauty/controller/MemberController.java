@@ -85,36 +85,6 @@ public class MemberController {
 		return "myPageAuth";
 	}
 	
-	// (page link) 관리자 전용 페이지 대쉬보드
-	@RequestMapping(value = "/member/adminPage/dashboard", method = RequestMethod.GET)
-	public String adminPageDashboard() {
-		return "adminPageDashboard";
-	}
-	
-	// (page link 관리자 전용 페이지 회원 관리
-	@RequestMapping(value = "/member/adminPage/member", method = RequestMethod.GET)
-	public String adminPageMember() {
-		return "adminPageMember";
-	}
-	
-	// (page link 관리자 전용 페이지 제품 관리
-	@RequestMapping(value = "/member/adminPage/item", method = RequestMethod.GET)
-	public String adminPageItem() {
-		return "adminPageItem";
-	}
-	
-	// (page link 관리자 전용 페이지 팁 관리
-	@RequestMapping(value = "/member/adminPage/tip", method = RequestMethod.GET)
-	public String adminPageTip() {
-		return "adminPageTip";
-	}
-	
-	// (page link 관리자 전용 페이지 리뷰 관리
-	@RequestMapping(value = "/member/adminPage/review", method = RequestMethod.GET)
-	public String adminPageReview() {
-		return "adminPageReview";
-	}
-	
 	// 마이페이지_인증 페이지 : 인증 기능
 	@RequestMapping(value = "/member/info/auth/*", method = RequestMethod.POST)
 	public ModelAndView myPageRevision(HttpServletRequest request, HttpSession session) {

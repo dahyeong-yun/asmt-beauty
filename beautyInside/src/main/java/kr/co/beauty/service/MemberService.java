@@ -37,7 +37,6 @@ public class MemberService {
 		} else {
 			modelAndView.setViewName("main");
 		}
-		
 		return modelAndView;
 	}
 	
