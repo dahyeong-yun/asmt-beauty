@@ -24,4 +24,8 @@ public class ReviewDAO {
 		return sqlSession.selectOne("Review.reviewDetail", REVIEW_ID);
 	}
 
+	public int reviewWrite(ReviewVO reviewVO) {
+		return sqlSession.insert("Review.reviewWrite", reviewVO);
+	}
+
 }

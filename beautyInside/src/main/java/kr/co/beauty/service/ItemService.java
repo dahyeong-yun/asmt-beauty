@@ -23,7 +23,6 @@ public class ItemService {
 	
 	private ModelAndView modelAndView;
 	private ItemVO itemVO;
-	private ReviewVO reviewVO;
 	
 	// 아이템 검색 기능
 	public ModelAndView itemSearch(ItemVO itemVO) {

@@ -8,8 +8,13 @@
 		SELECT * FROM REVIEW WHERE ITEM_ID = #{ITEM_ID}
 	</select>
 	
-		<!-- 리뷰 상세 정보 -->
+	<!-- 리뷰 상세 정보 -->
 	<select id="reviewDetail" parameterType="String" resultType="Review">
 		SELECT * FROM REVIEW WHERE REVIEW_ID = #{REVIEW_ID}
 	</select>
+	
+	<!-- 리뷰 작성 -->
+	<insert id="reviewWrite" parameterType="Review">
+		INSERT INTO REVIEW(MEM_ID, REVIEW_TITLE, REVIEW_CONTENT, ITEM_ID, REVIEW_LIKE, REVIEW_GRADE) VALUES (#{MEM_ID}, #{REVIEW_TITLE}, #{REVIEW_CONTENT}, #{ITEM_ID}, #{REVIEW_LIKE}, #{REVIEW_GRADE})
+	</insert>
 </mapper>

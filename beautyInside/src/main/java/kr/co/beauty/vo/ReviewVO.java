@@ -16,7 +16,6 @@ public class ReviewVO {
 
 	public ReviewVO(int rEVIEW_ID, String mEM_ID, String rEVIEW_TITLE, String rEVIEW_CONTENT, int iTEM_ID,
 			int rEVIEW_LIKE, float rEVIEW_GRADE) {
-		super();
 		REVIEW_ID = rEVIEW_ID;
 		MEM_ID = mEM_ID;
 		REVIEW_TITLE = rEVIEW_TITLE;

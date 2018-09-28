@@ -17,7 +17,6 @@ public class MemberVO {
 
 	public MemberVO(String mEM_ID, String mEM_PW, String mEM_NAME, int mEM_AGE, String mEM_EMAIL, String mEM_PROFILE,
 			int gENDER_ID, int sKINTYPE_ID, int aGE_ID) {
-		super();
 		MEM_ID = mEM_ID;
 		MEM_PW = mEM_PW;
 		MEM_NAME = mEM_NAME;

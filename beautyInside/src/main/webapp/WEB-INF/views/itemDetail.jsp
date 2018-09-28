@@ -24,7 +24,7 @@
 		<div class="row">
 			<div class="btn btn-primary ml-2">제품 구입</div>
 			<div class="btn btn-primary ml-2">찜 하기</div>
-			<div class="btn btn-primary ml-2">리뷰 작성</div>
+			<a href="/beauty/review/write/${detail.ITEM_ID}" class="btn btn-primary ml-2">리뷰 작성</a>
 			<div class="btn btn-primary ml-2">목록 보기</div>
 		</div>
 		
@@ -73,7 +73,7 @@
 			</table>
 		</div>
 	</div>
-	
+
 	<!-- 하단 -->
 	<%@include file="footer.jsp" %>
 </body>
