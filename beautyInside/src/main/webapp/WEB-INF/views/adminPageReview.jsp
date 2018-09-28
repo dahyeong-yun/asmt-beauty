@@ -39,7 +39,22 @@
 			<div class="col-md-9">
 				<div class="p-4 bg-white rounded shadow-sm">
 					<div class="container" >
-
+					<table>
+						<tr>
+							<td>리뷰번호</td>
+							<td>리뷰제목</td>
+							<td>좋아요 수</td>
+							<td>작성자</td>
+						</tr>
+						<c:forEach var="allReviews" items="${allReviews}">
+						<tr>
+							<td>${allReviews.REVIEW_ID}</td>
+							<td>${allReviews.REVIEW_TITLE}</td>
+							<td>${allReviews.REVIEW_LIKE}</td>
+							<td>${allReviews.MEM_ID}</td>
+						</tr>
+						</c:forEach>
+					</table>
 					</div>
 				</div>
 			</div>
