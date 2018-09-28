@@ -13,8 +13,20 @@
 		SELECT * FROM REVIEW WHERE REVIEW_ID = #{REVIEW_ID}
 	</select>
 	
+	<!-- 관리자 페이지 모든 리뷰 보기 -->
+	<select id="adminPageReview" parameterType="Review" resultType="Review">
+		SELECT * FROM REVIEW
+	</select>
+
 	<!-- 리뷰 작성 -->
 	<insert id="reviewWrite" parameterType="Review">
 		INSERT INTO REVIEW(MEM_ID, REVIEW_TITLE, REVIEW_CONTENT, ITEM_ID, REVIEW_LIKE, REVIEW_GRADE) VALUES (#{MEM_ID}, #{REVIEW_TITLE}, #{REVIEW_CONTENT}, #{ITEM_ID}, #{REVIEW_LIKE}, #{REVIEW_GRADE})
 	</insert>
+	
+
+	<!-- 리뷰 작성 -->
+	<insert id="reviewWrite" parameterType="Review">
+		INSERT INTO REVIEW(MEM_ID, REVIEW_TITLE, REVIEW_CONTENT, ITEM_ID, REVIEW_LIKE, REVIEW_GRADE) VALUES (#{MEM_ID}, #{REVIEW_TITLE}, #{REVIEW_CONTENT}, #{ITEM_ID}, #{REVIEW_LIKE}, #{REVIEW_GRADE})
+	</insert>
+
 </mapper>
