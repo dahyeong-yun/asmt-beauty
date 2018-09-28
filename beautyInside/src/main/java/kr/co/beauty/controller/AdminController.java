@@ -63,7 +63,7 @@ public class AdminController {
 		return "adminPageTip";
 	}
 	
-	// (page link) 관리자 전용 페이지 리뷰 관리
+	// 관리자 전용 페이지 리뷰 관리
 	@RequestMapping(value = "/adminPage/review", method = RequestMethod.GET)
 	public ModelAndView adminPageReview() {
 		modelAndView = new ModelAndView();

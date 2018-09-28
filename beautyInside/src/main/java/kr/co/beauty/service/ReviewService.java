@@ -1,7 +1,5 @@
 package kr.co.beauty.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
@@ -9,6 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.co.beauty.dao.ItemDAO;
 import kr.co.beauty.dao.ReviewDAO;
 import kr.co.beauty.vo.ItemVO;
+import kr.co.beauty.vo.MemberVO;
 import kr.co.beauty.vo.ReviewVO;
 
 @Service
@@ -16,8 +15,12 @@ public class ReviewService {
 
 	@Autowired
 	private ReviewDAO reviewDAO;
+	
+	@Autowired
+	private ItemDAO itemDAO;
+	
 	private ModelAndView modelAndView;
-	private ReviewVO reviewVO;
+	private ItemVO itemVO;
 	
 	public ModelAndView reviewDetail(String REVIEW_ID) {
 		modelAndView = new ModelAndView();
@@ -25,6 +28,25 @@ public class ReviewService {
 		modelAndView.addObject("reviewDetail", reviewDetail);
 		modelAndView.setViewName("reviewDetail");
 		return modelAndView;
+	}
+
+	public ModelAndView infoForReviewWrite(int ITEM_ID) {
+		modelAndView = new ModelAndView();
+		itemVO = itemDAO.itemDetail(ITEM_ID);
+		modelAndView.addObject("itemRelatedThisReview", itemVO);
+		modelAndView.setViewName("reviewWrite");
+		return modelAndView;
+	}
+
+	
+	public void reviewWrite(int ITEM_ID, ReviewVO reviewVO) {
+		
+		int result = reviewDAO.reviewWrite(reviewVO);
+		if(result==0) {
+			System.out.println("리뷰 등록 실패");
+		} else {
+			System.out.println("리뷰 등록 성공");
+		}
 	}
 
  }
