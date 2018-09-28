@@ -4,7 +4,7 @@
 <mapper namespace="Member">
 	<!-- 회원가입 -->
 	<insert id="memberJoin" parameterType="Member">
-		INSERT INTO MEMBER VALUES(#{MEM_ID}, #{MEM_PW}, #{MEM_NAME}, #{MEM_AGE}, #{MEM_EMAIL}, #{GENDER_ID}, #{SKINTYPE_ID}, #{AGE_ID})
+		INSERT INTO MEMBER VALUES(#{MEM_ID}, #{MEM_PW}, #{MEM_NAME}, #{MEM_AGE}, #{MEM_EMAIL},  #{GENDER_ID}, #{SKINTYPE_ID}, #{AGE_ID}, #{MEM_PROFILE})
 	</insert>
 	
 	<!-- 아이디 중복체크 -->

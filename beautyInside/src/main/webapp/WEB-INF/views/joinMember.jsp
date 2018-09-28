@@ -79,7 +79,7 @@
 				</div>
 				
 			</div>
-			
+			<input type="hidden" name="MEM_PROFILE" value="3asd" /> 
 			<button type="submit" class="btn btn-primary">가입하기</button>
 		</form>
 		

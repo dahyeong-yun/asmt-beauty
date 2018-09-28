@@ -44,7 +44,7 @@
 						<form action="/beauty/member/info/auth/${loginMember.MEM_ID}" method="post" class="form-inline" style="text-align:center; margin: auto; max-width:350px; max-height:350px;">
 						<p>비밀번호를 다시 한번 입력해 주세요</p>
 							<div class="form-group">
-								<input class="form-control" type="password" name="MEM_PW" placeholder="비밀번호를 입력하세요 " />
+								<input class="form-control" type="password" name="AUTH_MEM_PW" placeholder="비밀번호를 입력하세요 " />
 							</div>
 							<input class="btn btn-primary" type="submit" value="확인" />
 						</form>

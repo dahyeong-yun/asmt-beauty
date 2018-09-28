@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -39,18 +40,7 @@ public class MemberController {
 	@RequestMapping(value = "/member/join", method = RequestMethod.POST)
 	public ModelAndView join(@ModelAttribute MemberVO memberVO) {
 		
-		//MEMBER 테이블의 AGE_ID위한 처리과정
-		if(memberVO.getMEM_AGE() >= 0 && memberVO.getMEM_AGE() < 20 ) {
-			memberVO.setAGE_ID(1);
-		} else if (memberVO.getMEM_AGE() >= 20 && memberVO.getMEM_AGE() < 30 ) {
-			memberVO.setAGE_ID(2);
-		} else if (memberVO.getMEM_AGE() >= 30 && memberVO.getMEM_AGE() < 40 ) {
-			memberVO.setAGE_ID(3);
-		} else if (memberVO.getMEM_AGE() >= 40 && memberVO.getMEM_AGE() < 50 ) {
-			memberVO.setAGE_ID(4);
-		} else {
-			memberVO.setAGE_ID(5);
-		}
+
 		
 		modelAndView = new ModelAndView();
 		modelAndView = memberService.memberJoin(memberVO);
@@ -80,30 +70,27 @@ public class MemberController {
 	}
 	
 	// (page link) 마이페이지_인증 페이지
-	@RequestMapping(value = "/member/info/*", method = RequestMethod.GET)
+	@RequestMapping(value = "/member/info/{MEM_ID}", method = RequestMethod.GET)
 	public String myPageAuth() {
 		return "myPageAuth";
 	}
 	
 	// 마이페이지_인증 페이지 : 인증 기능
-	@RequestMapping(value = "/member/info/auth/*", method = RequestMethod.POST)
-	public ModelAndView myPageRevision(HttpServletRequest request, HttpSession session) {
+	@RequestMapping(value = "/member/info/auth/{MEM_ID}", method = RequestMethod.POST)
+	public ModelAndView myPageRevision(@RequestParam("AUTH_MEM_PW") String MEM_PW, @PathVariable("MEM_ID") String MEM_ID) {
 		modelAndView = new ModelAndView();
-		
-		String password = request.getParameter("MEM_PW");
-		
-		modelAndView = memberService.memberInfoAuth(password, session);
+		modelAndView = memberService.memberInfoAuth(MEM_ID, MEM_PW);
 		return modelAndView;
 	}
 	
 	// 마이페이지_개인정보 수정  기능 
-		@RequestMapping(value = "/member/revision/*", method = RequestMethod.POST)
-		public ModelAndView myInfoRivesion(@ModelAttribute MemberVO memberVO) {
-			modelAndView = new ModelAndView();
-			modelAndView = memberService.memberRevise(memberVO);
-			
-			return modelAndView;
-		}
+	@RequestMapping(value = "/member/revision/*", method = RequestMethod.POST)
+	public ModelAndView myInfoRivesion(@ModelAttribute MemberVO memberVO) {
+		modelAndView = new ModelAndView();
+		modelAndView = memberService.memberRevise(memberVO);
+		
+		return modelAndView;
+	}
 	
 	// (page link) 마이페이지_주문목록/배송조회 페이지
 	@RequestMapping(value = "/member/orders/*", method = RequestMethod.GET)

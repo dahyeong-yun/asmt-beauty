@@ -28,12 +28,25 @@ public class MemberService {
 	// 회원가입
 	public ModelAndView memberJoin(MemberVO memberVO) {
 		modelAndView = new ModelAndView();
+		
+		//MEMBER 테이블의 AGE_ID위한 처리과정
+		if(memberVO.getMEM_AGE() >= 0 && memberVO.getMEM_AGE() < 20 ) {
+			memberVO.setAGE_ID(1);
+		} else if (memberVO.getMEM_AGE() >= 20 && memberVO.getMEM_AGE() < 30 ) {
+			memberVO.setAGE_ID(2);
+		} else if (memberVO.getMEM_AGE() >= 30 && memberVO.getMEM_AGE() < 40 ) {
+			memberVO.setAGE_ID(3);
+		} else if (memberVO.getMEM_AGE() >= 40 && memberVO.getMEM_AGE() < 50 ) {
+			memberVO.setAGE_ID(4);
+		} else {
+			memberVO.setAGE_ID(5);
+		}
+		
 		int result = memberDAO.memberJoin(memberVO);
 		
 		// 가입 성공 여부에 따른 view 결정
 		if (result == 0) {
 			modelAndView.setViewName("joinMember");
-
 		} else {
 			modelAndView.setViewName("main");
 		}
@@ -63,15 +76,12 @@ public class MemberService {
 	}
 
 	// 마이페이지 인증 기능
-	public ModelAndView memberInfoAuth(String password, HttpSession session) {
+	public ModelAndView memberInfoAuth(String MEM_ID, String MEM_PW) {
 		modelAndView = new ModelAndView();
-		
 		memberVO = new MemberVO();
-		
-		//this.session = session;
-		String mEM_ID = (String) session.getAttribute("session_id");
-		memberVO.setMEM_ID(mEM_ID);
-		memberVO.setMEM_PW(password);
+
+		memberVO.setMEM_ID(MEM_ID);
+		memberVO.setMEM_PW(MEM_PW);
 		
 		MemberVO authMember = memberDAO.memberInfoAuth(memberVO);
 		
