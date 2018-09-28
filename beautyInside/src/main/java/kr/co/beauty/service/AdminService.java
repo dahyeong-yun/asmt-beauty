@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.beauty.dao.AdminDAO;
+import kr.co.beauty.vo.ItemVO;
 import kr.co.beauty.vo.MemberVO;
 
 @Service
@@ -18,9 +19,32 @@ public class AdminService {
 	//관리자 페이지에서 멤버 리스트
 	public ModelAndView adminPageMember() {
 		modelAndView = new ModelAndView();
-		List<MemberVO> AllMembers = adminDAO.adminPageMember();
-		modelAndView.addObject("AllMembers", AllMembers);
+		List<MemberVO> allMembers = adminDAO.adminPageMember();
+		modelAndView.addObject("allMembers", allMembers);
 		modelAndView.setViewName("adminPageMember");
+		return modelAndView;
+	}
+
+	//관리자페이지 제품 리스트
+	public ModelAndView adminPageItem() {
+		modelAndView = new ModelAndView();
+		List<ItemVO> allItems = adminDAO.adminpageItem();
+		modelAndView.addObject("allItems", allItems);
+		modelAndView.setViewName("adminPageItem");
+		return modelAndView;
+	}
+	
+	//관리자 페이지 제품 등록
+	public ModelAndView itemWriteForm(ItemVO itemVO) {
+		modelAndView = new ModelAndView();
+		int result = adminDAO.itemWriteForm(itemVO);
+		
+		//제품 등록 성공 여부에 따른 view 설정
+		if (result == 0) {
+			modelAndView.setViewName("main");
+		} else {
+			modelAndView.setViewName("redirect:/adminPage/item");
+		}
 		return modelAndView;
 	}
 

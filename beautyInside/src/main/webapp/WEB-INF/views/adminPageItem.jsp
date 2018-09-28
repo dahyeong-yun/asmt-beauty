@@ -39,7 +39,23 @@
 			<div class="col-md-9">
 				<div class="p-4 bg-white rounded shadow-sm">
 					<div class="container" >
-				
+					<input type="button" onclick="location.href='/beauty/adminPage/itemWrite'" value="제품 등록">
+					<table>
+						<tr>
+							<td>카테고리</td>
+							<td>제품명</td>
+							<td>별점</td>
+							<td>브랜드</td>
+						</tr>
+						<c:forEach var="allItems" items="${allItems}">
+						<tr>
+							<td>${allItems.ITEM_CATEGORY}</td>
+							<td>${allItems.ITEM_NAME}</td>
+							<td>리뷰처리필요!(item 테이블 말고 review테이블로 접근)</td>
+							<td>${allItems.ITEM_BRAND}</td>
+						</tr>
+						</c:forEach>
+					</table>
 					</div>
 				</div>
 			</div>

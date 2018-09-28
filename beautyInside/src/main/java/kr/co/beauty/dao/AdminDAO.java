@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.beauty.vo.ItemVO;
 import kr.co.beauty.vo.MemberVO;
 @Repository
 public class AdminDAO {
@@ -15,6 +16,16 @@ public class AdminDAO {
 	//관리자 페이지에서 모든 회원리스트 보기
 	public List<MemberVO> adminPageMember() {
 		return sqlSession.selectList("Member.adminPageMember");
+	}
+
+	//관리자 페이지에서 모든 제품리스트 보기
+	public List<ItemVO> adminpageItem() {
+		return sqlSession.selectList("Item.adminPageItem");
+	}
+
+	//관리자 페이지에서 제품 등록
+	public int itemWriteForm(ItemVO itemVO) {
+		return sqlSession.insert("Item.itemInsert", itemVO);
 	}
 
 }

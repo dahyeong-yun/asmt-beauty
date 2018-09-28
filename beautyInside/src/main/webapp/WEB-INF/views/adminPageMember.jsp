@@ -46,10 +46,10 @@
 							<td></td>
 							<td></td>
 						</tr>
-						<c:forEach var="AllMembers" items="${AllMembers}">
+						<c:forEach var="allMembers" items="${allMembers}">
 						<tr>
-							<td>${AllMembers.MEM_ID}</td>
-							<td>${AllMembers.MEM_EMAIL}</td>
+							<td>${allMembers.MEM_ID}</td>
+							<td>${allMembers.MEM_EMAIL}</td>
 							<td></td>
 							<td></td>
 						</tr>
