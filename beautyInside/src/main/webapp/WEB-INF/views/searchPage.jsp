@@ -34,7 +34,7 @@
   							<label for="male" class="btn btn-primary" onclick="javascript:filtering('GENDER_ID','남자');">
     							<input type="radio" name="GENDER_ID" id="male" autocomplete="off" value="남자">남자
   							</label>
-							<label for="female" class="btn btn-primary">
+							<label for="female" class="btn btn-primary" onclick="javascript:filtering('GENDER_ID','여자');">
 								<input type="radio" name="GENDER_ID" id="female" autocomplete="off" value="여자">여자
 							</label>
 						</div>
