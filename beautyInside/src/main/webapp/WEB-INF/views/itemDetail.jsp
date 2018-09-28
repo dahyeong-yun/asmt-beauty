@@ -23,7 +23,10 @@
 		<!-- 버튼  -->
 		<div class="row">
 			<div class="btn btn-primary ml-2">제품 구입</div>
-			<div class="btn btn-primary ml-2">찜 하기</div>
+			<button class="btn btn-primary ml-2" onclick="itemStore(${detail.ITEM_ID})">찜 하기</button>
+			
+			<input type="hidden" id="LOGIN_MEM_ID" value="${loginMember.MEM_ID}"/>
+			
 			<a href="/beauty/review/write/${detail.ITEM_ID}" class="btn btn-primary ml-2">리뷰 작성</a>
 			<div class="btn btn-primary ml-2">목록 보기</div>
 		</div>
@@ -73,6 +76,37 @@
 			</table>
 		</div>
 	</div>
+	
+	<script type="text/javascript">
+	// 아이템 찜 기능
+	function itemStore(ITEM_ID) {
+		 if($("#LOGIN_MEM_ID").val() == "") {
+			alert("로그인한 사용자만 찜 할 수 있습니다.") 
+		 } else {
+			 $.ajax({
+					type : "post",
+					url : "/beauty/item/stored/"+ITEM_ID,
+					data : {
+						"MEM_ID" : $("#LOGIN_MEM_ID").val()
+					},
+					datatype : "text",
+					success: function(data) {
+						if(data==1) {
+							alert("찜 목록에 등록 되었습니다!");
+						} else {
+							alert("찜 목록에 등록할 수 없습니다.");
+						}
+					},
+					error : function(request) {
+						console.log("AJAX 에러");
+						alert("code : " + request.stauts + "\n"
+								+ "message :" + request.responseText);
+					}
+				});
+		 }
+		
+	}
+	</script>
 
 	<!-- 하단 -->
 	<%@include file="footer.jsp" %>

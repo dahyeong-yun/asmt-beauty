@@ -20,10 +20,12 @@ public class ReviewDAO {
 		return sqlSession.selectList("Review.reviewList", ITEM_ID);
 	}
 
+	// 리뷰 상세 보기
 	public ReviewVO reviewDetail(String REVIEW_ID) {
 		return sqlSession.selectOne("Review.reviewDetail", REVIEW_ID);
 	}
 
+	// 리뷰 작성 기능
 	public int reviewWrite(ReviewVO reviewVO) {
 		return sqlSession.insert("Review.reviewWrite", reviewVO);
 	}

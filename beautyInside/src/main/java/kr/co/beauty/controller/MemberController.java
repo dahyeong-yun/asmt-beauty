@@ -58,10 +58,10 @@ public class MemberController {
 		return modelAndView;
 	}
 	
+	// 아이디 중복 체크(ajax)
 	@RequestMapping(value = "/member/idck", method=RequestMethod.POST)
 	public void idck(HttpServletResponse response, @RequestParam("id") String MEM_ID) throws IOException {
 		memberService.idOverlap(MEM_ID, response);
-		System.out.println("####컨트롤러#####");
 	}
 	
 	// 로그인

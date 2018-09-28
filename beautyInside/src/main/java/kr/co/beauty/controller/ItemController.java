@@ -1,8 +1,13 @@
 package kr.co.beauty.controller;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,4 +38,12 @@ public class ItemController {
 		modelAndView = itemService.itemDetail(ITEM_ID);		
 		return modelAndView;
 	}
+	
+	// 아이템 찜하기(아이템 상세 페이지 내)
+	@RequestMapping(value = "/item/stored/{ITEM_ID}", method = RequestMethod.POST)
+	public void itemStore(@PathVariable("ITEM_ID") int ITEM_ID, @RequestParam("MEM_ID") String MEM_ID,  HttpServletResponse response) throws IOException {
+		System.out.println("::::::::::::::::"+ITEM_ID);
+		itemService.itemStore(response, ITEM_ID, MEM_ID);		
+	}
+	
 }

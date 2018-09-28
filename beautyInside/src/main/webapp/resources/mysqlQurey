@@ -101,10 +101,18 @@ CREATE TABLE REVIEW(
 );
 insert into REVIEW values (1,'asd','이거 진짜 좋아요','그냥 좋음',1,12,3.4);
 insert into REVIEW values (2,'zxc','이거 진짜 싫어요','그냥 싫음',1,1,1.4);
+insert into REVIEW(MEM_ID, REVIEW_TITLE, REVIEW_CONTENT, ITEM_ID, REVIEW_LIKE, REVIEW_GRADE) values ('zxc','이거 진짜 싫어요','그냥 싫음',1,1,1.4);
 select *  from REVIEW;
 drop table REVIEW;
 
-
+CREATE TABLE STORE(
+    STO_ID INT AUTO_INCREMENT PRIMARY KEY,
+    ITEM_ID INT,
+    MEM_ID VARCHAR(100),
+    CONSTRAINT FK_STORE_ITEM_ID FOREIGN KEY(ITEM_ID) REFERENCES ITEM(ITEM_ID) on delete cascade,
+    CONSTRAINT FK_STORE_MEM_ID FOREIGN KEY(MEM_ID) REFERENCES MEMBER(MEM_ID) on delete cascade
+);
+select * from STORE;
 /*
 drop table MEMBER;
 drop table TIP;

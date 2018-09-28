@@ -98,6 +98,7 @@ public class MemberService {
 		return modelAndView;
 	}
 
+	// 마이페이지 팔로우,팔로워 리스트
 	public ModelAndView memberFollowList(HttpSession session) {
 		modelAndView = new ModelAndView();
 		memberVO = (MemberVO) session.getAttribute("loginMember");
@@ -113,6 +114,8 @@ public class MemberService {
 		return modelAndView;
 	}
 
+	
+	// 아이디 중복 체크
 	public void idOverlap(String MEM_ID, HttpServletResponse response) throws IOException {
 		memberVO = new MemberVO();
 		memberVO = memberDAO.idOverlap(MEM_ID);

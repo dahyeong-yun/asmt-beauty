@@ -27,4 +27,9 @@
 	<select id="itemDetail" parameterType="int"  resultType="Item">
 		SELECT * FROM ITEM WHERE ITEM_ID = #{ITEM_ID}
 	</select>
+	
+	<!-- 아이템 찜 -->
+	<insert id="itemStore" parameterType="Store">
+		INSERT INTO STORE(MEM_ID, ITEM_ID) VALUES (#{MEM_ID}, #{ITEM_ID})
+	</insert>
 </mapper>

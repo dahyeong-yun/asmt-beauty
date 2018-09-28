@@ -1,6 +1,9 @@
 package kr.co.beauty.service;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,6 +13,7 @@ import kr.co.beauty.dao.ItemDAO;
 import kr.co.beauty.dao.ReviewDAO;
 import kr.co.beauty.vo.ItemVO;
 import kr.co.beauty.vo.ReviewVO;
+import kr.co.beauty.vo.StoreVO;
 
 @Service
 public class ItemService {
@@ -23,6 +27,7 @@ public class ItemService {
 	
 	private ModelAndView modelAndView;
 	private ItemVO itemVO;
+	private StoreVO storeVO;
 	
 	// 아이템 검색 기능
 	public ModelAndView itemSearch(ItemVO itemVO) {
@@ -63,5 +68,18 @@ public class ItemService {
 		modelAndView.addObject("detail",itemVO);
 		modelAndView.setViewName("itemDetail");
 		return modelAndView;
+	}
+
+	// 아이템 찜 기능
+	public void itemStore(HttpServletResponse response, int ITEM_ID, String MEM_ID) throws IOException {
+		storeVO = new StoreVO();
+		storeVO.setITEM_ID(ITEM_ID);
+		storeVO.setMEM_ID(MEM_ID);
+		int result = itemDAO.itemStore(storeVO);
+		if(result == 0) {
+			response.getWriter().print("0"); // 실패
+		} else {
+			response.getWriter().print("1"); // 성공
+		}
 	}
  }
