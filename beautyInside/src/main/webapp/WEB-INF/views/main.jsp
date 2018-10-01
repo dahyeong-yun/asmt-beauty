@@ -77,7 +77,7 @@
 		<div class="row">
 			<div class="col">
 				<div class="card">
-					<img class="card-img-top" src="<c:url value="/resources/img/1.png" />" alt="item">
+					<img class="card-img-top" src="<c:url value="/resources/img/11.png" />" alt="item">
 					<div class="card-body">
 						<p class="card-title">제품 브랜드</p>
 						<h4 class="card-text">제품 명</h4>
@@ -88,7 +88,7 @@
 			
 			<div class="col">
 				<div class="card">
-					<img class="card-img-top" src="<c:url value="/resources/img/1.png" />" alt="item">
+					<img class="card-img-top" src="<c:url value="/resources/img/12.png" />" alt="item">
 					<div class="card-body">
 						<p class="card-title">제품 브랜드</p>
 						<h4 class="card-text">제품 명</h4>
@@ -99,7 +99,7 @@
 			
 			<div class="col">
 				<div class="card">
-					<img class="card-img-top" src="<c:url value="/resources/img/1.png" />" alt="item">
+					<img class="card-img-top" src="<c:url value="/resources/img/13.png" />" alt="item">
 					<div class="card-body">
 						<p class="card-title">제품 브랜드</p>
 						<h4 class="card-text">제품 명</h4>
@@ -110,7 +110,7 @@
 			
 			<div class="col">
 				<div class="card">
-					<img class="card-img-top" src="<c:url value="/resources/img/1.png" />" alt="item">
+					<img class="card-img-top" src="<c:url value="/resources/img/14.png" />" alt="item">
 					<div class="card-body">
 						<p class="card-title">제품 브랜드</p>
 						<h4 class="card-text">제품 명</h4>

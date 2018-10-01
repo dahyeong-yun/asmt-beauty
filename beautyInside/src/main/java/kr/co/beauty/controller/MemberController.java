@@ -39,9 +39,6 @@ public class MemberController {
 	// 회원가입
 	@RequestMapping(value = "/member/join", method = RequestMethod.POST)
 	public ModelAndView join(@ModelAttribute MemberVO memberVO) {
-		
-
-		
 		modelAndView = new ModelAndView();
 		modelAndView = memberService.memberJoin(memberVO);
 		
@@ -116,11 +113,19 @@ public class MemberController {
 		return "myPageItemStored";
 	}
 	
-	// (page link) 마이페이지_팔로워/팔로잉 페이지
-	@RequestMapping(value = "/member/follow/*", method = RequestMethod.GET)
-	public ModelAndView myPageFollow(HttpSession session) {
+	// 마이페이지/Other페이지_팔로워/팔로잉 페이지
+	@RequestMapping(value = "/member/follow/{MEM_ID}", method = RequestMethod.GET)
+	public ModelAndView followPage(@PathVariable("MEM_ID") String MEM_ID, HttpSession session) {
 		modelAndView = new ModelAndView();
-		modelAndView = memberService.memberFollowList(session);
+		modelAndView = memberService.memberFollowList(MEM_ID, session);
 		return modelAndView;
 	}
+	
+	// 팔로우 하기 기능
+	@RequestMapping(value = "/member/follow/doFollow/{MEM_ID}", method = RequestMethod.GET)
+	public ModelAndView follow(@PathVariable("MEM_ID") String MEM_ID, HttpSession session) {
+		modelAndView = new ModelAndView();
+		return modelAndView; // 팔로우 시 팔로우 여부 검증 후, 팔로우 성공-> 리뷰 리스트로 이동 혹은 alert메세지 -> 
+	}
+	
 }

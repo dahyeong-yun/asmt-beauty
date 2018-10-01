@@ -13,6 +13,7 @@
 
 	<title>:: Beauty Inside ::</title>
 
+<title>:: Beauty Inside ::</title>
 <style>
 </style>
 </head>
@@ -21,16 +22,12 @@
 	<%@include file="navbar.jsp" %>
 	
 	<!-- 마이페이지 -->
-	<div class="container mt-3">
+	<div class="container">
 		<div class="row">
 			<!-- 마이페이지 좌측 메뉴 -->
 			<div class="col-md-3">
 				<div class="list-group">
-					<a href="/beauty/member/info/${loginMember.MEM_ID}" class="list-group-item">개인 정보 수정</a>
-					<a href="/beauty/member/orders/${loginMember.MEM_ID}" class="list-group-item">주문목록 / 배송조회</a>
-					<a href="/beauty/member/reviews/${loginMember.MEM_ID}" class="list-group-item">내가 쓴 리뷰</a>
-					<a href="/beauty/member/liked/${loginMember.MEM_ID}" class="list-group-item">좋아요 한 리뷰</a>
-					<a href="/beauty/member/stored/${loginMember.MEM_ID}" class="list-group-item">제품 찜 목록</a>
+					<a href="/beauty/member/reviews/${loginMember.MEM_ID}" class="list-group-item">누구가 쓴 리뷰</a>
 					<a href="/beauty/member/follow/${loginMember.MEM_ID}" class="list-group-item active">팔로워 팔로잉</a>
 				</div>
 			</div>
@@ -38,6 +35,8 @@
 			<!-- 마이페이지 우측 메뉴 -->
 			<div class="col-md-9">
 				<div class="container" >
+					<!-- <button class="btn btn-primary" onclick="">언팔 하기</button> -->
+					
 					<div class="p-4 bg-white rounded shadow-sm">
 						<div class="row">
 						
@@ -53,8 +52,7 @@
 							<div class="col">
 								<h4 class="display-4">팔로잉 목록</h4>
 								<c:forEach var="following" items="${followerList}">
-									아이디 : <a href="/beauty/member/follow/${following.MEM_ID}">${following.MEM_ID}</a>
-									<p>이름 : ${following.MEM_NAME}</p>
+									<p>${following.MEM_NAME}</p>
 								</c:forEach>
 							</div>
 						</div>

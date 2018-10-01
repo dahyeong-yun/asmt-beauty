@@ -29,12 +29,12 @@
 	
 	<!-- 마이페이지_팔로워 리스트-->
 	<select id="memberFollowerList" parameterType="Member" resultType="Member">
-		SELECT * FROM MEMBER WHERE MEM_ID = (SELECT MEM_ID FROM FOLLOW WHERE TARGET_MEM_ID = #{MEM_ID});
+		SELECT * FROM MEMBER WHERE MEM_ID IN(SELECT MEM_ID FROM FOLLOW WHERE TARGET_MEM_ID = #{MEM_ID});
 	</select>
 	
 	<!-- 마이페이지_팔로잉 리스트 -->
 	<select id="memberFollowingList" parameterType="Member" resultType="Member">
-		SELECT * FROM MEMBER WHERE MEM_ID = (SELECT TARGET_MEM_ID FROM FOLLOW WHERE MEM_ID = #{MEM_ID});
+		SELECT * FROM MEMBER WHERE MEM_ID IN(SELECT TARGET_MEM_ID FROM FOLLOW WHERE MEM_ID = #{MEM_ID});
 	</select>	
 	
 	<!-- 관리자페이지_멤버 리스트 -->

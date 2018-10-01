@@ -109,17 +109,21 @@ public class MemberService {
 	}
 
 	// 마이페이지 팔로우,팔로워 리스트
-	public ModelAndView memberFollowList(HttpSession session) {
+	public ModelAndView memberFollowList(String MEM_ID, HttpSession session) {
 		modelAndView = new ModelAndView();
 		memberVO = (MemberVO) session.getAttribute("loginMember");
 		
-		List<MemberVO> followerList = memberDAO.memberFollowerList(memberVO);
-		List<MemberVO> followingList = memberDAO.memberFollowingList(memberVO);
-		
-		session.setAttribute("followerList", followerList);
-		session.setAttribute("followingList", followingList);
-		
-		modelAndView.setViewName("myPageFollow");
+		// 본인 계정의 팔로우,팔로워 리스트 접근시
+		if(memberVO.getMEM_ID().equals(MEM_ID)) {
+			List<MemberVO> followerList = memberDAO.memberFollowerList(memberVO);
+			List<MemberVO> followingList = memberDAO.memberFollowingList(memberVO);
+			session.setAttribute("followerList", followerList);
+			session.setAttribute("followingList", followingList);
+			modelAndView.setViewName("myPageFollow");	
+		} else { // 타인 계정의 팔로우,팔로워 리스트 접근시
+			modelAndView.addObject("otherMemberID", MEM_ID);
+			modelAndView.setViewName("otherPageAuth");
+		}
 		
 		return modelAndView;
 	}

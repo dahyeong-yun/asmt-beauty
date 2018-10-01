@@ -67,7 +67,7 @@
 						<td>
 							<a href="/beauty/review/${review.REVIEW_ID}">${review.REVIEW_TITLE}</a>
 						</td>
-						<td>${review.MEM_ID}</td>
+						<td><a href="/beauty/member/follow/${review.MEM_ID}">${review.MEM_ID}</a></td>
 						<td>${review.REVIEW_LIKE}</td>
 					</tr>
 				</c:forEach>
