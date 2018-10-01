@@ -28,7 +28,7 @@
 			<input type="hidden" id="LOGIN_MEM_ID" value="${loginMember.MEM_ID}"/>
 			
 			<a href="/beauty/review/write/${detail.ITEM_ID}" class="btn btn-primary ml-2">리뷰 작성</a>
-			<div class="btn btn-primary ml-2">목록 보기</div>
+			<div class="btn btn-primary ml-2" onclick="history.back()">목록 보기</div>
 		</div>
 		
 		<!-- 제품 정보 -->
