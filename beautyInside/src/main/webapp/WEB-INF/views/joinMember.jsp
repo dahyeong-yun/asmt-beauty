@@ -51,7 +51,11 @@
 			</div>
 			
 			<div class="form-row mt-4">
-				<div class="form-group col-md-6">
+				<div class="form-group col-md-4">
+						<label for="MEM_AGE">나이</label>
+						<input class="form-control" type="text" id="MEM_AGE" name="MEM_AGE" placeholder="나이를 입력하세요"/>
+				</div>
+				<div class="form-group col-md-4">
 					<p>성별</p>
 					<div class="btn-group" data-toggle="buttons">
 						<label class="btn btn-secondary">
@@ -63,7 +67,7 @@
 					</div>
 				</div>
 				
-				<div class="form-group col-md-6">
+				<div class="form-group col-md-4">
 					<p>피부타입</p>
 					<div class="btn-group" data-toggle="buttons">
 						<label class="btn btn-secondary active">

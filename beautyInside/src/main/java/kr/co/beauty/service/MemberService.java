@@ -46,9 +46,9 @@ public class MemberService {
 		
 		// 가입 성공 여부에 따른 view 결정
 		if (result == 0) {
-			modelAndView.setViewName("joinMember");
+			modelAndView.setViewName("joinMember"); // 가입 실패
 		} else {
-			modelAndView.setViewName("main");
+			modelAndView.setViewName("redirect:/main"); // 가입 성공
 		}
 		return modelAndView;
 	}

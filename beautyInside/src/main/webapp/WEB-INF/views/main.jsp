@@ -82,7 +82,7 @@
 					<c:forEach var="trendItem" items="${trendItems}">
 						<div class="col">
 							<div class="card">
-								<img class="card-img-top" src="${trendItem.ITEM_IMAGE}" alt="item">
+								<a href="/beauty/itemDetail?ITEM_ID=${trendItem.ITEM_ID}"><img class="card-img-top" src="${trendItem.ITEM_IMAGE}" alt="item" ></a>
 								<div class="card-body">
 									<p class="card-title">${trendItem.ITEM_BRAND}</p>
 									<h4 class="card-text">${trendItem.ITEM_NAME}</h4>
@@ -100,7 +100,7 @@
 					<c:forEach var="personalItem" items="${personalRecommandItems}">
 						<div class="col">
 							<div class="card">
-								<img class="card-img-top" src="${personalItem.ITEM_IMAGE}" alt="item">
+								<a href="/beauty/itemDetail?ITEM_ID=${personalItem.ITEM_ID}"><img class="card-img-top" src="${personalItem.ITEM_IMAGE}" alt="item"></a>
 								<div class="card-body">
 									<p class="card-title">${personalItem.ITEM_BRAND}</p>
 									<h4 class="card-text">${personalItem.ITEM_NAME}</h4>
