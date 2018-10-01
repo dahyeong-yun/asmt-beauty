@@ -57,10 +57,12 @@ public class AdminController {
 		return modelAndView;
 	}
 	
-	// (page link) 관리자 전용 페이지 팁 관리
+	// 관리자 전용 페이지 팁 관리
 	@RequestMapping(value = "/adminPage/tip", method = RequestMethod.GET)
-	public String adminPageTip() {
-		return "adminPageTip";
+	public ModelAndView adminPageTip() {
+		modelAndView = new ModelAndView();
+		modelAndView = adminService.adminPageTip();
+		return modelAndView;
 	}
 	
 	// 관리자 전용 페이지 리뷰 관리

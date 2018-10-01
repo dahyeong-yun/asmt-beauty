@@ -27,10 +27,10 @@
 			<!-- 관리자 페이지 좌측 메뉴 -->
 			<div class="col-md-3">
 				<div class="list-group">
-					<a href="/beauty/adminPage/dashboard" class="list-group-item active">대쉬보드</a>
+					<a href="/beauty/adminPage/dashboard" class="list-group-item ">대쉬보드</a>
 					<a href="/beauty/adminPage/member" class="list-group-item">회원관리</a>
 					<a href="/beauty/adminPage/item" class="list-group-item">제품관리</a>
-					<a href="/beauty/adminPage/tip" class="list-group-item">팁관리</a>
+					<a href="/beauty/adminPage/tip" class="list-group-item active">팁관리</a>
 					<a href="/beauty/adminPage/review" class="list-group-item">리뷰관리</a>
 				</div>
 			</div>
@@ -39,7 +39,79 @@
 			<div class="col-md-9">
 				<div class="p-4 bg-white rounded shadow-sm">
 					<div class="container" >
-
+					<table class="table table-striped table-bordered table-hover table-condensed">
+						<tr>
+							<td>팁 제목</td>
+							<td>팁 사진</td>
+							<td>팁 링크</td>
+							<td>팁 나이</td>
+							<td>팁 피부타입</td>
+							<td>팁 성별</td>
+						</tr>
+						<c:forEach var="allTips" items="${allTips}">
+						<tr>
+							<td>${allTips.TIP_TITLE}</td>
+							
+							<td><img src="${allTips.TIP_THUMBNAIL}" style="height: 80px; width: 80px;"></td>
+							
+							<td><a href="${allTips.TIP_URL}">팁 링크</a></td>
+							
+							<td>
+								<c:choose>
+									<c:when test="${allTips.AGE_ID >= 1 and allTips.AGE_ID < 2}">
+										10대 
+									</c:when>
+									<c:when test="${allTips.AGE_ID >= 2 and allTips.AGE_ID < 3}">
+										20대 
+									</c:when>
+									<c:when test="${allTips.AGE_ID >= 3 and allTips.AGE_ID < 4}">
+										30대 
+									</c:when>
+									<c:when test="${allTips.AGE_ID >= 4 and allTips.AGE_ID < 5}">
+										40대 
+									</c:when>
+									<c:otherwise>
+										50대 이상
+									</c:otherwise>		
+								</c:choose>
+							</td>
+							
+							<td>
+								<c:choose>
+									<c:when test="${allTips.SKINTYPE_ID == 1 }">
+										악건성
+									</c:when>
+									<c:when test="${allTips.SKINTYPE_ID == 2 }">
+										건성
+									</c:when>
+									<c:when test="${allTips.SKINTYPE_ID == 3 }">
+										중성
+									</c:when>
+									<c:when test="${allTips.SKINTYPE_ID == 4 }">
+										지성
+									</c:when>
+									<c:when test="${allTips.SKINTYPE_ID == 5 }">
+										악지성
+									</c:when>
+									<c:when test="${allTips.SKINTYPE_ID == 6 }">
+										민강성
+									</c:when>
+								</c:choose>			
+							</td>
+							
+							<td>
+									<c:choose>
+										<c:when test="${allTips.GENDER_ID == 1 }">
+											남 
+										</c:when>
+										<c:when test="${allTips.GENDER_ID == 2 }">
+											여
+										</c:when>
+									</c:choose>
+							</td>
+						</tr>
+						</c:forEach>
+					</table>
 					</div>
 				</div>
 			</div>

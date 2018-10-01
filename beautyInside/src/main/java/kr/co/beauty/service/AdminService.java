@@ -10,6 +10,7 @@ import kr.co.beauty.dao.AdminDAO;
 import kr.co.beauty.vo.ItemVO;
 import kr.co.beauty.vo.MemberVO;
 import kr.co.beauty.vo.ReviewVO;
+import kr.co.beauty.vo.TipVO;
 
 @Service
 public class AdminService {
@@ -55,6 +56,15 @@ public class AdminService {
 		List<ReviewVO> allReviews = adminDAO.adminPageReview();
 		modelAndView.addObject("allReviews", allReviews);
 		modelAndView.setViewName("adminPageReview");
+		return modelAndView;
+	}
+
+	//관리자 페이지 팁 리스트
+	public ModelAndView adminPageTip() {
+		modelAndView = new ModelAndView();
+		List<TipVO> allTips = adminDAO.adminPageTip();
+		modelAndView.addObject("allTips", allTips);
+		modelAndView.setViewName("adminPageTip");
 		return modelAndView;
 	}
 

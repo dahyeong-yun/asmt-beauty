@@ -27,9 +27,9 @@
 			<!-- 관리자 페이지 좌측 메뉴 -->
 			<div class="col-md-3">
 				<div class="list-group">
-					<a href="/beauty/adminPage/dashboard" class="list-group-item active">대쉬보드</a>
+					<a href="/beauty/adminPage/dashboard" class="list-group-item">대쉬보드</a>
 					<a href="/beauty/adminPage/member" class="list-group-item">회원관리</a>
-					<a href="/beauty/adminPage/item" class="list-group-item">제품관리</a>
+					<a href="/beauty/adminPage/item" class="list-group-item active">제품관리</a>
 					<a href="/beauty/adminPage/tip" class="list-group-item">팁관리</a>
 					<a href="/beauty/adminPage/review" class="list-group-item">리뷰관리</a>
 				</div>
@@ -40,7 +40,7 @@
 				<div class="p-4 bg-white rounded shadow-sm">
 					<div class="container" >
 						<form action="/beauty/adminPage/itemWriteForm" method="POST">
-							<table>
+							<table class="table table-striped table-bordered table-hover table-condensed">
 								<tr>
 									<td>제품명</td>
 									<td><input type="text" name="ITEM_NAME" class="form-control"></td>

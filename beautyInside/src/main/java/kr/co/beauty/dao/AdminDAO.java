@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import kr.co.beauty.vo.ItemVO;
 import kr.co.beauty.vo.MemberVO;
 import kr.co.beauty.vo.ReviewVO;
+import kr.co.beauty.vo.TipVO;
 @Repository
 public class AdminDAO {
 	@Autowired
@@ -32,5 +33,10 @@ public class AdminDAO {
 	//관리자 페이지에서 모든 리뷰리스트 보기
 	public List<ReviewVO> adminPageReview() {
 		return sqlSession.selectList("Review.adminPageReview");
+	}
+
+	//관리자 페이지에서 모든 팁리스트 보기
+	public List<TipVO> adminPageTip() {
+		return sqlSession.selectList("Tip.adminPageTip");
 	}
 }
