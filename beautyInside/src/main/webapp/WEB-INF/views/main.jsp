@@ -93,6 +93,7 @@
 					</c:forEach>
 				</div>
 			</c:when>
+			
 			<c:otherwise>
 				<h2 class="font-weight-bold">추천 제품 리스트</h2>
 				<div class="row">
@@ -104,7 +105,8 @@
 								<div class="card-body">
 									<p class="card-title">${personalItem.ITEM_BRAND}</p>
 									<h4 class="card-text"onclick="location.href='/beauty/item/${personalItem.ITEM_ID}'">${personalItem.ITEM_NAME}</h4>
-									<button type="button" class="btn btn-outline-info btn-sm mt-1 float-right">이 제품이 왜 추천 됐나요?</button>
+									<button type="button" class="btn btn-outline-info btn-sm mt-1 float-right"
+									data-toggle="tooltip" data-placement="bottom" title="${loginMember.MEM_ID}님의 나이가 ${personalItem.AGE_ID}0대라서 추천했어요!" >이 제품이 왜 추천 됐나요?</button>
 								</div>
 							</div>
 						</div>
@@ -130,7 +132,7 @@
 				<option value="마스카라">마스카라</option>
 			</select>
 			<div class="form-group">
-				<input type="text" class="form-control" id="search" placeholder="검색어를 입력하세요" name="ITEM_NAME">
+				<input type="text" class="form-control" id="mainSearch" placeholder="검색어를 입력하세요" name="ITEM_NAME">
 			</div>
 			<input class="btn btn-success"type="submit" value="검색">
 		</form>
@@ -138,5 +140,11 @@
 	
 	<!-- 하단 -->
 	<%@include file="footer.jsp" %>
+	
+	<script>
+		$(document).ready(function(){
+			$('[data-toggle="tooltip"]').tooltip();   
+		});
+	</script>
 </body>
 </html>
