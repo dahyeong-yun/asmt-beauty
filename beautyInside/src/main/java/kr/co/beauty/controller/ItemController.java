@@ -32,8 +32,8 @@ public class ItemController {
 	}
 	
 	// 아이템 상세 페이지
-	@RequestMapping(value = "/itemDetail", method = RequestMethod.GET)
-	public ModelAndView itemDetail(@RequestParam("ITEM_ID") int ITEM_ID) {
+	@RequestMapping(value = "/item/{ITEM_ID}", method = RequestMethod.GET)
+	public ModelAndView itemDetail(@PathVariable("ITEM_ID") int ITEM_ID) {
 		modelAndView = new ModelAndView();
 		modelAndView = itemService.itemDetail(ITEM_ID);		
 		return modelAndView;

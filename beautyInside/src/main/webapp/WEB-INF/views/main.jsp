@@ -37,7 +37,7 @@
 
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img src="<c:url value="/resources/img/1.PNG" />" style="max-height: 350px;" alt="first" width="1100" height="250" />
+					<img src="http://192.168.0.20:8081/beauty/resources/img/1.PNG" style="max-height: 350px;" alt="first" width="1100" height="250" />
 					<div class="carousel-caption">
 						<h3 style="color: black;">5만원 이상 구매시, 6천원 즉.시.할.인.</h3>
 						<p style="color: black;">선선해지는 날씨, 마음도 기분도 프레쉬하게</p>
@@ -45,7 +45,7 @@
 				</div>
 				
 				<div class="carousel-item">
-					<img src="<c:url value="/resources/img/2.PNG" />" style="max-height: 350px;" alt="first" width="1100" height="250" />
+					<img src="http://192.168.0.20:8081/beauty/resources/img/2.PNG" style="max-height: 350px;" alt="first" width="1100" height="250" />
 					<div class="carousel-caption">
 						<h3>밀착페이스 미친매트립</h3>
 						<p>파데유목민, 톤팡질팡 주목</p>
@@ -53,7 +53,7 @@
 				</div>
 				
 				<div class="carousel-item">
-					<img src="<c:url value="/resources/img/3.PNG" />" style="max-height: 350px;" alt="first" width="1100" height="250" />
+					<img src="http://192.168.0.20:8081/beauty/resources/img/3.PNG" style="max-height: 350px;" alt="first" width="1100" height="250" />
 					<div class="carousel-caption">
 						<h3>역대급 주름케어 최대 25% 할인</h3>
 						<p>모두가 아는 갓띵템 유세린</p>
@@ -82,10 +82,10 @@
 					<c:forEach var="trendItem" items="${trendItems}">
 						<div class="col">
 							<div class="card">
-								<img class="card-img-top" src="${trendItem.ITEM_IMAGE}" alt="item">
+								<img class="card-img-top" src="${trendItem.ITEM_IMAGE}" alt="item" onclick="location.href='/beauty/item/${trendItem.ITEM_ID}'">
 								<div class="card-body">
 									<p class="card-title">${trendItem.ITEM_BRAND}</p>
-									<h4 class="card-text">${trendItem.ITEM_NAME}</h4>
+									<h4 class="card-text" onclick="location.href='/beauty/item/${trendItem.ITEM_ID}'">${trendItem.ITEM_NAME}</h4>
 									<button type="button" class="btn btn-outline-info btn-sm mt-1 float-right">이 제품이 왜 추천 됐나요?</button>
 								</div>
 							</div>
@@ -99,11 +99,11 @@
 					
 					<c:forEach var="personalItem" items="${personalRecommandItems}">
 						<div class="col">
-							<div class="card">
-								<img class="card-img-top" src="${personalItem.ITEM_IMAGE}" alt="item">
+							<div class="card" >
+								<img class="card-img-top" src="${personalItem.ITEM_IMAGE}" alt="item"onclick="location.href='/beauty/item/${personalItem.ITEM_ID}'">
 								<div class="card-body">
 									<p class="card-title">${personalItem.ITEM_BRAND}</p>
-									<h4 class="card-text">${personalItem.ITEM_NAME}</h4>
+									<h4 class="card-text"onclick="location.href='/beauty/item/${personalItem.ITEM_ID}'">${personalItem.ITEM_NAME}</h4>
 									<button type="button" class="btn btn-outline-info btn-sm mt-1 float-right">이 제품이 왜 추천 됐나요?</button>
 								</div>
 							</div>
@@ -122,7 +122,7 @@
 			<select name="ITEM_CATEGORY" class="form-control">
 				<option value="">카테고리</option>
 				<option value="A">A</option>
-				<option value="립스틱">립스틱</option>
+				<option value="립글로스/락커">립글로스/락커</option>
 				<option value="hair">헤어</option>
 				<option value="skincare">스킨케어</option>
 				<option value="cleansing">클렌징</option>

@@ -23,8 +23,8 @@
 		<div class="row">
 			<c:forEach var="tipList" items="${tipList}">
 				<div class="col-md-4">
-					<div class="card mb-4 shadow-sm">
-						<a href="${tipList.TIP_URL}"><img class="card-img-top" src="${tipList.TIP_THUMBNAIL}" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;"></a>
+					<div class="card mb-4 shadow-sm" onclick="window.open('${tipList.TIP_URL}')">
+						<img class="card-img-top" src="${tipList.TIP_THUMBNAIL}" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
 					</div>
 				</div>
 			</c:forEach>
