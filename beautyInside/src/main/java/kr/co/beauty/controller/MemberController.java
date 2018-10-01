@@ -63,7 +63,7 @@ public class MemberController {
 	@RequestMapping(value = "/member/logout", method = RequestMethod.GET)
 	public String logout() {
 		session.invalidate();
-		return "main";
+		return "redirect:/main";
 	}
 	
 	// (page link) 마이페이지_인증 페이지

@@ -36,9 +36,10 @@ CREATE TABLE MEMBER(
     constraint FK_MEMBER_GENDER_ID foreign key(GENDER_ID) references GENDER(GENDER_ID) on delete cascade,
     constraint FK_MEMBER_AGE_ID foreign key(AGE_ID) references AGE(AGE_ID) on delete cascade
 );
-INSERT INTO MEMBER VALUES('asd','asd','jhon',23,'asd@naver.com','1','1','2');
-INSERT INTO MEMBER VALUES('qwe','qwe','jhon',23,'asd@naver.com','1','1','2');
-INSERT INTO MEMBER VALUES('zxc','zxc','jhon',23,'asd@naver.com','1','1','2');
+INSERT INTO MEMBER VALUES('asd','asd','jhon',23,'asd@naver.com','1','1','2','ad');
+INSERT INTO MEMBER VALUES('qwe','qwe','jhon',23,'asd@naver.com','1','1','2','ad');
+INSERT INTO MEMBER VALUES('zxc','zxc','jhon',23,'asd@naver.com','1','1','2','ad');
+INSERT INTO MEMBER VALUES('asdasd','asd','Chris',33,'asd@naver.com','1','1','3','ad');
 select * from Member;
 
 CREATE TABLE TIP(
@@ -68,7 +69,9 @@ CREATE TABLE FOLLOW(
 insert into follow values(1,'asd','qwe');
 insert into follow values(2,'qwe','asd');
 insert into follow values(3,'asd','zxc');
-SELECT * FROM MEMBER WHERE MEM_ID = (SELECT MEM_ID FROM FOLLOW WHERE TARGET_MEM_ID = 'asd');
+SELECT * FROM FOLLOW;
+SELECT * FROM MEMBER WHERE MEM_ID IN(SELECT MEM_ID FROM FOLLOW WHERE TARGET_MEM_ID = 'asd'); -- 나를 팔로우 하고 있는 사람
+SELECT * FROM MEMBER WHERE MEM_ID IN(SELECT TARGET_MEM_ID FROM FOLLOW WHERE MEM_ID = 'asd'); -- 내가 팔로우 하고 있는 사람
 
 CREATE TABLE ITEM(
     ITEM_ID INT auto_increment primary KEY,
@@ -88,7 +91,21 @@ CREATE TABLE ITEM(
 drop table item;
 insert into ITEM values(1,'룰루','아모레','클렌징',2,2,1,10000,'200ml','http://d9vmi5fxk1gsw.cloudfront.net/home/glowmee/upload/20180814/1534239707375.png');
 insert into ITEM values(2,'래쉬포머','케이트','마스카라',2,2,1,18000,'8.6g','http://d9vmi5fxk1gsw.cloudfront.net/home/glowmee/upload/20180814/1534239707375.png');
+
+insert into ITEM values(3,'매트 아이 컬러','로라메르시에','아이섀도우',2,1,2,35000,'2.6g','http://d9vmi5fxk1gsw.cloudfront.net/home/glowmee/upload/20161208/1481167028266.png');
+insert into ITEM values(4,'문더스트 아이섀도루','어반디케이','아이섀도우',2,3,1,28000,'1.5g','http://d9vmi5fxk1gsw.cloudfront.net/home/glowmee/upload/20150819/1439956037587.PNG');
+insert into ITEM values(5,'계이득 아이즈','에뛰드하우스','아이새도우',2,2,2,4000,'2.0g','http://d9vmi5fxk1gsw.cloudfront.net/home/glowmee/upload/20170117/1484622944149.png');
+insert into ITEM values(6,'세이프 미 릴리프 모이스처','메이크프렘','클렌징폼',2,2,1,16000,'150g','http://d9vmi5fxk1gsw.cloudfront.net/home/glowmee/upload/20180920/1537429962535.PNG');
+
+insert into ITEM values(7,'아쿠아 수딩 토너','리얼베리어','스킨',3,1,2,35000,'200ml','http://d9vmi5fxk1gsw.cloudfront.net/home/glowmee/upload/20180409/1523244109405.png');
+insert into ITEM values(8,'모공 퓨리파잉 토너','스킨미소','스킨',3,3,1,15000,'250ml','http://d9vmi5fxk1gsw.cloudfront.net/home/glowmee/upload/20171026/1509000346452.png');
+insert into ITEM values(9,'리지스트 트리트먼트','디시즈리얼','모공케어',3,2,2,32000,'30ml','http://d9vmi5fxk1gsw.cloudfront.net/home/glowmee/upload/20170106/1483665133449.png');
+insert into ITEM values(10,'헤븐스 휴 하이라이터','스틸라','하이라이터',3,2,1,40000,'4.5ml','http://d9vmi5fxk1gsw.cloudfront.net/home/glowmee/upload/20170116/1484538430288.png');
+
 select * from ITEM;
+SELECT * FROM ITEM ORDER BY ITEM_ID LIMIT 4;
+SELECT * FROM ITEM WHERE AGE_ID =(SELECT AGE_ID FROM MEMBER WHERE MEM_ID = 'asd') LIMIT 4;
+
 
 CREATE TABLE REVIEW(
     REVIEW_ID INT auto_increment primary KEY,

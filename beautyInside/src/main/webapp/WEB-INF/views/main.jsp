@@ -73,54 +73,45 @@
 
 	<!-- 추천 화장품 목록(carousel) -->
 	<div class="container my-4">
-		<h2 class="font-weight-bold">추천 제품 리스트</h2>
-		<div class="row">
-			<div class="col">
-				<div class="card">
-					<img class="card-img-top" src="<c:url value="/resources/img/11.png" />" alt="item">
-					<div class="card-body">
-						<p class="card-title">제품 브랜드</p>
-						<h4 class="card-text">제품 명</h4>
-						<button type="button" class="btn btn-outline-info btn-sm mt-1 float-right">이 제품이 왜 추천 됐나요?</button>
-					</div>
-				</div>			
-			</div>
-			
-			<div class="col">
-				<div class="card">
-					<img class="card-img-top" src="<c:url value="/resources/img/12.png" />" alt="item">
-					<div class="card-body">
-						<p class="card-title">제품 브랜드</p>
-						<h4 class="card-text">제품 명</h4>
-						<button type="button" class="btn btn-outline-info btn-sm">이 제품이 왜 추천 됐나요?</button>
-					</div>
-				</div>			
-			</div>
-			
-			<div class="col">
-				<div class="card">
-					<img class="card-img-top" src="<c:url value="/resources/img/13.png" />" alt="item">
-					<div class="card-body">
-						<p class="card-title">제품 브랜드</p>
-						<h4 class="card-text">제품 명</h4>
-						<button type="button" class="btn btn-outline-info btn-sm">이 제품이 왜 추천 됐나요?</button>
-					</div>
-				</div>			
-			</div>
-			
-			<div class="col">
-				<div class="card">
-					<img class="card-img-top" src="<c:url value="/resources/img/14.png" />" alt="item">
-					<div class="card-body">
-						<p class="card-title">제품 브랜드</p>
-						<h4 class="card-text">제품 명</h4>
-						<button type="button" class="btn btn-outline-info btn-sm">이 제품이 왜 추천 됐나요?</button>
-					</div>
-				</div>			
-			</div>
 		
-		</div>
-		
+		<c:choose>
+			<c:when test="${empty loginMember.MEM_ID}">
+				<h2 class="font-weight-bold">인기 제품 리스트</h2>
+				<div class="row">
+					
+					<c:forEach var="trendItem" items="${trendItems}">
+						<div class="col">
+							<div class="card">
+								<img class="card-img-top" src="${trendItem.ITEM_IMAGE}" alt="item">
+								<div class="card-body">
+									<p class="card-title">${trendItem.ITEM_BRAND}</p>
+									<h4 class="card-text">${trendItem.ITEM_NAME}</h4>
+									<button type="button" class="btn btn-outline-info btn-sm mt-1 float-right">이 제품이 왜 추천 됐나요?</button>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+				</div>
+			</c:when>
+			<c:otherwise>
+				<h2 class="font-weight-bold">추천 제품 리스트</h2>
+				<div class="row">
+					
+					<c:forEach var="personalItem" items="${personalRecommandItems}">
+						<div class="col">
+							<div class="card">
+								<img class="card-img-top" src="${personalItem.ITEM_IMAGE}" alt="item">
+								<div class="card-body">
+									<p class="card-title">${personalItem.ITEM_BRAND}</p>
+									<h4 class="card-text">${personalItem.ITEM_NAME}</h4>
+									<button type="button" class="btn btn-outline-info btn-sm mt-1 float-right">이 제품이 왜 추천 됐나요?</button>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+				</div>
+			</c:otherwise>
+		</c:choose>
 
 	</div>
 	

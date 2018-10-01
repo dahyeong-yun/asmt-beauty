@@ -63,7 +63,7 @@ public class MemberService {
 		
 		if (memberVO.getMEM_PW().equals(loginMember.getMEM_PW())) {
 			session.setAttribute("loginMember", loginMember);
-			modelAndView.setViewName("main");
+			modelAndView.setViewName("redirect:/main");
 		} else {
 			// 로그인 실패 alert
 			out.println("<script>");

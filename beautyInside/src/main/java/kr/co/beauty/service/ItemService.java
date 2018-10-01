@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.co.beauty.dao.ItemDAO;
 import kr.co.beauty.dao.ReviewDAO;
 import kr.co.beauty.vo.ItemVO;
+import kr.co.beauty.vo.MemberVO;
 import kr.co.beauty.vo.ReviewVO;
 import kr.co.beauty.vo.StoreVO;
 
@@ -60,7 +61,6 @@ public class ItemService {
 
 	// 아이템 상세 페이지
 	public ModelAndView itemDetail(int ITEM_ID) {
-		modelAndView = new ModelAndView();
 		itemVO = itemDAO.itemDetail(ITEM_ID);
 		List<ReviewVO> reviewList = reviewDAO.reviewList(ITEM_ID);
 		
@@ -81,5 +81,21 @@ public class ItemService {
 		} else {
 			response.getWriter().print("1"); // 성공
 		}
+	}
+
+	// 메인페이지_(비로그인시) 인기제품 4가지
+	public ModelAndView trendItems() {
+		modelAndView = new ModelAndView();
+		List<ItemVO> trendItems = itemDAO.trendItems();
+		modelAndView.addObject("trendItems", trendItems);
+		return modelAndView;
+	}
+
+	// 메인페이지_(로그인시) 추천 제품 4가지
+	public ModelAndView personalRecommandItems(String MEM_ID) {
+		modelAndView = new ModelAndView();
+		List<ItemVO> personalRecommandItems = itemDAO.personalRecommandItems(MEM_ID);
+		modelAndView.addObject("personalRecommandItems", personalRecommandItems);
+		return modelAndView;
 	}
  }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.beauty.vo.ItemVO;
+import kr.co.beauty.vo.MemberVO;
 import kr.co.beauty.vo.StoreVO;
 
 @Repository
@@ -42,6 +43,14 @@ public class ItemDAO {
 
 	public int itemStore(StoreVO storeVO) {
 		return sqlSession.insert("Item.itemStore", storeVO);
+	}
+
+	public List<ItemVO> trendItems() {
+		return sqlSession.selectList("Item.trendItems");
+	}
+
+	public List<ItemVO> personalRecommandItems(String MEM_ID) {
+		return sqlSession.selectList("Item.personalRecommandItems", MEM_ID);
 	}
 
 
