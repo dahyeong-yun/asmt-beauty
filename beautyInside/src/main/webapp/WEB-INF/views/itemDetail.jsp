@@ -23,7 +23,7 @@
 		<!-- 버튼  -->
 		<div class="row">
 			<div class="btn btn-primary ml-2">제품 구입</div>
-			<button class="btn btn-primary ml-2" onclick="itemStore(${detail.ITEM_ID})">찜 하기</button>
+			<button class="btn btn-primary ml-2" onclick="/beauty/item/Stored/${detail.ITEM_ID}">찜 하기</button>
 			
 			<input type="hidden" id="LOGIN_MEM_ID" value="${loginMember.MEM_ID}"/>
 			
