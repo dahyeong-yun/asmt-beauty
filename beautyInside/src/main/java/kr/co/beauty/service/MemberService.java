@@ -41,6 +41,7 @@ public class MemberService {
 		} else {
 			memberVO.setAGE_ID(5);
 		}
+		System.out.print(memberVO.getAGE_ID());
 		
 		int result = memberDAO.memberJoin(memberVO);
 		
