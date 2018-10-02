@@ -123,7 +123,8 @@
 		<form class="form-inline text-center" action="/beauty/item" method="get">
 			<select name="ITEM_CATEGORY" class="form-control">
 				<option value="">카테고리</option>
-				<option value="A">A</option>
+				<option value="립틴트">립틴트</option>
+				<option value="립스틱">립스틱</option>
 				<option value="립글로스/락커">립글로스/락커</option>
 				<option value="hair">헤어</option>
 				<option value="skincare">스킨케어</option>
