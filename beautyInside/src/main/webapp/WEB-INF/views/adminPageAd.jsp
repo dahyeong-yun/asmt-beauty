@@ -30,9 +30,9 @@
 					<a href="/beauty/adminPage/dashboard" class="list-group-item ">대쉬보드</a>
 					<a href="/beauty/adminPage/member" class="list-group-item">회원관리</a>
 					<a href="/beauty/adminPage/item" class="list-group-item">제품관리</a>
-					<a href="/beauty/adminPage/tip" class="list-group-item active">팁관리</a>
+					<a href="/beauty/adminPage/tip" class="list-group-item">팁관리</a>
 					<a href="/beauty/adminPage/review" class="list-group-item">리뷰관리</a>
-					<a href="/beauty/adminPage/ads" class="list-group-item">광고관리</a>
+					<a href="/beauty/adminPage/ads" class="list-group-item active">광고관리</a>
 				</div>
 			</div>
 
@@ -42,13 +42,12 @@
 					<div class="container" >
 					<table class="table table-striped table-bordered table-hover table-condensed">
 						<tr>
-							<td>팁 제목</td>
-							<td>팁 사진</td>
-							<td>팁 링크</td>
-							<td>팁 나이</td>
-							<td>팁 피부타입</td>
-							<td>팁 성별</td>
+							<td>광고 번호</td>
+							<td>광고 제목</td>
+							<td>광고 사진</td>
+							<td>광고 제품</td>
 						</tr>
+						
 						<c:forEach var="allTips" items="${allTips}">
 						<tr>
 							<td>${allTips.TIP_TITLE}</td>

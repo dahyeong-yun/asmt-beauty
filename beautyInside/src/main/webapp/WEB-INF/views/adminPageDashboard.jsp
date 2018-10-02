@@ -22,7 +22,7 @@
 	<%@include file="navbar.jsp" %>
 	
 	<!-- 관리자 페이지 -->
-	<div class="container">
+	<div class="container mt-3">
 		<div class="row">
 			<!-- 관리자 페이지 좌측 메뉴 -->
 			<div class="col-md-3">
@@ -32,6 +32,7 @@
 					<a href="/beauty/adminPage/item" class="list-group-item">제품관리</a>
 					<a href="/beauty/adminPage/tip" class="list-group-item">팁관리</a>
 					<a href="/beauty/adminPage/review" class="list-group-item">리뷰관리</a>
+					<a href="/beauty/adminPage/ads" class="list-group-item">광고관리</a>
 				</div>
 			</div>
 
