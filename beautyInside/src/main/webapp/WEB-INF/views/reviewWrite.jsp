@@ -44,17 +44,7 @@
 			</form>
 		</div>
 	</div>
-	
-	<script>
-		function reviewCheck() {
-			if($("#LOGIN_MEM_ID").val() == "") {
-				alert("로그인 한 사용자만 리뷰를 작성할 수 있습니다.");
-			} else {
-				$("#review").submit();
-			}
-		}
-		
-	</script>
+
 	
 	<!-- 하단 -->
 	<%@include file="footer.jsp" %>
