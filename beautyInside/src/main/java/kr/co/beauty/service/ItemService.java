@@ -27,7 +27,10 @@ public class ItemService {
 	
 	private ModelAndView modelAndView;
 	private ItemVO itemVO;
+<<<<<<< HEAD
 	private StoreVO storeVO;
+=======
+>>>>>>> refs/remotes/origin/admin
 	
 	// 아이템 검색 기능
 	public ModelAndView itemSearch(ItemVO itemVO) {

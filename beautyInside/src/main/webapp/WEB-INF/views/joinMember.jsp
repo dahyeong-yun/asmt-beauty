@@ -14,8 +14,10 @@
 	<title>:: Beauty Inside ::</title>
 
 <title>:: Beauty Inside ::</title>
+
 <style>
 </style>
+
 </head>
 <body class="bg-light">
 	<!-- 상단바 -->
@@ -29,12 +31,12 @@
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="MEM_ID">아이디</label>
-					<input type="text" class="form-control" id="JOIN_MEM_ID" name="MEM_ID" placeholder="아이디를 입력하세요">
+					<input type="text" class="form-control" id="JOIN_MEM_ID" name="MEM_ID" placeholder="아이디를 입력하세요" required="required">
 					<button class="btn btn-info" type="button" onclick="idOverlap()">중복확인</button>
 				</div>
 				<div class="form-group col-md-6">
 					<label for="MEM_PW">비밀번호</label>
-					<input type="password" class="form-control" id="MEM_PW" name="MEM_PW" placeholder="Password">
+					<input type="password" class="form-control" id="MEM_PW" name="MEM_PW" placeholder="Password" required="required">
 				</div>
 			</div>
 			
@@ -42,27 +44,27 @@
 				<div class="form-group col-md-6">
 					<label for="MEM_NAME">이름</label>
 				<input type="text"
-					class="form-control" id="MEM_NAME" name="MEM_NAME" placeholder="이름을 입력하세요">
+					class="form-control" id="MEM_NAME" name="MEM_NAME" placeholder="이름을 입력하세요" required="required">
 				</div>
 				<div class="form-group col-md-6">
 					<label for="MEM_EMAIL">이메일</label>
-					<input type="email" class="form-control" id="MEM_EMAIL" name="MEM_EMAIL" placeholder="이메일을 입력하세요">
+					<input type="email" class="form-control" id="MEM_EMAIL" name="MEM_EMAIL" placeholder="이메일을 입력하세요" required="required">
 				</div>
 			</div>
 			
 			<div class="form-row mt-4">
 				<div class="form-group col-md-4">
 						<label for="MEM_AGE">나이</label>
-						<input class="form-control" type="text" id="MEM_AGE" name="MEM_AGE" placeholder="나이를 입력하세요"/>
+						<input class="form-control" type="text" id="MEM_AGE" name="MEM_AGE" placeholder="나이를 입력하세요" required="required">
 				</div>
 				<div class="form-group col-md-4">
 					<p>성별</p>
 					<div class="btn-group" data-toggle="buttons">
 						<label class="btn btn-secondary">
-							<input type="radio" name="GENDER_ID" value="1" /> 남자
+							<input type="radio" name="GENDER_ID" value="1" required="required"> 남자
 						</label>
 						<label class="btn btn-secondary active">
-							<input type="radio" name="GENDER_ID" value="2" /> 여자
+							<input type="radio" name="GENDER_ID" value="2" required="required"> 여자
 						</label>
 					</div>
 				</div>
@@ -71,13 +73,13 @@
 					<p>피부타입</p>
 					<div class="btn-group" data-toggle="buttons">
 						<label class="btn btn-secondary active">
-							<input type="radio" name="SKINTYPE_ID" value="1" /> 지성
+							<input type="radio" name="SKINTYPE_ID" value="1" required="required"> 지성
 						</label>
 						<label class="btn btn-secondary">
-							<input type="radio" name="SKINTYPE_ID" value="2" /> 건성
+							<input type="radio" name="SKINTYPE_ID" value="2" required="required"> 건성
 						</label>
 						<label class="btn btn-secondary">
-							<input type="radio" name="SKINTYPE_ID" value="3" /> 복합성
+							<input type="radio" name="SKINTYPE_ID" value="3" required="required"> 복합성
 						</label>
 					</div>
 				</div>
@@ -116,10 +118,12 @@
 			}
 		});
 	}
+	
+ 	
 	</script>
 
-	
-	<!-- 하단 -->
+</head>
+
 	<%@include file="footer.jsp" %>
 	
 </body>

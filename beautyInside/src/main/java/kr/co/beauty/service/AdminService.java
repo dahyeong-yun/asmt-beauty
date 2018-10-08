@@ -10,7 +10,10 @@ import kr.co.beauty.dao.AdminDAO;
 import kr.co.beauty.vo.ItemVO;
 import kr.co.beauty.vo.MemberVO;
 import kr.co.beauty.vo.ReviewVO;
+<<<<<<< HEAD
 import kr.co.beauty.vo.TipVO;
+=======
+>>>>>>> refs/remotes/origin/admin
 
 @Service
 public class AdminService {
@@ -59,6 +62,7 @@ public class AdminService {
 		return modelAndView;
 	}
 
+<<<<<<< HEAD
 	//관리자 페이지 팁 리스트
 	public ModelAndView adminPageTip() {
 		modelAndView = new ModelAndView();
@@ -68,4 +72,6 @@ public class AdminService {
 		return modelAndView;
 	}
 
+=======
+>>>>>>> refs/remotes/origin/admin
 }

@@ -23,12 +23,18 @@
 		<!-- 버튼  -->
 		<div class="row">
 			<div class="btn btn-primary ml-2">제품 구입</div>
+<<<<<<< HEAD
 			<button class="btn btn-primary ml-2" onclick="itemStore(${detail.ITEM_ID})">찜 하기</button>
 			
 			<input type="hidden" id="LOGIN_MEM_ID" value="${loginMember.MEM_ID}"/>
 			
 			<span class="btn btn-primary ml-2" onclick='reviewCheck(${detail.ITEM_ID})'>리뷰 작성</span>
 			<div class="btn btn-primary ml-2" onclick="history.back()">목록 보기</div>
+=======
+			<div class="btn btn-primary ml-2">찜 하기</div>
+			<a href="/beauty/review/write/${detail.ITEM_ID}" class="btn btn-primary ml-2">리뷰 작성</a>
+			<div class="btn btn-primary ml-2">목록 보기</div>
+>>>>>>> refs/remotes/origin/admin
 		</div>
 		
 		<!-- 제품 정보 -->
@@ -76,6 +82,7 @@
 			</table>
 		</div>
 	</div>
+<<<<<<< HEAD
 	
 	<script type="text/javascript">
 	// 아이템 찜 기능
@@ -115,6 +122,8 @@
 		}
 		
 	</script>
+=======
+>>>>>>> refs/remotes/origin/admin
 
 	<!-- 하단 -->
 	<%@include file="footer.jsp" %>

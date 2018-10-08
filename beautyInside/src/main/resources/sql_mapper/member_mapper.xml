@@ -42,4 +42,8 @@
 		SELECT * FROM MEMBER
 	</select>
 	
+	<!-- 아이디 null check -->
+	<select id="idNullCheck" parameterType="Member" resultType="String">
+		SELECT IFNULL(MEM_ID, 0) FROM MEMBER WHERE MEM_ID = #{MEM_ID}
+	</select>
 </mapper>
