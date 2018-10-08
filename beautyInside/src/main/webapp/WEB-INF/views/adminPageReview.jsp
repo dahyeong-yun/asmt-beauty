@@ -40,7 +40,11 @@
 			<div class="col-md-9">
 				<div class="p-4 bg-white rounded shadow-sm">
 					<div class="container" >
+<<<<<<< HEAD
 					<table class="table table-striped table-bordered table-hover table-condensed">
+=======
+					<table>
+>>>>>>> refs/remotes/origin/admin
 						<tr>
 							<td>리뷰번호</td>
 							<td>리뷰제목</td>

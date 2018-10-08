@@ -73,10 +73,12 @@ public class AdminController {
 		return modelAndView;
 	}
 	
+
 	// (page link) 관리자 전용 페이지 광고 관리
 	@RequestMapping(value = "/adminPage/ads", method = RequestMethod.GET)
 	public String adminPageAds() {
 		return "adminPageAd";
 	}
 	
+
 }

@@ -25,15 +25,11 @@
 			<div class="card">
 			<div class="btn btn-primary ml-2">제품 구입</div>
 			<button class="btn btn-primary ml-2" onclick="itemStore(${detail.ITEM_ID})">찜 하기</button>
-			
 			<input type="hidden" id="LOGIN_MEM_ID" value="${loginMember.MEM_ID}"/>
-			
 			<span class="btn btn-primary ml-2" onclick='reviewCheck(${detail.ITEM_ID})'>리뷰 작성</span>
 			<div class="btn btn-primary ml-2" onclick="history.back()">목록 보기</div>
 			</div>
 		</div>
-		
-		
 		
 		<!-- 제품 정보 -->
 		<div class="row mt-3">

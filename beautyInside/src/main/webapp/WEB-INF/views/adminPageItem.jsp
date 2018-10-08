@@ -40,8 +40,13 @@
 			<div class="col-md-9">
 				<div class="p-4 bg-white rounded shadow-sm">
 					<div class="container" >
+<<<<<<< HEAD
 					<input type="button" style="float: right;" class="btn btn-success" onclick="location.href='/beauty/adminPage/itemWrite'" value="제품 등록"><br><br>
 					<table class="table table-striped table-bordered table-hover table-condensed">
+=======
+					<input type="button" onclick="location.href='/beauty/adminPage/itemWrite'" value="제품 등록">
+					<table>
+>>>>>>> refs/remotes/origin/admin
 						<tr>
 							<td>카테고리</td>
 							<td>제품명</td>

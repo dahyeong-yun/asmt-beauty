@@ -49,5 +49,6 @@ public class ReviewController {
 		reviewVO.setITEM_ID(ITEM_ID);
 		reviewService.reviewWrite(ITEM_ID, reviewVO);
 		return "redirect:/item/"+ITEM_ID; // 리뷰 등록 후 리다이렉트 -> 아이템 상세페이지로
+
 	}
 }

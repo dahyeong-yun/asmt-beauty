@@ -9,7 +9,9 @@ import org.springframework.stereotype.Repository;
 import kr.co.beauty.vo.ItemVO;
 import kr.co.beauty.vo.MemberVO;
 import kr.co.beauty.vo.ReviewVO;
+
 import kr.co.beauty.vo.TipVO;
+
 @Repository
 public class AdminDAO {
 	@Autowired
@@ -39,4 +41,5 @@ public class AdminDAO {
 	public List<TipVO> adminPageTip() {
 		return sqlSession.selectList("Tip.adminPageTip");
 	}
+
 }

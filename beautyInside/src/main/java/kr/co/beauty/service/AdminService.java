@@ -67,5 +67,4 @@ public class AdminService {
 		modelAndView.setViewName("adminPageTip");
 		return modelAndView;
 	}
-
 }

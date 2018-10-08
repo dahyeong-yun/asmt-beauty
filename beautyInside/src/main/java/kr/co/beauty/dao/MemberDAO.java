@@ -42,4 +42,9 @@ public class MemberDAO {
 	public MemberVO idOverlap(String MEM_ID) {
 		return sqlSession.selectOne("Member.idOverlap", MEM_ID);
 	}
+
+	//아이디 null 체크
+	public MemberVO idNullCheck(MemberVO memberVO) {
+		return sqlSession.selectOne("Member.idNullCheck", memberVO);
+	}
 }
