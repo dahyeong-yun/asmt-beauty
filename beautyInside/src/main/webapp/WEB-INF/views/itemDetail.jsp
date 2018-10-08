@@ -22,6 +22,7 @@
 		
 		<!-- 버튼  -->
 		<div class="row">
+			<div class="card">
 			<div class="btn btn-primary ml-2">제품 구입</div>
 			<button class="btn btn-primary ml-2" onclick="/beauty/item/Stored/${detail.ITEM_ID}">찜 하기</button>
 			
@@ -29,7 +30,10 @@
 			
 			<a href="/beauty/review/write/${detail.ITEM_ID}" class="btn btn-primary ml-2">리뷰 작성</a>
 			<div class="btn btn-primary ml-2" onclick="history.back()">목록 보기</div>
+			</div>
 		</div>
+		
+		
 		
 		<!-- 제품 정보 -->
 		<div class="row mt-3">
