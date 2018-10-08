@@ -2,52 +2,56 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Item">
-
-
+	
+	<!-- 제품 검색(카테고리 지정 후, 검색 값 제품명, 브랜드 경우) -->
 	<select id="search" parameterType="Item" resultType="Item">
-		SELECT * FROM ITEM
-		<where>
-			<if test="ITEM_CATEGORY != null">
-				ITEM_CATEGORY = #{ITEM_CATEGORY}
-			</if>
-			<if test="ITEM_NAME != null">
-				AND (ITEM_NAME LIKE CONCAT('%',#{ITEM_NAME},'%') OR ITEM_BRAND LIKE CONCAT('%',#{ITEM_NAME}'%'))
-			</if>
-		</where>
+		SELECT * FROM ITEM WHERE ITEM_CATEGORY = #{ITEM_CATEGORY} AND (ITEM_NAME LIKE CONCAT('%',#{ITEM_NAME},'%') OR ITEM_BRAND LIKE CONCAT('%',#{ITEM_NAME}'%'))
 	</select>
-
+	
+	<!-- 제품 검색(카테고리 없이 검색 값 존재할 경우) -->
+	<select id="itemSearch" parameterType="Item" resultType="Item">
+		SELECT * FROM ITEM WHERE ITEM_NAME LIKE CONCAT('%',#{ITEM_NAME},'%') OR ITEM_BRAND LIKE CONCAT('%',#{ITEM_NAME},'%')
+	</select>
+	
+	<!-- 제품 검색(카테고리만 있을 경우) -->
+	<select id="categorySearch" parameterType="Item" resultType="Item">
+		SELECT * FROM ITEM WHERE ITEM_CATEGORY = #{ITEM_CATEGORY}
+	</select>
+	
+	<!-- 아이템 메뉴를 눌렀을 경우 -->
+	<select id="itemList" resultType="Item">
+		SELECT * FROM ITEM
+	</select>
+	
 	<!-- 아이템 상세 페이지 -->
-	<select id="itemDetail" parameterType="int" resultType="Item">
+	<select id="itemDetail" parameterType="int"  resultType="Item">
 		SELECT * FROM ITEM WHERE ITEM_ID = #{ITEM_ID}
 	</select>
-
+	
 	<!-- 아이템 찜 -->
 	<insert id="itemStore" parameterType="Store">
 		INSERT INTO STORE(MEM_ID, ITEM_ID) VALUES (#{MEM_ID}, #{ITEM_ID})
 	</insert>
-
-
+	
+	
 	<!-- 메인페이지_(비로그인시)인기 아이템 리스트 -->
 	<select id="trendItems" resultType="Item">
 		SELECT * FROM ITEM ORDER BY ITEM_ID LIMIT 4
 	</select>
-
-	<!-- 메인페이지_(로그인시)추천 아이템 리스트 -->
-	<select id="personalRecommandItems" parameterType="String"
-		resultType="Item">
+	
+		<!-- 메인페이지_(로그인시)추천 아이템 리스트 -->
+	<select id="personalRecommandItems" parameterType="String" resultType="Item">
 		SELECT * FROM ITEM WHERE AGE_ID =(SELECT AGE_ID FROM MEMBER WHERE MEM_ID = #{MEM_ID}) LIMIT 4;
 	</select>
-
-
+	
+	
 	<!-- 관리자페이지 모든 제품 리스트 -->
-	<select id="adminPageItem" parameterType="Item"
-		resultType="Item">
+	<select id="adminPageItem" parameterType="Item" resultType="Item">
 		SELECT * FROM ITEM
 	</select>
-
+	
 	<!-- 관리자 페이지 제품 등록 -->
 	<select id="itemInsert" parameterType="Item">
-		INSERT INTO ITEM(ITEM_NAME, ITEM_BRAND, ITEM_CATEGORY, AGE_ID, SKINTYPE_ID, GENDER_ID, ITEM_PRICE, ITEM_IMAGE) VALUES(#{ITEM_NAME}, #{ITEM_BRAND},
-		#{ITEM_CATEGORY}, #{AGE_ID}, #{SKINTYPE_ID}, #{GENDER_ID}, #{ITEM_PRICE}, #{ITEM_IMAGE})
+		INSERT INTO ITEM(ITEM_NAME, ITEM_BRAND, ITEM_CATEGORY, AGE_ID, SKINTYPE_ID, GENDER_ID, ITEM_PRICE, ITEM_IMAGE) VALUES(#{ITEM_NAME}, #{ITEM_BRAND}, #{ITEM_CATEGORY}, #{AGE_ID}, #{SKINTYPE_ID}, #{GENDER_ID}, #{ITEM_PRICE}, #{ITEM_IMAGE})
 	</select>
 </mapper>
