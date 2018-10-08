@@ -41,8 +41,10 @@
 		</ul>
 		
 		<!-- 검색창  -->
-		<form class="form-inline mx-auto" action="/beauty/item" method="get">
-			<select name="ITEM_CATEGORY" class="form-control">
+
+		<form class="form-inline mx-auto" action="/beauty/item" method="get" onsubmit="return send()">
+			<select name="ITEM_CATEGORY" class="form-control" id="category">
+
 				<option value="">카테고리</option>
 				<option value="A">A</option>
 				<option value="hair">헤어</option>
@@ -52,7 +54,7 @@
 				<option value="마스카라">마스카라</option>
 			</select>
 			<div class="form-group">
-				<input type="text" class="form-control" id="search" placeholder="검색어를 입력하세요" name="ITEM_NAME">
+				<input type="text" class="form-control" id="search" placeholder="검색어를 입력하세요" name="ITEM_NAME" >
 			</div>
 			<input class="btn btn-success"type="submit" value="검색">
 		</form>
@@ -116,6 +118,20 @@
 			</div>
 		</div>
 	</div>
-	
+
+
+		<script> 
+	function send() { 
+		var cate = document.getElementById("category");
+		var n = document.getElementById("search");
+		if(n.value.length<=0){
+			n.setAttribute("disabled","disabled");
+		}
+		if(cate.value=="") {
+			cate.setAttribute("disabled","disabled");
+		}
+		return true;
+	} 
+</script> 
 </body>
 </html>

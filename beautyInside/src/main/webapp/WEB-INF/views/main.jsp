@@ -120,8 +120,11 @@
 	<!-- 검색창 -->
 	<div class="container my-4">
 		<h2 class="font-weight-bold">제품 검색하기</h2>
-		<form class="form-inline text-center" action="/beauty/item" method="get">
-			<select name="ITEM_CATEGORY" class="form-control">
+
+		<form class="form-inline text-center" action="/beauty/item" method="get" onsubmit="return send_form();" name="frm">
+			<select name="ITEM_CATEGORY" class="form-control" id="mainCategory">
+
+
 				<option value="">카테고리</option>
 				<option value="립틴트">립틴트</option>
 				<option value="립스틱">립스틱</option>
@@ -141,7 +144,21 @@
 	
 	<!-- 하단 -->
 	<%@include file="footer.jsp" %>
-	
+
+	<script> 
+	function send_form() { 
+		var obj = document.getElementById("mainCategory");
+		var n = document.getElementById("mainSearch");
+		if(n.value.length<=0){
+			n.setAttribute("disabled","disabled");
+		}
+		if(obj.value=="") {
+			obj.setAttribute("disabled","disabled");
+		}
+		return true;
+	} 
+</script> 
+
 	<script>
 		$(document).ready(function(){
 			$('[data-toggle="tooltip"]').tooltip();   
