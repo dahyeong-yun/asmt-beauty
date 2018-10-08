@@ -97,12 +97,12 @@
 					<form class="form" action="/beauty/member/login" method="post">
 					<div class="form-group">
 						<label for="id">아이디</label>
-						<input type="text" class="form-control" id="MEM_ID" name="MEM_ID" aria-describedby="idHelp" placeholder="Enter id">
+						<input type="text" class="form-control" id="MEM_ID" name="MEM_ID" aria-describedby="idHelp" placeholder="Enter id" required="required">
 						<small id="idHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 					</div>
 					<div class="form-group">
 						<label for="MEM_PW">Password</label>
-						<input type="password" class="form-control" id="MEM_PW" name="MEM_PW" placeholder="Password">
+						<input type="password" class="form-control" id="MEM_PW" name="MEM_PW" placeholder="Password" required="required">
 					</div>
 					<div class="form-group form-check">
 						<input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -116,7 +116,6 @@
 			</div>
 		</div>
 	</div>
-	
 	
 </body>
 </html>

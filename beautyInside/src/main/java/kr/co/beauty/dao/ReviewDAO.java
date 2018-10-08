@@ -25,7 +25,10 @@ public class ReviewDAO {
 		return sqlSession.selectOne("Review.reviewDetail", REVIEW_ID);
 	}
 
+<<<<<<< HEAD
 	// 리뷰 작성 기능
+=======
+>>>>>>> refs/remotes/origin/admin
 	public int reviewWrite(ReviewVO reviewVO) {
 		return sqlSession.insert("Review.reviewWrite", reviewVO);
 	}
