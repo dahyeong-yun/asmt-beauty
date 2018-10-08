@@ -21,6 +21,16 @@
 	<!-- 아이템 메뉴를 눌렀을 경우 -->
 	<select id="itemList" resultType="Item">
 		SELECT * FROM ITEM
+
+		<where>
+			<if test="ITEM_CATEGORY != null">
+				ITEM_CATEGORY = #{ITEM_CATEGORY}
+			</if>
+			<if test="ITEM_NAME != null">
+				AND ITEM_NAME LIKE CONCAT('%',#{ITEM_NAME},'%') OR ITEM_BRAND LIKE CONCAT('%',#{ITEM_NAME},'%')
+			</if>
+		</where>
+
 	</select>
 	
 	<!-- 아이템 상세 페이지 -->
