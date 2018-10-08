@@ -33,7 +33,7 @@
 		<!-- 메뉴 -->
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item">
-				<a class="nav-link" href="/beauty/item?ITEM_CATEGORY=&ITEM_NAME=">item</a>
+				<a class="nav-link" href="/beauty/item">item</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="/beauty/tip?MEM_ID=${loginMember.MEM_ID}">tips</a>
@@ -41,7 +41,7 @@
 		</ul>
 		
 		<!-- 검색창  -->
-		<form class="form-inline mx-auto" action="/beauty/item" method="get">
+		<form class="form-inline mx-auto" action="/beauty/item" method="get" onsubmit="send_form()">
 			<select name="ITEM_CATEGORY" class="form-control">
 				<option value="">카테고리</option>
 				<option value="A">A</option>
@@ -116,7 +116,16 @@
 			</div>
 		</div>
 	</div>
-	
+		<script> 
+	function send_form() { 
+		var obj = document.getElementById("ITEM_CATEGORY");
+		
+		if(obj.value=="") {
+			obj.options.length=0; 
+		}
+		return true;
+	} 
+</script> 
 	
 </body>
 </html>
