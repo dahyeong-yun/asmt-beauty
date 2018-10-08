@@ -121,7 +121,7 @@
 	<div class="container my-4">
 		<h2 class="font-weight-bold">제품 검색하기</h2>
 		<form class="form-inline text-center" action="/beauty/item" method="get" onsubmit="return send_form();" name="frm">
-			<select name="ITEM_CATEGORY" class="form-control" id="ITEM_CATEGORY">
+			<select name="ITEM_CATEGORY" class="form-control" id="mainCategory">
 				<option value="">카테고리</option>
 				<option value="립틴트">립틴트</option>
 				<option value="립스틱">립스틱</option>
@@ -133,7 +133,7 @@
 				<option value="마스카라">마스카라</option>
 			</select>
 			<div class="form-group">
-				<input type="text" class="form-control" id="mainSearch" placeholder="검색어를 입력하세요" name="ITEM_NAME" id="ITEM_NAME">
+				<input type="text" class="form-control" id="mainSearch" placeholder="검색어를 입력하세요" name="ITEM_NAME">
 			</div>
 			<input class="btn btn-success"type="submit" value="검색">
 		</form>
@@ -143,10 +143,13 @@
 	<%@include file="footer.jsp" %>
 	<script> 
 	function send_form() { 
-		var obj = document.getElementById("ITEM_CATEGORY");
-		
+		var obj = document.getElementById("mainCategory");
+		var n = document.getElementById("mainSearch");
+		if(n.value.length<=0){
+			n.setAttribute("disabled","disabled");
+		}
 		if(obj.value=="") {
-			obj.options.length=0; 
+			obj.setAttribute("disabled","disabled");
 		}
 		return true;
 	} 

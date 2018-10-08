@@ -11,7 +11,7 @@
 				ITEM_CATEGORY = #{ITEM_CATEGORY}
 			</if>
 			<if test="ITEM_NAME != null">
-				AND (ITEM_NAME LIKE CONCAT('%',#{ITEM_NAME},'%') OR ITEM_BRAND LIKE CONCAT('%',#{ITEM_NAME}'%'))
+				AND ITEM_NAME LIKE CONCAT('%',#{ITEM_NAME},'%') OR ITEM_BRAND LIKE CONCAT('%',#{ITEM_NAME},'%')
 			</if>
 		</where>
 	</select>
