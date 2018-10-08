@@ -34,24 +34,8 @@ public class ItemService {
 		modelAndView = new ModelAndView();
 		List<ItemVO> result;
 		
+		result = itemDAO.search(itemVO);
 		
-		if(itemVO.getITEM_CATEGORY().equals("")) {// 카테고리 미지정 시,
-			if(itemVO.getITEM_NAME().equals("")) { // 검색 값이 없을 경우
-				System.out.println("카테고리 X, 검색 값 X");
-				result = itemDAO.itemList();
-			} else {
-				System.out.println("카테고리 X, 검색 값 O");
-				result = itemDAO.itemSearch(itemVO); // 검색 값이 있을 경우
-			}
-		} else {
-			if(itemVO.getITEM_NAME().equals("")) {// 카테고리 지정 시,
-				System.out.println("카테고리 O, 검색 값 X");
-				result = itemDAO.categorySearch(itemVO);
-			} else {
-				System.out.println("카테고리 O, 검색 값 O");
-				result = itemDAO.search(itemVO);
-			}
-		}
 		modelAndView.addObject("searchResult", result);
 		modelAndView.setViewName("searchPage");
 		return modelAndView;
