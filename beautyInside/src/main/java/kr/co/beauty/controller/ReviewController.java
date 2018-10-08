@@ -48,6 +48,6 @@ public class ReviewController {
 	public String reviewWrite(@PathVariable("ITEM_ID") int ITEM_ID, @ModelAttribute ReviewVO reviewVO) {
 		reviewVO.setITEM_ID(ITEM_ID);
 		reviewService.reviewWrite(ITEM_ID, reviewVO);
-		return "redirect:/itemDetail?ITEM_ID="+ITEM_ID; // 리뷰 등록 후 리다이렉트 -> 아이템 상세페이지로
+		return "redirect:/item/"+ITEM_ID; // 리뷰 등록 후 리다이렉트 -> 아이템 상세페이지로
 	}
 }

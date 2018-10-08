@@ -22,8 +22,8 @@
 		
 		<!-- 버튼  -->
 		<div class="row">
-			<div class="btn btn-primary ml-2" onclick="reviewCheck()">리뷰 등록</div>
-			<div class="btn btn-primary ml-2" onclick="history.go(-1);">목록 가기</div>
+			<div class="btn btn-primary ml-2" onclick="reviewSubmit()">리뷰 등록</div>
+			<div class="btn btn-primary ml-2" onclick="location.href='/beauty/item'">목록 가기</div>
 		</div>
 		
 		<!-- 리뷰 작성 -->
@@ -44,17 +44,11 @@
 			</form>
 		</div>
 	</div>
-	
-	<script>
-		function reviewCheck() {
-			if($("#LOGIN_MEM_ID").val() == "") {
-				alert("로그인 한 사용자만 리뷰를 작성할 수 있습니다.");
-			} else {
-				$("#review").submit();
-			}
+<script>
+	function reviewSubmit() {
+		$("#review").submit();
 		}
-		
-	</script>
+</script>
 	
 	<!-- 하단 -->
 	<%@include file="footer.jsp" %>

@@ -24,11 +24,11 @@
 		<div class="row">
 			<div class="card">
 			<div class="btn btn-primary ml-2">제품 구입</div>
-			<button class="btn btn-primary ml-2" onclick="/beauty/item/Stored/${detail.ITEM_ID}">찜 하기</button>
+			<button class="btn btn-primary ml-2" onclick="itemStore(${detail.ITEM_ID})">찜 하기</button>
 			
 			<input type="hidden" id="LOGIN_MEM_ID" value="${loginMember.MEM_ID}"/>
 			
-			<a href="/beauty/review/write/${detail.ITEM_ID}" class="btn btn-primary ml-2">리뷰 작성</a>
+			<span class="btn btn-primary ml-2" onclick='reviewCheck(${detail.ITEM_ID})'>리뷰 작성</span>
 			<div class="btn btn-primary ml-2" onclick="history.back()">목록 보기</div>
 			</div>
 		</div>
@@ -110,6 +110,14 @@
 		 }
 		
 	}
+	function reviewCheck(ITEM_ID) {
+			if($("#LOGIN_MEM_ID").val() == "") {
+				alert("로그인 한 사용자만 리뷰를 작성할 수 있습니다.");
+			} else {
+				location.href="/beauty/review/write/"+ITEM_ID
+			}
+		}
+		
 	</script>
 
 	<!-- 하단 -->
