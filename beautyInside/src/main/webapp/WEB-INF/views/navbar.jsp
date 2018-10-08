@@ -33,7 +33,7 @@
 		<!-- 메뉴 -->
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item">
-				<a class="nav-link" href="/beauty/item">item</a>
+				<a class="nav-link" href="/beauty/item?ITEM_CATEGORY=&ITEM_NAME=">item</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="/beauty/tip?MEM_ID=${loginMember.MEM_ID}">tips</a>
@@ -41,8 +41,10 @@
 		</ul>
 		
 		<!-- 검색창  -->
+
 		<form class="form-inline mx-auto" action="/beauty/item" method="get" onsubmit="return send()">
 			<select name="ITEM_CATEGORY" class="form-control" id="category">
+
 				<option value="">카테고리</option>
 				<option value="A">A</option>
 				<option value="hair">헤어</option>
@@ -116,6 +118,7 @@
 			</div>
 		</div>
 	</div>
+
 		<script> 
 	function send() { 
 		var cate = document.getElementById("category");
