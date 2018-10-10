@@ -39,7 +39,7 @@
 				<a class="nav-link" href="/beauty/tip?MEM_ID=${loginMember.MEM_ID}">tips</a>
 			</li>
 		</ul>
-		
+				
 		<!-- 검색창  -->
 
 		<form class="form-inline mx-auto" action="/beauty/item" method="get" onsubmit="return send()">
