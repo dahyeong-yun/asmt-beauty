@@ -59,6 +59,9 @@
 			<input class="btn btn-success"type="submit" value="검색">
 		</form>
 		
+		<!-- 장바구니 페이지로 넘어가기 -->
+		<a href="/beauty/item/basketPage">장바구니</a>
+		
 		<c:choose>
 			<c:when test="${not empty loginMember.MEM_ID}">
 				<c:choose>

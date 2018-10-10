@@ -39,7 +39,6 @@ public class ItemService {
 		modelAndView.addObject("searchResult", result);
 		modelAndView.setViewName("searchPage");
 		return modelAndView;
-
 	}
 
 	// 아이템 상세 페이지

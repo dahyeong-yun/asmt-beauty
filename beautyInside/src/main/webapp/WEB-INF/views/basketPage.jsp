@@ -46,6 +46,7 @@
 				<td>상품 금액</td>
 				<td>배송비</td>
 				<td>주문금액</td>
+				<td>주문 취소여부</td>
 			</tr>
 			<tr>
 				<td>123123+체크박스(체크시 개별 상품 체크)<label><input type="checkbox" value="">개별주문</label></td>
@@ -54,9 +55,10 @@
 				<td>12000</td>
 				<td>2500</td>
 				<td>17500(상품금액 + 배송비)</td>
+				<td><button class="btn btn-danger">삭제</button></td>
 			</tr>
 			<tr>
-				<td colspan="6">최종금액(체크한 상품에 대한 전체 금액) 17500 + 주문  / 삭제 버튼<button class="btn btn-primary">주문</button><button class="btn btn-danger">삭제</button></td>
+				<td colspan="7">최종금액(체크한 상품에 대한 전체 금액) 17500 + 주문  버튼<button class="btn btn-primary">주문</button></td>
 			</tr>
 		</table>
 		<!-- 하단 -->
