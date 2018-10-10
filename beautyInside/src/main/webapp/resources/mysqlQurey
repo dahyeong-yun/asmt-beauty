@@ -10,17 +10,17 @@ insert into AGE values(5);
 CREATE TABLE SKINTYPE(
 	SKINTYPE_ID int primary key
 );
-insert into SKINTYPE values(1); -- °Ç¼º
-insert into SKINTYPE values(2); -- Áö¼º
-insert into SKINTYPE values(3); -- º¹ÇÕ¼º
-insert into SKINTYPE values(4); -- ¹Î°¨¼º
+insert into SKINTYPE values(1); -- ï¿½Ç¼ï¿½
+insert into SKINTYPE values(2); -- ï¿½ï¿½ï¿½ï¿½
+insert into SKINTYPE values(3); -- ï¿½ï¿½ï¿½Õ¼ï¿½
+insert into SKINTYPE values(4); -- ï¿½Î°ï¿½ï¿½ï¿½
 
 CREATE TABLE GENDER(
 	GENDER_ID int primary key
 );
 insert into GENDER values(0);
-insert into GENDER values(1); -- ³²ÀÚ
-insert into GENDER values(2); -- ¿©ÀÚ
+insert into GENDER values(1); -- ï¿½ï¿½ï¿½ï¿½
+insert into GENDER values(2); -- ï¿½ï¿½ï¿½ï¿½
 
 CREATE TABLE MEMBER(
 	MEM_ID varchar(100) primary key,
@@ -84,8 +84,8 @@ CREATE TABLE ITEM(
     CONSTRAINT FK_ITEM_GENDER_ID FOREIGN KEY(GENDER_ID) REFERENCES GENDER(GENDER_ID) on delete cascade
 );
 drop table item;
-insert into ITEM values(1,'·ê·ç','¾Æ¸ð·¹','Å¬·»Â¡',2,2,1,10000,'200ml','http://d9vmi5fxk1gsw.cloudfront.net/home/glowmee/upload/20180814/1534239707375.png');
-insert into ITEM values(2,'·¡½¬Æ÷¸Ó','ÄÉÀÌÆ®','¸¶½ºÄ«¶ó',2,2,1,18000,'8.6g','http://d9vmi5fxk1gsw.cloudfront.net/home/glowmee/upload/20180814/1534239707375.png');
+insert into ITEM values(1,'ï¿½ï¿½ï¿½','ï¿½Æ¸ï¿½','Å¬ï¿½ï¿½Â¡',2,2,1,10000,'200ml','http://d9vmi5fxk1gsw.cloudfront.net/home/glowmee/upload/20180814/1534239707375.png');
+insert into ITEM values(2,'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½Æ®','ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½',2,2,1,18000,'8.6g','http://d9vmi5fxk1gsw.cloudfront.net/home/glowmee/upload/20180814/1534239707375.png');
 select * from ITEM;
 
 CREATE TABLE REVIEW(
@@ -99,9 +99,9 @@ CREATE TABLE REVIEW(
     CONSTRAINT FK_REVIEW_MEM_ID FOREIGN KEY(MEM_ID) REFERENCES MEMBER(MEM_ID)  on delete cascade,
     CONSTRAINT FK_REVIEW_ITEM_ID FOREIGN KEY(ITEM_ID) REFERENCES ITEM(ITEM_ID) on delete cascade
 );
-insert into REVIEW values (1,'asd','ÀÌ°Å ÁøÂ¥ ÁÁ¾Æ¿ä','±×³É ÁÁÀ½',1,12,3.4);
-insert into REVIEW values (2,'zxc','ÀÌ°Å ÁøÂ¥ ½È¾î¿ä','±×³É ½ÈÀ½',1,1,1.4);
-insert into REVIEW(MEM_ID, REVIEW_TITLE, REVIEW_CONTENT, ITEM_ID, REVIEW_LIKE, REVIEW_GRADE) values ('zxc','ÀÌ°Å ÁøÂ¥ ½È¾î¿ä','±×³É ½ÈÀ½',1,1,1.4);
+insert into REVIEW values (1,'asd','ï¿½Ì°ï¿½ ï¿½ï¿½Â¥ ï¿½ï¿½ï¿½Æ¿ï¿½','ï¿½×³ï¿½ ï¿½ï¿½ï¿½ï¿½',1,12,3.4);
+insert into REVIEW values (2,'zxc','ï¿½Ì°ï¿½ ï¿½ï¿½Â¥ ï¿½È¾ï¿½ï¿½','ï¿½×³ï¿½ ï¿½ï¿½ï¿½ï¿½',1,1,1.4);
+insert into REVIEW(MEM_ID, REVIEW_TITLE, REVIEW_CONTENT, ITEM_ID, REVIEW_LIKE, REVIEW_GRADE) values ('zxc','ï¿½Ì°ï¿½ ï¿½ï¿½Â¥ ï¿½È¾ï¿½ï¿½','ï¿½×³ï¿½ ï¿½ï¿½ï¿½ï¿½',1,1,1.4);
 select *  from REVIEW;
 drop table REVIEW;
 
@@ -113,6 +113,38 @@ CREATE TABLE STORE(
     CONSTRAINT FK_STORE_MEM_ID FOREIGN KEY(MEM_ID) REFERENCES MEMBER(MEM_ID) on delete cascade
 );
 select * from STORE;
+
+CREATE TABLE BASKET(
+	BASKET_ID INT AUTO_INCREMENT PRIMARY KEY,
+	MEM_ID VARCHAR(100),
+	ITEM_ID INT,
+	BASKET_AMOUNT INT NOT NULL,
+	BASKET_CHECK INT NOT NULL,
+	CONSTRAINT FK_BASKET_MEM_ID FOREIGN KEY(MEM_ID) REFERENCES MEMBER(MEM_ID) on delete cascade,
+	CONSTRAINT FK_BASKET_ITEM_ID FOREIGN KEY(ITEM_ID) REFERENCES ITEM(ITEM_ID) on delete cascade
+	);
+	
+CREATE TABLE PAYMENT(
+	PAY_ID INT AUTO_INCREMENT PRIMARY KEY,
+	PAY_NUM INT,
+	ITEM_ID INT,
+	MEM_ID VARCHAR(100),
+	PAY_NAME VARCHAR(50) NOT NULL,
+	PAY_PHONE VARCHAR(50) NOT NULL,
+	PAY_ADDR VARCHAR(200) NOT NULL,
+	PAY_MESSAGE VARCHAR(50),
+	PAY_PRICE INT NOT NULL,
+	PAY_DATE DATE NOT NULL,
+	PAY_METHOD VARCHAR(50) NOT NULL,
+	PAY_AMOUNT INT NOT NULL,
+	CONSTRAINT FK_PAY_MEM_ID FOREIGN KEY(MEM_ID) REFERENCES MEMBER(MEM_ID) on delete cascade,
+	CONSTRAINT FK_PAY_ITEM_ID FOREIGN KEY(ITEM_ID) REFERENCES ITEM(ITEM_ID) on delete cascade
+	);
+	
+ALTER TABLE MEMBER ADD MEM_ADDR VARCHAR(200);
+ALTER TABLE MEMBER ADD MEM_PHONE VARCHAR(50);
+ALTER TABLE MEMBER ADD MEM_POINT INT default '0';
+	
 /*
 drop table MEMBER;
 drop table TIP;
