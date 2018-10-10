@@ -62,4 +62,9 @@
 	<select id="itemInsert" parameterType="Item">
 		INSERT INTO ITEM(ITEM_NAME, ITEM_BRAND, ITEM_CATEGORY, AGE_ID, SKINTYPE_ID, GENDER_ID, ITEM_PRICE, ITEM_IMAGE) VALUES(#{ITEM_NAME}, #{ITEM_BRAND}, #{ITEM_CATEGORY}, #{AGE_ID}, #{SKINTYPE_ID}, #{GENDER_ID}, #{ITEM_PRICE}, #{ITEM_IMAGE})
 	</select>
+	
+	<!-- 제품 구매폼 이동시 구매자 정보 -->
+	<select id="itemPayment" parameterType="String" resultType="Member">
+		SELECT * FROM MEMBER WHERE MEM_ID = #{MEM_ID}
+	</select>
 </mapper>

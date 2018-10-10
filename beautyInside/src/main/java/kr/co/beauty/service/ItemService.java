@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.co.beauty.dao.ItemDAO;
 import kr.co.beauty.dao.ReviewDAO;
 import kr.co.beauty.vo.ItemVO;
+import kr.co.beauty.vo.MemberVO;
 import kr.co.beauty.vo.ReviewVO;
 import kr.co.beauty.vo.StoreVO;
 
@@ -28,6 +29,7 @@ public class ItemService {
 	private ModelAndView modelAndView;
 	private ItemVO itemVO;
 	private StoreVO storeVO;
+	private MemberVO memberVO;
 	
 	// 아이템 검색 기능
 	public ModelAndView itemSearch(ItemVO itemVO) {
@@ -96,5 +98,16 @@ public class ItemService {
 		List<ItemVO> personalRecommandItems = itemDAO.personalRecommandItems(MEM_ID);
 		modelAndView.addObject("personalRecommandItems", personalRecommandItems);
 		return modelAndView;
+	}	
+	
+	public ModelAndView itemPayment(ItemVO itemVO, String MEM_ID) {
+		modelAndView = new ModelAndView();
+		modelAndView.addObject("item",itemVO);
+		memberVO = new MemberVO();
+		memberVO = itemDAO.itemPayment(MEM_ID);
+		modelAndView.addObject("mem",memberVO);
+		modelAndView.setViewName("itemPayment");
+		return modelAndView;
+		
 	}
  }

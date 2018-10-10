@@ -46,4 +46,12 @@ public class ItemController {
 		itemService.itemStore(response, ITEM_ID, MEM_ID);		
 	}
 	
+	//구매하기(결제 폼으로 이동)
+		@RequestMapping(value = "/item/payment", method = RequestMethod.POST)
+		public ModelAndView itemPayment(@ModelAttribute ItemVO itemVO, @RequestParam("MEM_ID") String MEM_ID){
+			modelAndView = new ModelAndView();
+			modelAndView = itemService.itemPayment(itemVO, MEM_ID);
+			return modelAndView;
+		}
+	
 }

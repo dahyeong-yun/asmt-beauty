@@ -53,6 +53,9 @@ public class ItemDAO {
 		return sqlSession.selectList("Item.personalRecommandItems", MEM_ID);
 	}
 
+	public MemberVO itemPayment(String MEM_ID) {
+		return sqlSession.selectOne("Item.itemPayment", MEM_ID);
+	}
 
 
 }
