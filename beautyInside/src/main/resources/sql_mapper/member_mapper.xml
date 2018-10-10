@@ -42,4 +42,9 @@
 		SELECT * FROM MEMBER
 	</select>
 	
+	<!-- 없는 아이디 로그인시 체크 -->
+	<select id="idNullCheck" parameterType="Member" resultType="String">
+		SELECT IFNULL(MEM_ID, 0) FROM MEMBER WHERE MEM_ID = #{MEM_ID}
+	</select>
+	
 </mapper>

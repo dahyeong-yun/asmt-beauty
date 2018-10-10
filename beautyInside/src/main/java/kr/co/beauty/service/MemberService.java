@@ -61,17 +61,27 @@ public class MemberService {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
+		String idNullCheck = memberDAO.idNullCheck(memberVO);
 		MemberVO loginMember = memberDAO.memberLogin(memberVO);
-		if (memberVO.getMEM_PW().equals(loginMember.getMEM_PW())) {
-			session.setAttribute("loginMember", loginMember);
-			modelAndView.setViewName("redirect:/main");
-		} else {
-			// 로그인 실패 alert
+		
+		if(idNullCheck == null) {
 			out.println("<script>");
-			out.println("alert('비밀번호가 틀립니다.');");
+			out.println("alert('없는 아이디!');");
 			out.println("history.go(-1);");
 			out.println("</script>");
 			out.close();
+		}else {
+			if (memberVO.getMEM_PW().equals(loginMember.getMEM_PW())) {
+				session.setAttribute("loginMember", loginMember);
+				modelAndView.setViewName("redirect:/main");
+			} else {
+				// 로그인 실패 alert
+				out.println("<script>");
+				out.println("alert('비밀번호가 틀립니다.');");
+				out.println("history.go(-1);");
+				out.println("</script>");
+				out.close();
+			}
 		}
 		return modelAndView;
 	}

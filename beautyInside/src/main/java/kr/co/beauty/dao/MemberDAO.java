@@ -43,4 +43,9 @@ public class MemberDAO {
 		return sqlSession.selectOne("Member.idOverlap", MEM_ID);
 	}
 
+	// 로그인시 없는 아이디 체크
+	public String idNullCheck(MemberVO memberVO) {
+		return sqlSession.selectOne("Member.idNullCheck", memberVO);
+	}
+
 }
