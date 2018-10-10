@@ -52,5 +52,9 @@ public class ItemDAO {
 		return sqlSession.selectOne("Item.memInfo",MEM_ID);
 	}
 
+	public List<ItemVO> memberStoredItemList(String MEM_ID) {
+		return sqlSession.selectList("Item.memberStoredItemList", MEM_ID);
+	}
+
 
 }

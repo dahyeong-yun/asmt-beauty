@@ -54,5 +54,12 @@ public class ItemController {
 		modelAndView = itemService.itemInfo(basketVO);
 		return modelAndView;
 	}
+	
+	@RequestMapping(value = "/item/basketPage", method = RequestMethod.GET)
+	public String basketPage() {
+		return "basketPage";
+	}
+	
+
 }
 

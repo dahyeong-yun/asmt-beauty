@@ -39,10 +39,37 @@
 			<!-- 본문 -->
 			<div class="col-md-9">
 				<div class="container" >
+				
+					<h3>찜한 상품</h3><div style="text-align: right;">찜한 상품 내역이 제공됩니다. </div>
 					
-					<form action="/beauty/member/info/rivison/${loginMember.MEM_ID}" method="post" class="form-inline" style="text-align:center; margin: auto; max-width:350px; max-height:350px;">
-					
-					</form>
+						<table class="table table-striped table-bordered table-hover table-condensed">
+							<tr>
+								<td><input type="checkbox" value=""></td>
+								<td><button type="button" class="btn btn-danger">선택상품 삭제</button></td>
+								<td colspan="4">
+									<select class="form-control" id="#">
+										<option>최근 등록순</option>
+										<option>낮은 가격순</option>
+										<option>높은 가격순</option>
+										<option>리뷰 많은순</option>
+									</select>
+								</td>
+							</tr>
+							<c:forEach var="memberStoredList" items="${memberStoredList}">
+							<tr>
+								<td><input type="checkbox" value=""></td>
+								<td><img src="${memberStoredList.ITEM_IMAGE}" style="width: 50px; height: 50px;"></td>
+								<td>
+									${memberStoredList.ITEM_NAME}<br>
+									${memberStoredList.ITEM_PRICE}<br>
+								</td>
+								<td>
+									<button type="button" class="btn btn-success" style="width: 150px;">장바구니에 담기</button><br>
+									<button type="button" class="btn btn-primary" style="width: 150px; ">구매하기</button>
+								</td>
+							</tr>
+							</c:forEach>
+						</table>
 				</div>
 			</div>
 		
