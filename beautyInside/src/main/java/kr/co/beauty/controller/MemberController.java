@@ -107,10 +107,12 @@ public class MemberController {
 		return "myPageReviewLiked";
 	}
 	
-	// (page link) 마이페이지_제품 찜 목록
-	@RequestMapping(value = "/member/stored/*", method = RequestMethod.GET)
-	public String myPageItemStored() {
-		return "myPageItemStored";
+	// 마이페이지_제품 찜 목록
+	@RequestMapping(value = "/member/stored/{MEM_ID}", method = RequestMethod.GET)
+	public ModelAndView myPageItemStored(@PathVariable("MEM_ID") String MEM_ID) {
+		modelAndView = new ModelAndView();
+		modelAndView = memberService.memberStoredItemList(MEM_ID);
+		return modelAndView;
 	}
 	
 	// 마이페이지/Other페이지_팔로워/팔로잉 페이지

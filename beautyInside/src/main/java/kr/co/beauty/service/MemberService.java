@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -12,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.co.beauty.dao.ItemDAO;
 import kr.co.beauty.dao.MemberDAO;
+import kr.co.beauty.vo.ItemVO;
 import kr.co.beauty.vo.MemberVO;
 
 @Service
@@ -20,8 +21,11 @@ public class MemberService {
 	@Autowired
 	private MemberDAO memberDAO;
 	private MemberVO memberVO;
-	private ModelAndView modelAndView;
 	
+	@Autowired
+	private ItemDAO itemDAO;
+	
+	private ModelAndView modelAndView;
 	
 	@Autowired
 	private HttpSession session;
@@ -150,6 +154,15 @@ public class MemberService {
 		} else {
 			response.getWriter().print("0");
 		}
+	}
+
+	//마이페이지 내가 찜한 목록
+	public ModelAndView memberStoredItemList(String MEM_ID) {
+		modelAndView = new ModelAndView();
+		List<ItemVO> memberStoredList = itemDAO.memberStoredItemList(MEM_ID);
+		modelAndView.addObject("memberStoredList", memberStoredList);
+		modelAndView.setViewName("myPageItemStored");
+		return modelAndView;
 	}
 
 }
