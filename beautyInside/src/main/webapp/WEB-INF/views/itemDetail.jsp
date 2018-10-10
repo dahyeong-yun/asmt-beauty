@@ -82,7 +82,7 @@
 	<script type="text/javascript">		
 	function itemPayment(params) {
 		if($("#LOGIN_MEM_ID").val() == "") {
-				alert("로그인한 사용자만 찜 할 수 있습니다.") 
+				alert("로그인한 사용자만 구매할 수 있습니다.") 
 		} else {
 			var form = document.createElement("form");
 			form.setAttribute("method", "post");
