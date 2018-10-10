@@ -59,8 +59,6 @@
 				<td colspan="6">최종금액(체크한 상품에 대한 전체 금액) 17500 + 주문  / 삭제 버튼<button class="btn btn-primary">주문</button><button class="btn btn-danger">삭제</button></td>
 			</tr>
 		</table>
-		
-		
 		<!-- 하단 -->
 		<%@include file="footer.jsp" %>
 	</div>

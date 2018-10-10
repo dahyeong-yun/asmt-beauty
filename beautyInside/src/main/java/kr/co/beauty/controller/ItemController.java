@@ -52,6 +52,7 @@ public class ItemController {
 			modelAndView = new ModelAndView();
 			modelAndView = itemService.itemPayment(itemVO, MEM_ID);
 			return modelAndView;
-		}
+	}
+		
 	
 }
