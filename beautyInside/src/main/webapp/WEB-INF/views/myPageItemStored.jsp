@@ -58,7 +58,7 @@
 							<c:forEach var="memberStoredList" items="${memberStoredList}">
 							<tr>
 								<td><input type="checkbox" value=""></td>
-								<td><img src="#" style="width: 50px; height: 50px;"></td>
+								<td><img src="${memberStoredList.ITEM_IMAGE}" style="width: 50px; height: 50px;"></td>
 								<td>
 									${memberStoredList.ITEM_NAME}<br>
 									${memberStoredList.ITEM_PRICE}<br>
