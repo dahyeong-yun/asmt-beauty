@@ -59,21 +59,20 @@ public class MemberService {
 	public ModelAndView memberLogin(MemberVO memberVO, HttpServletResponse response) throws IOException {
 		modelAndView = new ModelAndView();
 		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		
 		MemberVO loginMember = memberDAO.memberLogin(memberVO);
-		PrintWriter out = response.getWriter();
-			if (memberVO.getMEM_PW().equals(loginMember.getMEM_PW())) {
-				session.setAttribute("loginMember", loginMember);
-				modelAndView.setViewName("redirect:/main");
-			} else {
-				// 로그인 실패 alert
-				out.println("<script>");
-				out.println("alert('비밀번호가 틀립니다.');");
-				out.println("history.go(-1);");
-				out.println("</script>");
-				out.close();
-			}
-		
+		if (memberVO.getMEM_PW().equals(loginMember.getMEM_PW())) {
+			session.setAttribute("loginMember", loginMember);
+			modelAndView.setViewName("redirect:/main");
+		} else {
+			// 로그인 실패 alert
+			out.println("<script>");
+			out.println("alert('비밀번호가 틀립니다.');");
+			out.println("history.go(-1);");
+			out.println("</script>");
+			out.close();
+		}
 		return modelAndView;
 	}
 
