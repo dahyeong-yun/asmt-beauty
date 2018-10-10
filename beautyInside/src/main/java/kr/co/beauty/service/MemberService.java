@@ -61,17 +61,7 @@ public class MemberService {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		MemberVO loginMember = memberDAO.memberLogin(memberVO);
-		MemberVO idNullCheck = memberDAO.idNullCheck(memberVO);
 		PrintWriter out = response.getWriter();
-
-		if(idNullCheck == null) {
-			// 로그인 실패 alert
-			out.println("<script>");
-			out.println("alert('없는 아이디 입니다.');");
-			out.println("history.go(-1);");
-			out.println("</script>");
-			out.close();
-		} else {
 			if (memberVO.getMEM_PW().equals(loginMember.getMEM_PW())) {
 				session.setAttribute("loginMember", loginMember);
 				modelAndView.setViewName("redirect:/main");
@@ -83,7 +73,7 @@ public class MemberService {
 				out.println("</script>");
 				out.close();
 			}
-		}
+		
 		return modelAndView;
 	}
 
