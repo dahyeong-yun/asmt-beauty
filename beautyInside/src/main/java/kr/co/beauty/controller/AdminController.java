@@ -41,23 +41,7 @@ public class AdminController {
 		modelAndView = new ModelAndView();
 		modelAndView = adminService.adminPageItem();
 		return modelAndView;
-<<<<<<< HEAD
-=======
-	}
-	
-	// (page link) 관리자 전용 페이지 제품 작성폼으로 이동
-	@RequestMapping(value = "/adminPage/itemWrite", method = RequestMethod.GET)
-	public String adminPageItemWrite() {
-		return "adminPageItemWrite";
-	}
-	
-	// 관리자전용 페이지 제품 등록
-	@RequestMapping(value = "/adminPage/itemWriteForm", method = RequestMethod.POST)
-	public ModelAndView itemWriteForm(@ModelAttribute ItemVO itemVO) {
-		modelAndView = new ModelAndView();
-		modelAndView = adminService.itemWriteForm(itemVO);
-		return modelAndView;
->>>>>>> refs/remotes/origin/admin
+
 	}
 	
 	// (page link) 관리자 전용 페이지 제품 작성폼으로 이동
@@ -90,13 +74,9 @@ public class AdminController {
 		return modelAndView;
 	}
 	
-<<<<<<< HEAD
 	// (page link) 관리자 전용 페이지 광고 관리
 	@RequestMapping(value = "/adminPage/ads", method = RequestMethod.GET)
 	public String adminPageAds() {
 		return "adminPageAd";
 	}
-	
-=======
->>>>>>> refs/remotes/origin/admin
 }

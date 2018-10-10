@@ -35,8 +35,7 @@
 	<select id="itemDetail" parameterType="int"  resultType="Item">
 		SELECT * FROM ITEM WHERE ITEM_ID = #{ITEM_ID}
 	</select>
-	
-<<<<<<< HEAD
+
 	<!-- 아이템 찜 -->
 	<insert id="itemStore" parameterType="Store">
 		INSERT INTO STORE(MEM_ID, ITEM_ID) VALUES (#{MEM_ID}, #{ITEM_ID})
@@ -53,9 +52,6 @@
 		SELECT * FROM ITEM WHERE AGE_ID =(SELECT AGE_ID FROM MEMBER WHERE MEM_ID = #{MEM_ID}) LIMIT 4;
 	</select>
 	
-	
-=======
->>>>>>> refs/remotes/origin/admin
 	<!-- 관리자페이지 모든 제품 리스트 -->
 	<select id="adminPageItem" parameterType="Item" resultType="Item">
 		SELECT * FROM ITEM
