@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.beauty.vo.BasketVO;
 import kr.co.beauty.vo.ItemVO;
 import kr.co.beauty.vo.MemberVO;
 import kr.co.beauty.vo.StoreVO;
@@ -37,9 +38,18 @@ public class ItemDAO {
 	public List<ItemVO> personalRecommandItems(String MEM_ID) {
 		return sqlSession.selectList("Item.personalRecommandItems", MEM_ID);
 	}
-
-	public MemberVO itemPayment(String MEM_ID) {
-		return sqlSession.selectOne("Item.itemPayment", MEM_ID);
+	
+	//제품 수량* 가격
+	public int itemAmount(BasketVO basketVO) {
+		return sqlSession.update("Item.itemAmount",basketVO);		
+	}
+	//구매시 제품 정보
+	public List<ItemVO> itemInfo(int ITEM_ID) {
+		return sqlSession.selectList("Item.itemInfo", ITEM_ID);
+	}
+	//구매시 구매자 정보
+	public MemberVO memInfo(String MEM_ID) {
+		return sqlSession.selectOne("Item.memInfo",MEM_ID);
 	}
 
 

@@ -8,6 +8,8 @@
 		<typeAlias alias="Item" type="kr.co.beauty.vo.ItemVO" />
 		<typeAlias alias="Review" type="kr.co.beauty.vo.ReviewVO" />
 		<typeAlias alias="Store" type="kr.co.beauty.vo.StoreVO" />
+		<typeAlias alias="Basket" type="kr.co.beauty.vo.BasketVO" />
+		<typeAlias alias="Payment" type="kr.co.beauty.vo.PaymentVO" />
 	</typeAliases>
 </configuration>
 

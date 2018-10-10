@@ -10,13 +10,43 @@ public class MemberVO {
 	private int GENDER_ID;
 	private int SKINTYPE_ID;
 	private int AGE_ID;
+	private String MEM_ADDR;
+	private String MEM_PHONE;
+	
+	public String getMEM_ADDR() {
+		return MEM_ADDR;
+	}
+
+	public void setMEM_ADDR(String mEM_ADDR) {
+		MEM_ADDR = mEM_ADDR;
+	}
+
+	public String getMEM_PHONE() {
+		return MEM_PHONE;
+	}
+
+	public void setMEM_PHONE(String mEM_PHONE) {
+		MEM_PHONE = mEM_PHONE;
+	}
+
+	public int getMEM_POINT() {
+		return MEM_POINT;
+	}
+
+	public void setMEM_POINT(int mEM_POINT) {
+		MEM_POINT = mEM_POINT;
+	}
+
+	private int MEM_POINT;
 	
 
 	public MemberVO() {
 	}
 
+
 	public MemberVO(String mEM_ID, String mEM_PW, String mEM_NAME, int mEM_AGE, String mEM_EMAIL, String mEM_PROFILE,
-			int gENDER_ID, int sKINTYPE_ID, int aGE_ID) {
+			int gENDER_ID, int sKINTYPE_ID, int aGE_ID, String mEM_ADDR, String mEM_PHONE, int mEM_POINT) {
+		super();
 		MEM_ID = mEM_ID;
 		MEM_PW = mEM_PW;
 		MEM_NAME = mEM_NAME;
@@ -26,6 +56,9 @@ public class MemberVO {
 		GENDER_ID = gENDER_ID;
 		SKINTYPE_ID = sKINTYPE_ID;
 		AGE_ID = aGE_ID;
+		MEM_ADDR = mEM_ADDR;
+		MEM_PHONE = mEM_PHONE;
+		MEM_POINT = mEM_POINT;
 	}
 
 	public String getMEM_ID() {

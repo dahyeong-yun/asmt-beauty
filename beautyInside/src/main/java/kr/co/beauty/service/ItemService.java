@@ -11,8 +11,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.beauty.dao.ItemDAO;
 import kr.co.beauty.dao.ReviewDAO;
+import kr.co.beauty.vo.BasketVO;
 import kr.co.beauty.vo.ItemVO;
 import kr.co.beauty.vo.MemberVO;
+import kr.co.beauty.vo.PaymentVO;
 import kr.co.beauty.vo.ReviewVO;
 import kr.co.beauty.vo.StoreVO;
 
@@ -24,7 +26,6 @@ public class ItemService {
 
 	@Autowired
 	private ReviewDAO reviewDAO;
-
 	
 	private ModelAndView modelAndView;
 	private ItemVO itemVO;
@@ -82,12 +83,14 @@ public class ItemService {
 		return modelAndView;
 	}	
 	
-	public ModelAndView itemPayment(ItemVO itemVO, String MEM_ID) {
+	public ModelAndView itemInfo(BasketVO basketVO) {
 		modelAndView = new ModelAndView();
-		modelAndView.addObject("item",itemVO);
+		itemDAO.itemAmount(basketVO);
+		List<ItemVO> itemInfo = itemDAO.itemInfo(basketVO.getITEM_ID());
+		modelAndView.addObject("itemInfo",itemInfo);
 		memberVO = new MemberVO();
-		memberVO = itemDAO.itemPayment(MEM_ID);
-		modelAndView.addObject("mem",memberVO);
+		memberVO = itemDAO.memInfo(basketVO.getMEM_ID());
+		modelAndView.addObject("memInfo",memberVO);
 		modelAndView.setViewName("itemPayment");
 		return modelAndView;
 		

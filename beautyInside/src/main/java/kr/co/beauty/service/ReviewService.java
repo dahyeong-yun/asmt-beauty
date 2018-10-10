@@ -7,7 +7,6 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.co.beauty.dao.ItemDAO;
 import kr.co.beauty.dao.ReviewDAO;
 import kr.co.beauty.vo.ItemVO;
-import kr.co.beauty.vo.MemberVO;
 import kr.co.beauty.vo.ReviewVO;
 
 @Service

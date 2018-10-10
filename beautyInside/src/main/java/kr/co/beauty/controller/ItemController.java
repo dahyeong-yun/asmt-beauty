@@ -1,7 +1,6 @@
 package kr.co.beauty.controller;
 
 import java.io.IOException;
-
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.beauty.service.ItemService;
+import kr.co.beauty.vo.BasketVO;
 import kr.co.beauty.vo.ItemVO;
 
 @Controller
@@ -22,6 +22,7 @@ public class ItemController {
 	private ModelAndView modelAndView;
 	@Autowired
 	private ItemService itemService;
+
 	
 	// 아이템 검색 기능
 	@RequestMapping(value = "/item", method = RequestMethod.GET)
@@ -47,11 +48,11 @@ public class ItemController {
 	}
 	
 	//구매하기(결제 폼으로 이동)
-		@RequestMapping(value = "/item/payment", method = RequestMethod.POST)
-		public ModelAndView itemPayment(@ModelAttribute ItemVO itemVO, @RequestParam("MEM_ID") String MEM_ID){
-			modelAndView = new ModelAndView();
-			modelAndView = itemService.itemPayment(itemVO, MEM_ID);
-			return modelAndView;
-		}
-	
+	@RequestMapping(value = "/item/payment", method = RequestMethod.POST)
+	public ModelAndView itemPayment(@ModelAttribute BasketVO basketVO){
+		modelAndView = new ModelAndView();
+		modelAndView = itemService.itemInfo(basketVO);
+		return modelAndView;
+	}
 }
+

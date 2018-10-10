@@ -23,7 +23,7 @@
 		<!-- 버튼  -->
 		<div class="row">
 			<div class="card">
-			<div class="btn btn-primary ml-2" onclick="itemPayment({'ITEM_ID':'${detail.ITEM_ID}','ITEM_NAME':'${detail.ITEM_NAME}','ITEM_IMAGE':'${detail.ITEM_IMAGE}','ITEM_PRICE':'${detail.ITEM_PRICE}','MEM_ID':'${loginMember.MEM_ID}'})">제품 구입</div>
+			<div class="btn btn-primary ml-2" onclick="itemPayment()">제품 구입</div>
 			<button class="btn btn-primary ml-2" onclick="itemStore(${detail.ITEM_ID})">찜 하기</button>
 			
 			<input type="hidden" id="LOGIN_MEM_ID" value="${loginMember.MEM_ID}"/>
@@ -87,13 +87,24 @@
 			var form = document.createElement("form");
 			form.setAttribute("method", "post");
 			form.setAttribute("action", "/beauty/item/payment");
-			for(var key in params) {
-				var hiddenField = document.createElement("input");
-				hiddenField.setAttribute("type", "hidden");
-				hiddenField.setAttribute("name",key);
-				hiddenField.setAttribute("value", params[key]);
-				form.appendChild(hiddenField);
-			}
+			var hiddenField = document.createElement("input");
+			hiddenField.setAttribute("type", "hidden");
+			hiddenField.setAttribute("name","ITEM_ID");
+			hiddenField.setAttribute("value","${detail.ITEM_ID}");
+			form.appendChild(hiddenField);
+			
+			hiddenField = document.createElement("input");
+			hiddenField.setAttribute("type", "hidden");
+			hiddenField.setAttribute("name","MEM_ID");
+			hiddenField.setAttribute("value","${loginMember.MEM_ID}");
+			form.appendChild(hiddenField);
+			
+			hiddenField = document.createElement("input");
+			hiddenField.setAttribute("type", "hidden");
+			hiddenField.setAttribute("name","BASKET_AMOUNT");
+			hiddenField.setAttribute("value",1);
+			form.appendChild(hiddenField);
+			
 			document.body.appendChild(form);
 			form.submit();
 

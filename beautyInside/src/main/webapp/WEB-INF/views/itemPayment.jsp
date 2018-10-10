@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,17 +20,21 @@
 <form>
 <div>
 상품확인
+<c:forEach var="item" items="${itemInfo}">
 <div><img src ="${item.ITEM_IMAGE}"></div>
 <div>
-<p id="item_name">${item.ITEM_NAME}</p>
-<p id="price">${item.ITEM_PRICE}원</p>
+<p>${item.ITEM_NAME}</p>
+<p>${item.ITEM_PRICE}원</p>
 </div>
+</c:forEach>
 </div>
 <div>
 받는사람 정보
 <div>
-이름 : <input type="text" value="${mem.MEM_NAME}" id="name"><br>
-연락처 : <input type="text" value="${mem.MEM_EMAIL}" id="email">
+이름 : <input type="text" value="${memInfo.MEM_NAME}"><br>
+휴대폰 번호 : <input type="text" value="${memInfo.MEM_PHONE}" >
+주소 : <input type="text" value="${memInfo.MEM_ADDR}">
+이메일 : <input type="text" value="${memInfo.MEM_EMAIL}">
 </div>
 </div>
 <div>
@@ -44,12 +49,12 @@ IMP.request_pay({
     pg : 'html5_inicis', //ActiveX 결제창은 inicis를 사용
     pay_method : 'card', //card(신용카드), trans(실시간계좌이체), vbank(가상계좌), phone(휴대폰소액결제)
     merchant_uid : 'merchant_' + new Date().getTime(), //상점에서 관리하시는 고유 주문번호를 전달
-    name : '${item.ITEM_NAME}',
-    amount : '${item.ITEM_PRICE}',
-    buyer_email : '${mem.MEM_EMAIL}',
-    buyer_name : '${mem.MEM_NAME}',
-    buyer_tel : '010-1234-5678', //누락되면 이니시스 결제창에서 오류
-    buyer_addr : '서울특별시 강남구 삼성동',
+    name : '${itemInfo[0].ITEM_NAME}',
+    amount : '${itemInfo[0].ITEM_PRICE}',
+    buyer_email : '${memInfo.MEM_EMAIL}',
+    buyer_name : '${memInfo.MEM_NAME}',
+    buyer_tel : '${memInfo.MEM_PHONE}', //누락되면 이니시스 결제창에서 오류
+    buyer_addr : '${memInfo.MEM_ADDR}',
     buyer_postcode : '123-456'
 }, function(rsp) {
 	console.log(rsp)
@@ -60,7 +65,8 @@ IMP.request_pay({
     		type: 'POST',
     		dataType: 'json',
     		data: {
-	    		imp_uid : rsp.imp_uid
+	    		imp_uid : rsp.imp_uid //주문번호
+	    		
 	    		//기타 필요한 데이터가 있으면 추가 전달
     		}
     	}).done(function(data) {
