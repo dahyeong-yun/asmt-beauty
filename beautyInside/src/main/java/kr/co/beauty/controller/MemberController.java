@@ -85,6 +85,14 @@ public class MemberController {
 		return modelAndView;
 	}
 	
+	// 마이페이지_회원 탈퇴 
+	@RequestMapping(value = "/member/{MEM_ID}", method = RequestMethod.DELETE)
+	public String myPageMemberDrop(@PathVariable String MEM_ID) {
+		memberService.memberDrop(MEM_ID);
+		session.invalidate();
+		return "main";
+	}	
+	
 	// (page link) 마이페이지_주문목록/배송조회 페이지
 	@RequestMapping(value = "/member/orders/*", method = RequestMethod.GET)
 	public String myPageItemOrder() {

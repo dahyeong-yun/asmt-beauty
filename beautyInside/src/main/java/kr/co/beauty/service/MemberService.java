@@ -165,4 +165,9 @@ public class MemberService {
 		return modelAndView;
 	}
 
+	// 회원 탈퇴
+	public void memberDrop(String MEM_ID) {
+		memberDAO.memberDrop(MEM_ID);
+	}
+
 }

@@ -48,4 +48,9 @@ public class MemberDAO {
 		return sqlSession.selectOne("Member.idNullCheck", memberVO);
 	}
 
+	// 회원 탈퇴
+	public void memberDrop(String MEM_ID) {
+		sqlSession.delete("Member.memberDrop", MEM_ID);
+	}
+
 }

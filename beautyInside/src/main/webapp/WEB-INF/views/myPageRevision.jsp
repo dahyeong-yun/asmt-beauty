@@ -102,9 +102,14 @@
 								
 							</div>
 							<button type="reset" class="btn btn-danger">다시쓰기</button>
-							<button type="submit" class="btn btn-primary">변경하기</button>
+							<button type="submit" class="btn btn-primary mr-auto">변경하기</button>
 						</form>
 					</div>
+
+						<form class="form mt-4" action="/beauty/member/${loginMember.MEM_ID }" method="POST">
+							<input type="hidden" name="_method" value="delete" />
+							<button type="submit" class="btn btn-danger">회원 탈퇴</button>
+						</form>
 				</div>
 			</div>
 			
@@ -113,9 +118,6 @@
 	
 	<!-- 하단 -->
 	<%@include file="footer.jsp" %>
-	
-	<script type="text/javascript">
-	
-	</script>
+
 </body>
 </html>
