@@ -43,7 +43,7 @@
 						
 							<!-- 팔로워 리스트(나를 팔로우 하고 있는 사람들) -->
 							<div class="col">
-								<h4 class="display-4">팔로워 목록</h4>
+								<p>팔로워 목록</p>
 								<c:forEach var="follower" items="${followerList}">
 									<p>${follower.MEM_NAME}</p>
 								</c:forEach>
@@ -51,11 +51,23 @@
 							
 							<!-- 팔로잉 리스트(내가 팔로우 하고 있는 사람들) -->
 							<div class="col">
-								<h4 class="display-4">팔로잉 목록</h4>
-								<c:forEach var="following" items="${followerList}">
-									아이디 : <a href="/beauty/member/follow/${following.MEM_ID}">${following.MEM_ID}</a>
-									<p>이름 : ${following.MEM_NAME}</p>
-								</c:forEach>
+								<p><b>팔로잉 목록</b></p>
+								<table class="table">
+									<tr>
+										<th>아이디</th>
+										<th>이름</th>
+										<th>버튼</th>
+									</tr>
+									<c:forEach var="following" items="${followingList}">
+										<tr>
+											<td><a href="/beauty/member/follow/${following.MEM_ID}">${following.MEM_ID}</a></td>
+											<td>${following.MEM_NAME}<td>
+											<td>
+												<btn class="btn btn-warning" onclick="memberUnfollow()">Unfollow</btn>
+											</td>
+										</tr>
+									</c:forEach>
+								</table>
 							</div>
 						</div>
 					</div>
@@ -69,7 +81,10 @@
 	<%@include file="footer.jsp" %>
 	
 	<script type="text/javascript">
-	
+	function memberUnfollow() {
+		// 언팔을 하고
+		// 버튼을 비활성화
+	}
 	</script>
 </body>
 </html>
