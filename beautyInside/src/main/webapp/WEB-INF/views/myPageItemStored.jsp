@@ -16,6 +16,16 @@
 <title>:: Beauty Inside ::</title>
 <style>
 </style>
+<script>
+	/* 체크박스 전체선택, 전체해제 */
+	function checkAll(){
+	      if( $("#th_checkAll").is(':checked') ){
+	        $("input[name=checkRow]").prop("checked", true);
+	      }else{
+	        $("input[name=checkRow]").prop("checked", false);
+	      }
+	}
+</script>
 </head>
 <body class="bg-light">
 	<!-- 상단바 -->
@@ -44,7 +54,7 @@
 					
 						<table class="table table-striped table-bordered table-hover table-condensed">
 							<tr>
-								<td><input type="checkbox" value=""></td>
+								<td><input type="checkbox" name="checkAll" id="th_checkAll" onclick="checkAll();" value=""></td>
 								<td><button type="button" class="btn btn-danger">선택상품 삭제</button></td>
 								<td colspan="4">
 									<select class="form-control" id="#">
@@ -57,7 +67,7 @@
 							</tr>
 							<c:forEach var="memberStoredList" items="${memberStoredList}">
 							<tr>
-								<td><input type="checkbox" value=""></td>
+								<td><input type="checkbox" name="checkRow" value=""></td>
 								<td><img src="${memberStoredList.ITEM_IMAGE}" style="width: 50px; height: 50px;"></td>
 								<td>
 									${memberStoredList.ITEM_NAME}<br>
