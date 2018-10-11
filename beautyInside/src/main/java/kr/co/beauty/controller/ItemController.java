@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.co.beauty.service.ItemService;
 import kr.co.beauty.vo.BasketVO;
 import kr.co.beauty.vo.ItemVO;
+import kr.co.beauty.vo.PaymentVO;
 
 @Controller
 public class ItemController {
@@ -49,15 +50,22 @@ public class ItemController {
 	
 	//구매하기(결제 폼으로 이동)
 	@RequestMapping(value = "/item/payment", method = RequestMethod.POST)
-	public ModelAndView itemPayment(@ModelAttribute BasketVO basketVO){
+	public ModelAndView itemPayment(@ModelAttribute PaymentVO paymentVO){
 		modelAndView = new ModelAndView();
-		modelAndView = itemService.itemInfo(basketVO);
+		modelAndView = itemService.itemInfo(paymentVO);
 		return modelAndView;
 	}
 	
 	@RequestMapping(value = "/item/basketPage", method = RequestMethod.GET)
 	public String basketPage() {
 		return "basketPage";
+	}
+	
+	@RequestMapping(value = "/item/payment/complete", method = RequestMethod.POST)
+	public ModelAndView itemPaymentComplete(@ModelAttribute PaymentVO paymentVO){
+		modelAndView = new ModelAndView();
+		modelAndView = itemService.itemPaymetComplete(paymentVO);
+		return modelAndView;
 	}
 	
 

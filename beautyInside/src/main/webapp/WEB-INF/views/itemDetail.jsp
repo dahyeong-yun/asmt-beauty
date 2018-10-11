@@ -101,7 +101,7 @@
 			
 			hiddenField = document.createElement("input");
 			hiddenField.setAttribute("type", "hidden");
-			hiddenField.setAttribute("name","BASKET_AMOUNT");
+			hiddenField.setAttribute("name","PAY_AMOUNT");
 			hiddenField.setAttribute("value",1);
 			form.appendChild(hiddenField);
 			

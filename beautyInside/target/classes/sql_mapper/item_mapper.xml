@@ -62,20 +62,10 @@
 	<select id="itemDelete" parameterType="int" resultType="int">
 		DELETE FROM ITEM WHERE ITEM_ID = #{ITEM_ID}
 	</select>
-	
-	<!-- 제품 구매시 제품가격*수량  -->
-	<update id="itemAmount" parameterType="Basket">
-		UPDATE ITEM SET ITEM_PRICE=ITEM_PRICE*#{BASKET_AMOUNT} WHERE ITEM_ID=#{ITEM_ID}
-	</update>
-	
+
 	<!-- 제품 구매폼 이동시 제품 정보 -->
-	<select id="itemInfo" parameterType="int" resultType="Item">
-		SELECT * FROM ITEM WHERE ITEM_ID = #{ITEM_ID}
-	</select>	
-	
-	<!-- 제품 구매폼 이동시 구매자 정보 -->
-	<select id="memInfo" parameterType="String" resultType="Member">
-		SELECT * FROM MEMBER WHERE MEM_ID = #{MEM_ID}
+	<select id="itemInfo" parameterType="Payment" resultType="Payment">
+		SELECT ITEM_ID, ITEM_NAME, ITEM_IMAGE, ITEM_PRICE FROM ITEM WHERE ITEM_ID=#{ITEM_ID}
 	</select>	
 	
 	<!-- 마이페이지에서 제품 찜목록보기 -->
@@ -83,4 +73,8 @@
 		SELECT ITEM.ITEM_NAME, ITEM.ITEM_IMAGE, ITEM.ITEM_PRICE FROM ITEM, STORE WHERE STORE.MEM_ID = #{MEM_ID} AND STORE.ITEM_ID = ITEM.ITEM_ID
 	</select>
 	
+	<insert id="itemPaymetComplete" parameterType="Payment">
+		INSERT INTO PAYMENT(PAY_NUM,ITEM_ID,MEM_ID,PAY_NAME,PAY_PHONE,PAY_ADDR,PAY_MESSAGE,PAY_PRICE,PAY_DATE,PAY_METHOD,PAY_AMOUNT)
+		 VALUES(#{PAY_NUM},#{ITEM_ID},#{MEM_ID},#{MEM_NAME},#{MEM_PHONE},#{MEM_ADDR},#{PAY_MESSAGE},#{ITEM_PRICE},SYSDATE(),#{PAY_METHOD},#{PAY_AMOUNT})
+	</insert>
 </mapper>

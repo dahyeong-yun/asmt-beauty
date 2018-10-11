@@ -82,16 +82,19 @@ public class ItemService {
 		return modelAndView;
 	}	
 	
-	public ModelAndView itemInfo(BasketVO basketVO) {
+	public ModelAndView itemInfo(PaymentVO paymentVO) {
 		modelAndView = new ModelAndView();
-		itemDAO.itemAmount(basketVO);
-		List<ItemVO> itemInfo = itemDAO.itemInfo(basketVO.getITEM_ID());
-		modelAndView.addObject("itemInfo",itemInfo);
-		memberVO = new MemberVO();
-		memberVO = itemDAO.memInfo(basketVO.getMEM_ID());
-		modelAndView.addObject("memInfo",memberVO);
+		paymentVO = itemDAO.itemInfo(paymentVO);
+		modelAndView.addObject("itemInfo",paymentVO);
 		modelAndView.setViewName("itemPayment");
 		return modelAndView;
-		
+	}
+
+	public ModelAndView itemPaymetComplete(PaymentVO paymentVO) {
+		modelAndView = new ModelAndView();
+		itemDAO.itemPaymetComplete(paymentVO);
+		modelAndView.addObject("paynum",paymentVO.getPAY_NUM());
+		modelAndView.setViewName("itemPaymentComplete");
+		return modelAndView;
 	}
  }
