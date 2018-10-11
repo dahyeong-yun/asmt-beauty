@@ -110,8 +110,11 @@
 									</c:choose>
 							</td>
 							<td>
-							<input type="button" class="btn btn-primary" onclick="#" value="팁 수정"><br>
-							<input type="button" class="btn btn-danger" onclick="#" value="팁 삭제">
+							<input type="button" class="btn btn-primary" onclick="/beauty/adminPage/" value="팁 수정"><br>
+							<form action="/beauty/adminPage/${allTips.TIP_ID}" method="POST">
+							<input type="hidden" name="_method" value="delete" />
+							<button type="submit" class="btn btn-danger">팁 삭제</button>
+							</form>
 							</td>
 						</tr>
 						</c:forEach>

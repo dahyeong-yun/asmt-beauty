@@ -42,6 +42,11 @@ public class AdminDAO {
 		return sqlSession.insert("Tip.tipInsert", tipVO);
 	}
 	
+	//관리자 페이지 팁 삭제
+	public int tipDelete(int TIP_ID) {
+		return sqlSession.delete("Tip.tipDelete", TIP_ID);
+	}
+	
 	//관리자 페이지에서 모든 팁리스트 보기
 	public List<TipVO> adminPageTip() {
 		return sqlSession.selectList("Tip.adminPageTip");
