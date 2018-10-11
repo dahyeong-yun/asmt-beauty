@@ -112,6 +112,14 @@ public class AdminController {
 		return modelAndView;
 	}
 	
+	// 관리자 페이지 팁 삭제
+	@RequestMapping(value="/adminPage/{TIP_ID}", method = RequestMethod.DELETE)
+	public ModelAndView tipDelete(@PathVariable int TIP_ID, HttpServletResponse response) throws IOException {
+		modelAndView = new ModelAndView();
+		modelAndView = adminService.tipDelete(TIP_ID, response);
+		return modelAndView;
+	}
+	
 	// 관리자 전용 페이지 리뷰 관리
 	@RequestMapping(value = "/adminPage/review", method = RequestMethod.GET)
 	public ModelAndView adminPageReview() {

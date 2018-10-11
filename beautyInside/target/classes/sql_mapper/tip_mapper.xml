@@ -21,6 +21,11 @@
 	
 	<!-- 관리자 페이지 팁 등록 -->
 	<select id="tipInsert" parameterType="Tip" resultType="int">
-			INSERT INTO TIP(TIP_TITLE, TIP_THUMBNAIL, TIP_URL, AGE_ID, SKINTYPE_ID, GENDER_ID) VALUES(#{TIP_TITLE}, #{TIP_THUMBNAIL}, #{TIP_URL}, #{AGE_ID}, #{SKINTYPE_ID}, #{GENDER_ID})
+		INSERT INTO TIP(TIP_TITLE, TIP_THUMBNAIL, TIP_URL, AGE_ID, SKINTYPE_ID, GENDER_ID) VALUES(#{TIP_TITLE}, #{TIP_THUMBNAIL}, #{TIP_URL}, #{AGE_ID}, #{SKINTYPE_ID}, #{GENDER_ID})
+	</select>
+	
+	<!-- 관리자 페이지 팁 삭제 -->
+	<select id="tipDelete" parameterType="int" resultType="int">
+		DELETE FROM TIP WHERE TIP_ID = #{TIP_ID}
 	</select>
 </mapper>

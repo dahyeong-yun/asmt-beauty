@@ -78,6 +78,26 @@ public class AdminService {
 		return modelAndView;
 	}
 	
+	//관리자 페이지 팁 삭제
+	public ModelAndView tipDelete(int TIP_ID, HttpServletResponse response) throws IOException {
+		modelAndView = new ModelAndView();
+		PrintWriter out = response.getWriter();
+		int result = adminDAO.tipDelete(TIP_ID);
+		
+		if (result == 0) {
+			//삭제 실패시
+			out.println("<script>");
+			out.println("alert('삭제실패!');");
+			out.println("history.go(-1);");
+			out.println("</script>");
+			out.close(); 
+		} else {
+			//삭제 성공시
+			modelAndView.setViewName("redirect:/adminPage/tip"); 
+		}
+		return modelAndView;
+	}
+	
 	//관리자 페이지 팁 리스트
 	public ModelAndView adminPageTip() {
 		modelAndView = new ModelAndView();
