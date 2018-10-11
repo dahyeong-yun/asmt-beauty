@@ -98,6 +98,27 @@ public class AdminService {
 		return modelAndView;
 	}
 	
+	//관리자 페이지 팁 수정폼으로 팁정보 띄우기
+	public ModelAndView tipModify(int TIP_ID) {
+		modelAndView = new ModelAndView();
+		TipVO tipInfoModify = adminDAO.tipModify(TIP_ID);
+		if(tipInfoModify != null) {
+			modelAndView.addObject("tipInfoModify",tipInfoModify);
+			modelAndView.setViewName("adminPageTipModification");
+		}
+		return modelAndView;
+	}
+	
+	//관리자 페이지 팁 수정
+	public ModelAndView tipModifyForm(TipVO tipVO) {
+		modelAndView = new ModelAndView();
+		int result = adminDAO.tipModifyForm(tipVO);
+		if (result != 0) {
+			modelAndView.setViewName("redirect:/adminPage/tip"); // 변경 성공 시
+		} 
+		return modelAndView;
+	}
+	
 	//관리자 페이지 팁 리스트
 	public ModelAndView adminPageTip() {
 		modelAndView = new ModelAndView();
@@ -133,7 +154,7 @@ public class AdminService {
 		ItemVO itemInfoModify = adminDAO.itemModify(ITEM_ID);
 		if(itemInfoModify != null) {
 			modelAndView.addObject("itemInfoModify",itemInfoModify);
-			modelAndView.setViewName("adminPageModification");
+			modelAndView.setViewName("adminPageItemModification");
 		}
 		return modelAndView;
 	}
@@ -143,7 +164,7 @@ public class AdminService {
 		modelAndView = new ModelAndView();
 		int result = adminDAO.itemModifyForm(itemVO);
 		if (result != 0) {
-			modelAndView.setViewName("main"); // 변경 성공 시
+			modelAndView.setViewName("redirect:/adminPage/item"); // 변경 성공 시
 		} 
 		return modelAndView;
 	}

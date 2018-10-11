@@ -28,4 +28,14 @@
 	<select id="tipDelete" parameterType="int" resultType="int">
 		DELETE FROM TIP WHERE TIP_ID = #{TIP_ID}
 	</select>
+	
+	<!-- 관리자 페이지 팁 수정(정보 불러오기) -->
+	<select id="tipModify" parameterType="int" resultType="Tip">
+		SELECT * FROM TIP WHERE TIP_ID = #{TIP_ID}
+	</select>
+	
+	<!-- 관리자 페이지 팁 수정 -->
+	<select id="tipModifyForm" parameterType="Tip" resultType="Tip">
+		UPDATE TIP SET TIP_TITLE=#{TIP_TITLE},TIP_THUMBNAIL=#{TIP_THUMBNAIL},TIP_URL=#{TIP_URL},AGE_ID=#{AGE_ID},SKINTYPE_ID=#{SKINTYPE_ID},GENDER_ID=#{GENDER_ID} WHERE TIP_ID = #{TIP_ID}
+	</select>
 </mapper>

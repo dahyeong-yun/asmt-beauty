@@ -119,6 +119,22 @@ public class AdminController {
 		modelAndView = adminService.tipDelete(TIP_ID, response);
 		return modelAndView;
 	}
+
+	// 관리자 페이지 팁 수정 폼으로 이동(팁 정보 DB들려서 보여줌)
+	@RequestMapping(value="/adminPage/{TIP_ID}", method = RequestMethod.GET)
+	public ModelAndView tipModify(@PathVariable int TIP_ID) {
+		modelAndView = new ModelAndView();
+		modelAndView = adminService.tipModify(TIP_ID);
+		return modelAndView;
+	}
+	
+	// 관리자 페이지 팁 수정
+	@RequestMapping(value="/adminPage/{TIP_ID}", method = RequestMethod.PUT)
+	public ModelAndView tipModifyForm(@ModelAttribute TipVO tipVO) {
+		modelAndView = new ModelAndView();
+		modelAndView = adminService.tipModifyForm(tipVO);
+		return modelAndView;
+	}
 	
 	// 관리자 전용 페이지 리뷰 관리
 	@RequestMapping(value = "/adminPage/review", method = RequestMethod.GET)

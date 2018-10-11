@@ -110,10 +110,12 @@
 									</c:choose>
 							</td>
 							<td>
-							<input type="button" class="btn btn-primary" onclick="/beauty/adminPage/" value="팁 수정"><br>
+							<form action="/beauty/adminPage/${allTips.TIP_ID}" method="GET">
+								<button type="submit" class="btn btn-primary">팁 수정</button>
+							</form>
 							<form action="/beauty/adminPage/${allTips.TIP_ID}" method="POST">
-							<input type="hidden" name="_method" value="delete" />
-							<button type="submit" class="btn btn-danger">팁 삭제</button>
+								<input type="hidden" name="_method" value="delete" />
+								<button type="submit" class="btn btn-danger">팁 삭제</button>
 							</form>
 							</td>
 						</tr>
