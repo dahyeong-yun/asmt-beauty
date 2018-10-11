@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.beauty.service.AdminService;
 import kr.co.beauty.vo.ItemVO;
+import kr.co.beauty.vo.MemberVO;
 
 
 
@@ -57,6 +58,22 @@ public class AdminController {
 		return "adminPageItemWrite";
 	}
 	
+	// 관리자 페이지 제품 수정 폼으로 이동(제품 정보 DB들려서 보여줌)
+	@RequestMapping(value = "/adminPage/itemModify/{ITEM_ID}", method = RequestMethod.GET)
+	public ModelAndView itemModify(@PathVariable("ITEM_ID") int ITEM_ID) {
+		modelAndView = new ModelAndView();
+		modelAndView = adminService.itemModify(ITEM_ID);
+		return modelAndView;
+	}
+	
+	// 관리자 페이지 제품 수정
+	@RequestMapping(value = "/adminPage/itemModifyForm", method = RequestMethod.POST)
+	public ModelAndView itemModifyForm(@ModelAttribute ItemVO itemVO) {
+		modelAndView = new ModelAndView();
+		modelAndView = adminService.itemModifyForm(itemVO);
+		return modelAndView;
+	}
+	
 	// 관리자전용 페이지 제품 등록
 	@RequestMapping(value = "/adminPage/itemWriteForm", method = RequestMethod.POST)
 	public ModelAndView itemWriteForm(@ModelAttribute ItemVO itemVO) {
@@ -66,7 +83,7 @@ public class AdminController {
 	}
 	
 	// 관리자전용 페이지 제품 삭제
-	@RequestMapping(value ="adminPage/itemDelete/{ITEM_ID}", method = RequestMethod.GET)
+	@RequestMapping(value ="/adminPage/itemDelete/{ITEM_ID}", method = RequestMethod.GET)
 	public ModelAndView itemDelete(@PathVariable("ITEM_ID") int ITEM_ID, HttpServletResponse response) throws IOException {
 		modelAndView = new ModelAndView();
 		modelAndView = adminService.itemDelete(ITEM_ID, response);

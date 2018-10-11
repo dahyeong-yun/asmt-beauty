@@ -47,4 +47,14 @@ public class AdminDAO {
 		return sqlSession.delete("Item.itemDelete",ITEM_ID);
 	}
 
+	//관리자 페이지 제품 수정폼(제품 정보 불러오기)
+	public ItemVO itemModify(int ITEM_ID) {
+		return sqlSession.selectOne("Item.itemModify",ITEM_ID);
+	}
+
+	//관리자 페이지 제품 수정
+	public int itemModifyForm(ItemVO itemVO) {
+		return sqlSession.update("Item.itemModifyForm", itemVO);
+	}
+
 }
