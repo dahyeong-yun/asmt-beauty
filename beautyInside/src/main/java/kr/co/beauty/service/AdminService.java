@@ -1,6 +1,10 @@
 package kr.co.beauty.service;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -65,6 +69,25 @@ public class AdminService {
 		List<TipVO> allTips = adminDAO.adminPageTip();
 		modelAndView.addObject("allTips", allTips);
 		modelAndView.setViewName("adminPageTip");
+		return modelAndView;
+	}
+
+	public ModelAndView itemDelete(int ITEM_ID, HttpServletResponse response) throws IOException {
+		modelAndView = new ModelAndView();
+		PrintWriter out = response.getWriter();
+		int result = adminDAO.itemDelete(ITEM_ID);
+		
+		if (result == 0) {
+			//삭제 실패시
+			out.println("<script>");
+			out.println("alert('삭제실패!');");
+			out.println("history.go(-1);");
+			out.println("</script>");
+			out.close(); 
+		} else {
+			//삭제 성공시
+			modelAndView.setViewName("redirect:/adminPage/item"); 
+		}
 		return modelAndView;
 	}
 }

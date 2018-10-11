@@ -48,6 +48,11 @@
 		INSERT INTO ITEM(ITEM_NAME, ITEM_BRAND, ITEM_CATEGORY, AGE_ID, SKINTYPE_ID, GENDER_ID, ITEM_PRICE, ITEM_IMAGE) VALUES(#{ITEM_NAME}, #{ITEM_BRAND}, #{ITEM_CATEGORY}, #{AGE_ID}, #{SKINTYPE_ID}, #{GENDER_ID}, #{ITEM_PRICE}, #{ITEM_IMAGE})
 	</select>
 	
+	<!-- 관리자 페이지 제품 삭제 -->
+	<select id="itemDelete" parameterType="int" resultType="int">
+		DELETE FROM ITEM WHERE ITEM_ID = #{ITEM_ID}
+	</select>
+	
 	<!-- 제품 구매시 제품가격*수량  -->
 	<update id="itemAmount" parameterType="Basket">
 		UPDATE ITEM SET ITEM_PRICE=ITEM_PRICE*#{BASKET_AMOUNT} WHERE ITEM_ID=#{ITEM_ID}
@@ -67,4 +72,5 @@
 	<select id="memberStoredItemList" parameterType="String" resultType="Item">
 		SELECT ITEM.ITEM_NAME, ITEM.ITEM_IMAGE, ITEM.ITEM_PRICE FROM ITEM, STORE WHERE STORE.MEM_ID = #{MEM_ID} AND STORE.ITEM_ID = ITEM.ITEM_ID
 	</select>
+	
 </mapper>
