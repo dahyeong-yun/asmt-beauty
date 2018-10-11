@@ -44,22 +44,22 @@
 						<input type="submit" value="등록" class="btn btn-success" style="float: right;"><br><br>
 							<table class="table table-striped table-bordered table-hover table-condensed">
 								<tr>
-									<td>팁제목</td>
+									<th>팁제목</th>
 									<td><input type="text" name="TIP_TITLE" class="form-control"></td>
 								</tr>
 								<tr>
-									<td>팁사진</td>
+									<th>팁사진</th>
 									<td>
 									추후 썸머노트 활용!
 									<input type="hidden" name="TIP_THUMBNAIL" value="#">
 									</td>
 								</tr>
 								<tr>
-									<td>팁 URL</td>
+									<th>팁 URL</th>
 									<td><input type="text" name="TIP_URL"  class="form-control"></td>
 								</tr>
 								<tr>
-									<td>연령대</td>
+									<th>연령대</th>
 									<td>
 										<select name="AGE_ID" class="form-control">
 											<option value="1">10대</option>
@@ -70,7 +70,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td>피부타입</td>
+									<th>피부타입</th>
 									<td>
 										<div class="btn-group" data-toggle="buttons">
 											<label class="btn btn-secondary active">
@@ -86,7 +86,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td>성별</td>
+									<th>성별</th>
 									<td>
 										<div class="btn-group" data-toggle="buttons">
 											<label class="btn btn-secondary">

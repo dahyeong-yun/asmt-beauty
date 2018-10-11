@@ -43,12 +43,12 @@
 				<td>장바구니 번호+체크박스(체크시 전체 장바구니 상품 체크됨)
 				<input type="button" name="button" value="전체주문" onClick="this.value=check(this.form.checkbox)">
 				</td>
-				<td>제품명</td>
-				<td>수량</td>
-				<td>상품 금액</td>
-				<td>배송비</td>
-				<td>주문금액</td>
-				<td>주문 취소여부</td>
+				<th>제품명</th>
+				<th>수량</th>
+				<th>상품 금액</th>
+				<th>배송비</th>
+				<th>주문금액</th>
+				<th>주문 취소여부</th>
 			</tr>
 			<tr>
 				<td>123123+체크박스(체크시 개별 상품 체크)<label>

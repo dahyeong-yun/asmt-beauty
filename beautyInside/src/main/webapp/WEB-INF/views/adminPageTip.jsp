@@ -43,12 +43,12 @@
 					<input type="button" style="float: right;" class="btn btn-success" onclick="location.href='/beauty/adminPage/tipWrite'" value="팁 등록"><br><br>
 					<table class="table table-striped table-bordered table-hover table-condensed">
 						<tr>
-							<td>팁 제목</td>
-							<td>팁 사진(클릭가능)</td>
-							<td>팁 나이</td>
-							<td>팁 피부타입</td>
-							<td>팁 성별</td>
-							<td>수정 삭제 여부</td>
+							<th>팁 제목</th>
+							<th>팁 사진(클릭가능)</th>
+							<th>팁 나이</th>
+							<th>팁 피부타입</th>
+							<th>팁 성별</th>
+							<th>수정 삭제 여부</th>
 						</tr>
 						<c:forEach var="allTips" items="${allTips}">
 						<tr>

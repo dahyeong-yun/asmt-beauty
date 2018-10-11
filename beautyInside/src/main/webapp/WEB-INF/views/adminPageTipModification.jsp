@@ -45,58 +45,130 @@
 							<input type="submit" value="수정" class="btn btn-success" style="float: right;"><br><br>
 							<table class="table table-striped table-bordered table-hover table-condensed">
 								<tr>
-									<td>팁제목</td>
+									<th>팁제목</th>
 									<td><input type="text" value="${tipInfoModify.TIP_TITLE}" name="TIP_TITLE" class="form-control"></td>
 								</tr>
 								<tr>
-									<td>팁사진</td>
+									<th>팁사진</th>
 									<td>
 									추후 썸머노트 활용!
 									<input type="hidden" name="TIP_THUMBNAIL" value="#">
 									</td>
 								</tr>
 								<tr>
-									<td>팁 URL</td>
+									<th>팁 URL</th>
 									<td><input type="text" value="${tipInfoModify.TIP_URL}" name="TIP_URL"  class="form-control"></td>
 								</tr>
 								<tr>
-									<td>연령대</td>
+									<th>연령대</th>
 									<td>
-										<select name="AGE_ID" class="form-control">
-											<option value="1">10대</option>
-											<option value="2">20대</option>
-											<option value="3">30대</option>
-											<option value="4">40대</option>
-										</select>
+									<c:choose>
+										<c:when test="${tipInfoModify.AGE_ID == 1}">
+											<select name="AGE_ID" class="form-control">
+												<option value="1" selected="selected">10대</option>
+												<option value="2">20대</option>
+												<option value="3">30대</option>
+												<option value="4">40대</option>
+											</select>
+										</c:when>
+										<c:when test="${tipInfoModify.AGE_ID == 2}">
+											<select name="AGE_ID" class="form-control">
+												<option value="1">10대</option>
+												<option value="2" selected="selected">20대</option>
+												<option value="3">30대</option>
+												<option value="4">40대</option>
+											</select>
+										</c:when>
+										<c:when test="${tipInfoModify.AGE_ID == 3}">
+											<select name="AGE_ID" class="form-control">
+												<option value="1">10대</option>
+												<option value="2">20대</option>
+												<option value="3" selected="selected">30대</option>
+												<option value="4">40대</option>
+											</select>
+										</c:when>
+										<c:when test="${tipInfoModify.AGE_ID == 4}">
+											<select name="AGE_ID" class="form-control">
+												<option value="1">10대</option>
+												<option value="2">20대</option>
+												<option value="3">30대</option>
+												<option value="4" selected="selected">40대</option>
+											</select>
+										</c:when>
+									</c:choose>
 									</td>
 								</tr>
 								<tr>
-									<td>피부타입</td>
+									<th>피부타입</th>
 									<td>
-										<div class="btn-group" data-toggle="buttons">
-											<label class="btn btn-secondary active">
-												<input type="radio" name="SKINTYPE_ID" value="1" /> 지성
-											</label>
-											<label class="btn btn-secondary">
-												<input type="radio" name="SKINTYPE_ID" value="2" /> 건성
-											</label>
-											<label class="btn btn-secondary">
-												<input type="radio" name="SKINTYPE_ID" value="3" /> 복합성
-											</label>
-										</div>
+									<c:choose>
+										<c:when test="${tipInfoModify.SKINTYPE_ID == 1}">
+											<div class="btn-group" data-toggle="buttons">
+												<label class="btn btn-secondary active">
+													<input type="radio" name="SKINTYPE_ID" value="1" checked="checked"/> 지성
+												</label>
+												<label class="btn btn-secondary">
+													<input type="radio" name="SKINTYPE_ID" value="2" /> 건성
+												</label>
+												<label class="btn btn-secondary">
+													<input type="radio" name="SKINTYPE_ID" value="3" /> 복합성
+												</label>
+											</div>
+										</c:when>
+										<c:when test="${tipInfoModify.SKINTYPE_ID == 2}">
+											<div class="btn-group" data-toggle="buttons">
+												<label class="btn btn-secondary active">
+													<input type="radio" name="SKINTYPE_ID" value="1" /> 지성
+												</label>
+												<label class="btn btn-secondary">
+													<input type="radio" name="SKINTYPE_ID" value="2" checked="checked"/> 건성
+												</label>
+												<label class="btn btn-secondary">
+													<input type="radio" name="SKINTYPE_ID" value="3" /> 복합성
+												</label>
+											</div>
+										</c:when>
+										<c:when test="${tipInfoModify.SKINTYPE_ID == 3}">
+											<div class="btn-group" data-toggle="buttons">
+												<label class="btn btn-secondary active">
+													<input type="radio" name="SKINTYPE_ID" value="1" /> 지성
+												</label>
+												<label class="btn btn-secondary">
+													<input type="radio" name="SKINTYPE_ID" value="2" /> 건성
+												</label>
+												<label class="btn btn-secondary">
+													<input type="radio" name="SKINTYPE_ID" value="3" checked="checked"/> 복합성
+												</label>
+											</div>
+										</c:when>
+									</c:choose>
 									</td>
 								</tr>
 								<tr>
-									<td>성별</td>
+									<th>성별</th>
 									<td>
+									<c:choose>
+										<c:when test="${tipInfoModify.GENDER_ID == 1 }">
 										<div class="btn-group" data-toggle="buttons">
 											<label class="btn btn-secondary">
-												<input type="radio" name="GENDER_ID" value="1" /> 남자
+												<input type="radio" name="GENDER_ID" value="1" checked="checked"/> 남자
 											</label>
 											<label class="btn btn-secondary active">
 												<input type="radio" name="GENDER_ID" value="2" /> 여자
 											</label>
 										</div>
+										</c:when>
+										<c:when test="${tipInfoModify.GENDER_ID == 2 }">
+										<div class="btn-group" data-toggle="buttons">
+											<label class="btn btn-secondary">
+												<input type="radio" name="GENDER_ID" value="1"/> 남자
+											</label>
+											<label class="btn btn-secondary active">
+												<input type="radio" name="GENDER_ID" value="2" checked="checked"/> 여자
+											</label>
+										</div>
+										</c:when>
+									</c:choose>
 									</td>
 								</tr>
 							</table>

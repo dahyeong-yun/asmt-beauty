@@ -42,10 +42,10 @@
 					<div class="container" >
 					<table class="table table-striped table-bordered table-hover table-condensed">
 						<tr>
-							<td>광고 번호</td>
-							<td>광고 제목</td>
-							<td>광고 사진</td>
-							<td>광고 제품</td>
+							<th>광고 번호</th>
+							<th>광고 제목</th>
+							<th>광고 사진</th>
+							<th>광고 제품</th>
 						</tr>
 						
 						<c:forEach var="allTips" items="${allTips}">

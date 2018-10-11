@@ -43,18 +43,18 @@
 							<input type="hidden" name="ITEM_ID" value="${itemInfoModify.ITEM_ID}">
 							<table class="table table-striped table-bordered table-hover table-condensed">
 								<tr>
-									<td>제품 이미지</td>
+									<th>제품 이미지</th>
 									<td><img src="${itemInfoModify.ITEM_IMAGE}" style="width: 80px; height: 80px;"></td>								</tr>
 								<tr>
-									<td>제품명</td>
+									<th>제품명</th>
 									<td><input type="text" name="ITEM_NAME" value="${itemInfoModify.ITEM_NAME}" class="form-control"></td>
 								</tr>
 								<tr>
-									<td>브랜드</td>
+									<th>브랜드</th>
 									<td>${itemInfoModify.ITEM_BRAND}</td>
 								</tr>
 								<tr>
-									<td>카테고리</td>
+									<th>카테고리</th>
 									<td>
 										<select name="ITEM_CATEGORY" class="form-control">
 											<option value="skincare">스킨케어</option>
@@ -62,47 +62,119 @@
 									</td>
 								</tr>
 								<tr>
-									<td>가격 (임시)</td>
+									<th>가격 (임시)</th>
 									<td><input type="text" name="ITEM_PRICE" value="${itemInfoModify.ITEM_PRICE}" class="form-control"></td>
 								</tr>
 								<tr>
-									<td>나이대</td>
+									<th>나이대</th>
 									<td>
-										<select name="AGE_ID" class="form-control">
-											<option value="1">10대</option>
-											<option value="2">20대</option>
-											<option value="3">30대</option>
-											<option value="4">40대</option>
-										</select>
+									<c:choose>
+										<c:when test="${itemInfoModify.AGE_ID == 1}">
+											<select name="AGE_ID" class="form-control">
+												<option value="1" selected="selected">10대</option>
+												<option value="2">20대</option>
+												<option value="3">30대</option>
+												<option value="4">40대</option>
+											</select>
+										</c:when>
+										<c:when test="${itemInfoModify.AGE_ID == 2}">
+											<select name="AGE_ID" class="form-control">
+												<option value="1">10대</option>
+												<option value="2" selected="selected">20대</option>
+												<option value="3">30대</option>
+												<option value="4">40대</option>
+											</select>
+										</c:when>
+										<c:when test="${itemInfoModify.AGE_ID == 3}">
+											<select name="AGE_ID" class="form-control">
+												<option value="1">10대</option>
+												<option value="2">20대</option>
+												<option value="3" selected="selected">30대</option>
+												<option value="4">40대</option>
+											</select>
+										</c:when>
+										<c:when test="${itemInfoModify.AGE_ID == 4}">
+											<select name="AGE_ID" class="form-control">
+												<option value="1">10대</option>
+												<option value="2">20대</option>
+												<option value="3">30대</option>
+												<option value="4" selected="selected">40대</option>
+											</select>
+										</c:when>
+									</c:choose>
 									</td>
 								</tr>
 								<tr>
-									<td>피부타입</td>
+									<th>피부타입</th>
 									<td>
-										<div class="btn-group" data-toggle="buttons">
-											<label class="btn btn-secondary active">
-												<input type="radio" name="SKINTYPE_ID" value="1" /> 지성
-											</label>
-											<label class="btn btn-secondary">
-												<input type="radio" name="SKINTYPE_ID" value="2" /> 건성
-											</label>
-											<label class="btn btn-secondary">
-												<input type="radio" name="SKINTYPE_ID" value="3" /> 복합성
-											</label>
-										</div>
+									<c:choose>
+										<c:when test="${itemInfoModify.SKINTYPE_ID == 1}">
+											<div class="btn-group" data-toggle="buttons">
+												<label class="btn btn-secondary active">
+													<input type="radio" name="SKINTYPE_ID" value="1" checked="checked"/> 지성
+												</label>
+												<label class="btn btn-secondary">
+													<input type="radio" name="SKINTYPE_ID" value="2" /> 건성
+												</label>
+												<label class="btn btn-secondary">
+													<input type="radio" name="SKINTYPE_ID" value="3" /> 복합성
+												</label>
+											</div>
+										</c:when>
+										<c:when test="${itemInfoModify.SKINTYPE_ID == 2}">
+											<div class="btn-group" data-toggle="buttons">
+												<label class="btn btn-secondary active">
+													<input type="radio" name="SKINTYPE_ID" value="1" /> 지성
+												</label>
+												<label class="btn btn-secondary">
+													<input type="radio" name="SKINTYPE_ID" value="2" checked="checked"/> 건성
+												</label>
+												<label class="btn btn-secondary">
+													<input type="radio" name="SKINTYPE_ID" value="3" /> 복합성
+												</label>
+											</div>
+										</c:when>
+										<c:when test="${itemInfoModify.SKINTYPE_ID == 3}">
+											<div class="btn-group" data-toggle="buttons">
+												<label class="btn btn-secondary active">
+													<input type="radio" name="SKINTYPE_ID" value="1" /> 지성
+												</label>
+												<label class="btn btn-secondary">
+													<input type="radio" name="SKINTYPE_ID" value="2" /> 건성
+												</label>
+												<label class="btn btn-secondary">
+													<input type="radio" name="SKINTYPE_ID" value="3" checked="checked"/> 복합성
+												</label>
+											</div>
+										</c:when>
+									</c:choose>
 									</td>
 								</tr>
 								<tr>
-									<td>성별</td>
+									<th>성별</th>
 									<td>
+									<c:choose>
+										<c:when test="${itemInfoModify.GENDER_ID == 1 }">
 										<div class="btn-group" data-toggle="buttons">
 											<label class="btn btn-secondary">
-												<input type="radio" name="GENDER_ID" value="1" /> 남자
+												<input type="radio" name="GENDER_ID" value="1" checked="checked"/> 남자
 											</label>
 											<label class="btn btn-secondary active">
 												<input type="radio" name="GENDER_ID" value="2" /> 여자
 											</label>
 										</div>
+										</c:when>
+										<c:when test="${itemInfoModify.GENDER_ID == 2 }">
+										<div class="btn-group" data-toggle="buttons">
+											<label class="btn btn-secondary">
+												<input type="radio" name="GENDER_ID" value="1"/> 남자
+											</label>
+											<label class="btn btn-secondary active">
+												<input type="radio" name="GENDER_ID" value="2" checked="checked"/> 여자
+											</label>
+										</div>
+										</c:when>
+									</c:choose>
 									</td>
 								</tr>
 								<tr>
