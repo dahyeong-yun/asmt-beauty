@@ -35,20 +35,22 @@
 					<a href="/beauty/adminPage/ads" class="list-group-item">광고관리</a>
 				</div>
 			</div>
-
 			<!-- 관리자 페이지 우측 메뉴 -->
 			<div class="col-md-9">
 				<div class="p-4 bg-white rounded shadow-sm">
 					<div class="container" >
-						<form action="/beauty/adminPage/itemWriteForm" method="POST">
+						<form action="/beauty/adminPage/itemModifyForm" method="POST">
 							<table class="table table-striped table-bordered table-hover table-condensed">
 								<tr>
+									<td>제품 이미지</td>
+									<td><img src="${itemInfoModify.ITEM_IMAGE}" style="width: 80px; height: 80px;"></td>								</tr>
+								<tr>
 									<td>제품명</td>
-									<td><input type="text" name="ITEM_NAME" class="form-control"></td>
+									<td><input type="text" name="ITEM_NAME" value="${itemInfoModify.ITEM_NAME}" class="form-control"></td>
 								</tr>
 								<tr>
 									<td>브랜드</td>
-									<td><input type="text" name="ITEM_BRAND" class="form-control"></td>
+									<td>${itemInfoModify.ITEM_BRAND}</td>
 								</tr>
 								<tr>
 									<td>카테고리</td>
@@ -60,11 +62,7 @@
 								</tr>
 								<tr>
 									<td>가격 (임시)</td>
-									<td><input type="text" name="ITEM_PRICE"  class="form-control"></td>
-								</tr>
-								<tr>
-									<td>이미지 (임시)</td>
-									<td><input type="text" name="ITEM_IMAGE"  class="form-control"></td>
+									<td><input type="text" name="ITEM_PRICE" value="${itemInfoModify.ITEM_PRICE}" class="form-control"></td>
 								</tr>
 								<tr>
 									<td>나이대</td>
@@ -108,7 +106,7 @@
 								</tr>
 								<tr>
 									<td colspan="2">
-										<input type="submit" value="작성" class="btn btn-primary">
+										<input type="submit" value="수정" class="btn btn-primary">
 									</td>
 								</tr>
 							</table>

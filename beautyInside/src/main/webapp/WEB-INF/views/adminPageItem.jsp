@@ -56,7 +56,10 @@
 							<td>${allItems.ITEM_NAME}</td>
 							<td>리뷰처리필요!(item 테이블 말고 review테이블로 접근)</td>
 							<td>${allItems.ITEM_BRAND}</td>
-							<td><input type="button" class="btn btn-danger" onclick="location.href='/beauty/adminPage/itemDelete/${allItems.ITEM_ID}'" value="제품 삭제"></td>
+							<td>
+							<input type="button" class="btn btn-primary" onclick="location.href='/beauty/adminPage/itemModify/${allItems.ITEM_ID}'" value="제품 수정">
+							<input type="button" class="btn btn-danger" onclick="location.href='/beauty/adminPage/itemDelete/${allItems.ITEM_ID}'" value="제품 삭제">
+							</td>
 						</tr>
 						</c:forEach>
 					</table>

@@ -48,6 +48,16 @@
 		INSERT INTO ITEM(ITEM_NAME, ITEM_BRAND, ITEM_CATEGORY, AGE_ID, SKINTYPE_ID, GENDER_ID, ITEM_PRICE, ITEM_IMAGE) VALUES(#{ITEM_NAME}, #{ITEM_BRAND}, #{ITEM_CATEGORY}, #{AGE_ID}, #{SKINTYPE_ID}, #{GENDER_ID}, #{ITEM_PRICE}, #{ITEM_IMAGE})
 	</select>
 	
+	<!-- 관리자 페이지 제품 수정(정보 불러오기) -->
+	<select id="itemModify" parameterType="int" resultType="Item">
+		SELECT * FROM ITEM WHERE ITEM_ID = #{ITEM_ID}
+	</select>
+	
+	<!-- 관리자페이지 제품 수정 -->
+	<select id="itemModifyForm" parameterType="Item" resultType="Item">
+		UPDATE ITEM SET ITEM_NAME=#{ITEM_NAME},ITEM_CATEGORY=#{ITEM_CATEGORY},ITEM_PRICE=#{ITEM_PRICE},AGE_ID=#{AGE_ID},SKINTYPE_ID=#{SKINTYPE_ID},GENDER_ID=#{GENDER_ID}
+	</select>
+	
 	<!-- 관리자 페이지 제품 삭제 -->
 	<select id="itemDelete" parameterType="int" resultType="int">
 		DELETE FROM ITEM WHERE ITEM_ID = #{ITEM_ID}

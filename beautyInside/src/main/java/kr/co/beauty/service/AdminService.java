@@ -22,6 +22,7 @@ public class AdminService {
 	private AdminDAO adminDAO;
 	private ModelAndView modelAndView;
 	
+	private ItemVO itemVO;
 	//관리자 페이지에서 멤버 리스트
 	public ModelAndView adminPageMember() {
 		modelAndView = new ModelAndView();
@@ -72,6 +73,7 @@ public class AdminService {
 		return modelAndView;
 	}
 
+	//관리자 페이지 제품 삭제
 	public ModelAndView itemDelete(int ITEM_ID, HttpServletResponse response) throws IOException {
 		modelAndView = new ModelAndView();
 		PrintWriter out = response.getWriter();
@@ -88,6 +90,27 @@ public class AdminService {
 			//삭제 성공시
 			modelAndView.setViewName("redirect:/adminPage/item"); 
 		}
+		return modelAndView;
+	}
+	
+	//관리자 페이지 제품 수정폼으로 제품정보 띄우기
+	public ModelAndView itemModify(int ITEM_ID) {
+		modelAndView = new ModelAndView();
+		ItemVO itemInfoModify = adminDAO.itemModify(ITEM_ID);
+		if(itemInfoModify != null) {
+			modelAndView.addObject("itemInfoModify",itemInfoModify);
+			modelAndView.setViewName("adminPageModification");
+		}
+		return modelAndView;
+	}
+
+	//관리자 페이지 제품 수정
+	public ModelAndView itemModifyForm(ItemVO itemVO) {
+		modelAndView = new ModelAndView();
+		int result = adminDAO.itemModifyForm(itemVO);
+		if (result != 0) {
+			modelAndView.setViewName("main"); // 변경 성공 시
+		} 
 		return modelAndView;
 	}
 }
