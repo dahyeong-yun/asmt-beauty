@@ -43,15 +43,15 @@
 						<form action="/beauty/adminPage/itemWriteForm" method="POST">
 							<table class="table table-striped table-bordered table-hover table-condensed">
 								<tr>
-									<td>제품명</td>
+									<th>제품명</th>
 									<td><input type="text" name="ITEM_NAME" class="form-control"></td>
 								</tr>
 								<tr>
-									<td>브랜드</td>
+									<th>브랜드</th>
 									<td><input type="text" name="ITEM_BRAND" class="form-control"></td>
 								</tr>
 								<tr>
-									<td>카테고리</td>
+									<th>카테고리</th>
 									<td>
 										<select name="ITEM_CATEGORY" class="form-control">
 											<option value="skincare">스킨케어</option>
@@ -59,15 +59,15 @@
 									</td>
 								</tr>
 								<tr>
-									<td>가격 (임시)</td>
+									<th>가격 (임시)</th>
 									<td><input type="text" name="ITEM_PRICE"  class="form-control"></td>
 								</tr>
 								<tr>
-									<td>이미지 (임시)</td>
+									<th>이미지 (임시)</th>
 									<td><input type="text" name="ITEM_IMAGE"  class="form-control"></td>
 								</tr>
 								<tr>
-									<td>나이대</td>
+									<th>나이대</th>
 									<td>
 										<select name="AGE_ID" class="form-control">
 											<option value="1">10대</option>
@@ -78,7 +78,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td>피부타입</td>
+									<th>피부타입</th>
 									<td>
 										<div class="btn-group" data-toggle="buttons">
 											<label class="btn btn-secondary active">
@@ -94,7 +94,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td>성별</td>
+									<th>성별</th>
 									<td>
 										<div class="btn-group" data-toggle="buttons">
 											<label class="btn btn-secondary">

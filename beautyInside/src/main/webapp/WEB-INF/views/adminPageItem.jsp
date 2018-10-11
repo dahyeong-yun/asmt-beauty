@@ -42,12 +42,12 @@
 					<input type="button" style="float: right;" class="btn btn-success" onclick="location.href='/beauty/adminPage/itemWrite'" value="제품 등록"><br><br>
 					<table class="table table-striped table-bordered table-hover table-condensed">
 						<tr>
-							<td>카테고리</td>
-							<td>이미지</td>
-							<td>제품명</td>
-							<td>별점</td>
-							<td>브랜드</td>
-							<td>수정 삭제 여부</td>
+							<th>카테고리</th>
+							<th>이미지</th>
+							<th>제품명</th>
+							<th>별점</th>
+							<th>브랜드</th>
+							<th>수정 삭제 여부</th>
 						</tr>
 						<c:forEach var="allItems" items="${allItems}">
 						<tr>

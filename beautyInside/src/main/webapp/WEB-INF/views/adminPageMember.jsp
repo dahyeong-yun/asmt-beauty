@@ -42,10 +42,10 @@
 					<div class="container" >
 					<table class="table table-striped table-bordered table-hover table-condensed">
 						<tr>
-							<td>아아디</td>
-							<td>이메일</td>
-							<td></td>
-							<td></td>
+							<th>아아디</th>
+							<th>이메일</th>
+							<th></th>
+							<th></th>
 						</tr>
 						<c:forEach var="allMembers" items="${allMembers}">
 						<tr>
