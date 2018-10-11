@@ -35,30 +35,28 @@
 					<a href="/beauty/adminPage/ads" class="list-group-item">광고관리</a>
 				</div>
 			</div>
-
 			<!-- 관리자 페이지 우측 메뉴 -->
 			<div class="col-md-9">
 				<div class="p-4 bg-white rounded shadow-sm">
 					<div class="container" >
-<<<<<<< HEAD
 					<input type="button" style="float: right;" class="btn btn-success" onclick="location.href='/beauty/adminPage/itemWrite'" value="제품 등록"><br><br>
 					<table class="table table-striped table-bordered table-hover table-condensed">
-=======
-					<input type="button" onclick="location.href='/beauty/adminPage/itemWrite'" value="제품 등록">
-					<table>
->>>>>>> refs/remotes/origin/admin
 						<tr>
 							<td>카테고리</td>
+							<td>이미지</td>
 							<td>제품명</td>
 							<td>별점</td>
 							<td>브랜드</td>
+							<td>삭제 여부</td>
 						</tr>
 						<c:forEach var="allItems" items="${allItems}">
 						<tr>
 							<td>${allItems.ITEM_CATEGORY}</td>
+							<td><img src="${allItems.ITEM_IMAGE}" style="width: 80px; height: 80px;"></td>
 							<td>${allItems.ITEM_NAME}</td>
 							<td>리뷰처리필요!(item 테이블 말고 review테이블로 접근)</td>
 							<td>${allItems.ITEM_BRAND}</td>
+							<td><input type="button" class="btn btn-danger" onclick="location.href='/beauty/adminPage/itemDelete/${allItems.ITEM_ID}'" value="제품 삭제"></td>
 						</tr>
 						</c:forEach>
 					</table>

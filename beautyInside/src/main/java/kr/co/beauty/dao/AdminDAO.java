@@ -42,4 +42,9 @@ public class AdminDAO {
 		return sqlSession.selectList("Tip.adminPageTip");
 	}
 
+	//관리자 페이지에서 제품 삭제
+	public int itemDelete(int ITEM_ID) {
+		return sqlSession.delete("Item.itemDelete",ITEM_ID);
+	}
+
 }
