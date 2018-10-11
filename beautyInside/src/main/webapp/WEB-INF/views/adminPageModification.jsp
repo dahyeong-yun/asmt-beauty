@@ -40,6 +40,7 @@
 				<div class="p-4 bg-white rounded shadow-sm">
 					<div class="container" >
 						<form action="/beauty/adminPage/itemModifyForm" method="POST">
+							<input type="hidden" name="ITEM_ID" value="${itemInfoModify.ITEM_ID}">
 							<table class="table table-striped table-bordered table-hover table-condensed">
 								<tr>
 									<td>제품 이미지</td>
