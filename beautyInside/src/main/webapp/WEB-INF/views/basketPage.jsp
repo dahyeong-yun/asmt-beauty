@@ -40,7 +40,9 @@
 		</table>
 		<table class="table table-striped table-bordered table-hover table-condensed">
 			<tr>
-				<td>장바구니 번호+체크박스(체크시 전체 장바구니 상품 체크됨)<label><input type="checkbox" value="">전체주문</label></td>
+				<td>장바구니 번호+체크박스(체크시 전체 장바구니 상품 체크됨)
+				<input type="button" name="button" value="전체주문" onClick="this.value=check(this.form.checkbox)">
+				</td>
 				<td>제품명</td>
 				<td>수량</td>
 				<td>상품 금액</td>
@@ -49,7 +51,9 @@
 				<td>주문 취소여부</td>
 			</tr>
 			<tr>
-				<td>123123+체크박스(체크시 개별 상품 체크)<label><input type="checkbox" value="">개별주문</label></td>
+				<td>123123+체크박스(체크시 개별 상품 체크)<label>
+				<input type="checkbox" name="checkbox" value="">개별주문</label>
+				</td>
 				<td>스킨푸드 제품이름</td>
 				<td>1개</td>
 				<td>12000</td>
