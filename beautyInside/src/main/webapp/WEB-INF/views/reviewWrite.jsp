@@ -22,7 +22,7 @@
 		
 		<!-- 버튼  -->
 		<div class="row">
-			<div class="btn btn-primary ml-2" onclick="reviewSubmit()">리뷰 등록</div>
+			<div class="btn btn-primary ml-2" onclick="reviewCheck()">리뷰 등록</div>
 			<div class="btn btn-primary ml-2" onclick="location.href='/beauty/item'">목록 가기</div>
 		</div>
 		
