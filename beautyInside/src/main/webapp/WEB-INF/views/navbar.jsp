@@ -59,16 +59,18 @@
 			<input class="btn btn-success"type="submit" value="검색">
 		</form>
 		
-		<!-- 장바구니 페이지로 넘어가기 -->
-		<a href="/beauty/item/basketPage">장바구니</a>
+		
 		
 		<c:choose>
 			<c:when test="${not empty loginMember.MEM_ID}">
+				
 				<c:choose>
 					<c:when test="${loginMember.MEM_ID eq 'admin'}">
 						<a href="/beauty/adminPage/dashboard">관리자님 환영합니다.</a>
 					</c:when>
 					<c:otherwise>
+						<!-- 장바구니 페이지로 넘어가기 -->
+						<a href="/beauty/item/basketPage">장바구니</a>&nbsp;&nbsp;
 						<a style="color:white;" href="/beauty/member/info/${loginMember.MEM_ID}">${loginMember.MEM_ID}
 						<img src="/beauty/resources/img/defalutProfile.png" alt="..." width="35px" height="auto" class="rounded-circle">
 						님 환영해요</a>

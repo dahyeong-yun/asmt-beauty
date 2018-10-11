@@ -17,5 +17,10 @@
 	<!-- 관리자 페이지 팁리스트 -->	
 	<select id="adminPageTip" parameterType="Tip" resultType="Tip">	
 		SELECT * FROM TIP	
-	</select>	
+	</select>
+	
+	<!-- 관리자 페이지 팁 등록 -->
+	<select id="tipInsert" parameterType="Tip" resultType="int">
+			INSERT INTO TIP(TIP_TITLE, TIP_THUMBNAIL, TIP_URL, AGE_ID, SKINTYPE_ID, GENDER_ID) VALUES(#{TIP_TITLE}, #{TIP_THUMBNAIL}, #{TIP_URL}, #{AGE_ID}, #{SKINTYPE_ID}, #{GENDER_ID})
+	</select>
 </mapper>

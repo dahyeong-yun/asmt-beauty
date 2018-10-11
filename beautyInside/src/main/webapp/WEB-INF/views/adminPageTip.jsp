@@ -40,22 +40,21 @@
 			<div class="col-md-9">
 				<div class="p-4 bg-white rounded shadow-sm">
 					<div class="container" >
+					<input type="button" style="float: right;" class="btn btn-success" onclick="location.href='/beauty/adminPage/tipWrite'" value="팁 등록"><br><br>
 					<table class="table table-striped table-bordered table-hover table-condensed">
 						<tr>
 							<td>팁 제목</td>
-							<td>팁 사진</td>
-							<td>팁 링크</td>
+							<td>팁 사진(클릭가능)</td>
 							<td>팁 나이</td>
 							<td>팁 피부타입</td>
 							<td>팁 성별</td>
+							<td>수정 삭제 여부</td>
 						</tr>
 						<c:forEach var="allTips" items="${allTips}">
 						<tr>
 							<td>${allTips.TIP_TITLE}</td>
 							
-							<td><img src="${allTips.TIP_THUMBNAIL}" style="height: 80px; width: 80px;"></td>
-							
-							<td><a href="${allTips.TIP_URL}">팁 링크</a></td>
+							<td><a href="${allTips.TIP_URL}"><img src="${allTips.TIP_THUMBNAIL}" style="height: 100px; width: 150px;"></a></td>
 							
 							<td>
 								<c:choose>
@@ -109,6 +108,10 @@
 											여
 										</c:when>
 									</c:choose>
+							</td>
+							<td>
+							<input type="button" class="btn btn-primary" onclick="#" value="팁 수정"><br>
+							<input type="button" class="btn btn-danger" onclick="#" value="팁 삭제">
 							</td>
 						</tr>
 						</c:forEach>
