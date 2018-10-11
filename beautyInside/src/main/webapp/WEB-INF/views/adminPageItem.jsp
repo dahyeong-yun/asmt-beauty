@@ -47,7 +47,7 @@
 							<td>제품명</td>
 							<td>별점</td>
 							<td>브랜드</td>
-							<td>삭제 여부</td>
+							<td>수정 삭제 여부</td>
 						</tr>
 						<c:forEach var="allItems" items="${allItems}">
 						<tr>

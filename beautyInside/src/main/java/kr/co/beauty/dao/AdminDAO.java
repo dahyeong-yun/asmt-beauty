@@ -37,6 +37,11 @@ public class AdminDAO {
 		return sqlSession.selectList("Review.adminPageReview");
 	}
 
+	//관리자 페이지 팁 등록
+	public int tipWriteForm(TipVO tipVO) {
+		return sqlSession.insert("Tip.tipInsert", tipVO);
+	}
+	
 	//관리자 페이지에서 모든 팁리스트 보기
 	public List<TipVO> adminPageTip() {
 		return sqlSession.selectList("Tip.adminPageTip");

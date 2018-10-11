@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.beauty.service.AdminService;
 import kr.co.beauty.vo.ItemVO;
-import kr.co.beauty.vo.MemberVO;
+import kr.co.beauty.vo.TipVO;
 
 
 
@@ -95,6 +95,20 @@ public class AdminController {
 	public ModelAndView adminPageTip() {
 		modelAndView = new ModelAndView();
 		modelAndView = adminService.adminPageTip();
+		return modelAndView;
+	}
+	
+	// 관리자 페이지 팁 작성 폼으로 이동
+	@RequestMapping(value="/adminPage/tipWrite", method = RequestMethod.GET)
+	public String tipWrite() {
+		return "adminPageTipWrite";
+	}
+	
+	// 관리자 페이지 팁 작성
+	@RequestMapping(value="/adminPage/tipWriteForm", method = RequestMethod.POST)
+	public ModelAndView tipWriteForm(@ModelAttribute TipVO tipVO) {
+		modelAndView = new ModelAndView();
+		modelAndView = adminService.tipWriteForm(tipVO);
 		return modelAndView;
 	}
 	

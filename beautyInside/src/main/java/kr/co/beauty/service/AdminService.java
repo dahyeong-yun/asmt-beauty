@@ -63,7 +63,21 @@ public class AdminService {
 		modelAndView.setViewName("adminPageReview");
 		return modelAndView;
 	}
-
+	
+	//관리자 페이지 팁 등록
+	public ModelAndView tipWriteForm(TipVO tipVO) {
+		modelAndView = new ModelAndView();
+		int result = adminDAO.tipWriteForm(tipVO);
+		
+		//팁 등록 성공 여부에 따른 view 설정
+		if (result == 0) {
+			modelAndView.setViewName("main");
+		} else {
+			modelAndView.setViewName("redirect:/adminPage/tip");
+		}
+		return modelAndView;
+	}
+	
 	//관리자 페이지 팁 리스트
 	public ModelAndView adminPageTip() {
 		modelAndView = new ModelAndView();
