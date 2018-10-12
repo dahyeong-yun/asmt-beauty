@@ -11,9 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.beauty.dao.ItemDAO;
 import kr.co.beauty.dao.ReviewDAO;
-import kr.co.beauty.vo.BasketVO;
 import kr.co.beauty.vo.ItemVO;
-import kr.co.beauty.vo.MemberVO;
 import kr.co.beauty.vo.PaymentVO;
 import kr.co.beauty.vo.ReviewVO;
 import kr.co.beauty.vo.StoreVO;
@@ -30,7 +28,6 @@ public class ItemService {
 	private ModelAndView modelAndView;
 	private ItemVO itemVO;
 	private StoreVO storeVO;
-	private MemberVO memberVO;
 	
 	// 아이템 검색 기능
 	public ModelAndView itemSearch(ItemVO itemVO) {

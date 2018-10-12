@@ -5,9 +5,7 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.servlet.ModelAndView;
 
-import kr.co.beauty.vo.LikedVO;
 import kr.co.beauty.vo.ReviewVO;
 
 @Repository
@@ -44,6 +42,10 @@ public class ReviewDAO {
 	// 리뷰 좋아요 리뷰테이블 좋아요수 내리기
 	public int reviewLikeDown(int REVIEW_ID) {
 		return sqlSession.update("Review.reviewLikeDown", REVIEW_ID);
+	}
+
+	public int reviewModify(ReviewVO reviewVO) {
+		return sqlSession.update("Review.reviewModify", reviewVO);
 	}
 
 }

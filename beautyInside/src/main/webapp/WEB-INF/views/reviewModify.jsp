@@ -22,32 +22,31 @@
 		
 		<!-- 버튼  -->
 		<div class="row">
-			<div class="btn btn-primary ml-2" onclick="reviewCheck()">리뷰 등록</div>
+			<div class="btn btn-primary ml-2" onclick="reviewCheck()">리뷰 수정</div>
 			<div class="btn btn-primary ml-2" onclick="location.href='/beauty/item'">목록 가기</div>
 		</div>
 		
 		<!-- 리뷰 작성 -->
 		<div class="row mt-3">
-			<form class="form" action="/beauty/review/write/${itemRelatedThisReview.ITEM_ID}" method="post" id="review">
+			<form class="form" action="/beauty/review/modify/${modify.REVIEW_ID}" id="review">
 				<div class="form-group">
 					<label for="REVIEW_TITLE">리뷰 제목</label>
-					<input type="text" class="form-control" id="REVIEW_TITLE" name="REVIEW_TITLE" />
+					<input type="text" class="form-control" id="REVIEW_TITLE" name="REVIEW_TITLE" value="${modify.REVIEW_TITLE}" />
 				</div>
 				
 				<div class="form-group">
 					<label for="REVIEW_CONTENT">리뷰 내용</label>
-					<textarea class="form-control" rows="5" id="REVIEW_CONTENT" name="REVIEW_CONTENT"></textarea>
+					<textarea class="form-control" rows="5" id="REVIEW_CONTENT" name="REVIEW_CONTENT">${modify.REVIEW_CONTENT}</textarea>
 				</div>
-				<input type="hidden" class="form-control" name="MEM_ID" value="${loginMember.MEM_ID}" />
-				<input type="hidden" class="form-control" name="REVIEW_LIKE" value="0" />
-				<input type="hidden" class="form-control" name="REVIEW_GRADE" value="0" />
+				<input type="hidden" class="form-control" name="ITEM_ID" value="${modify.ITEM_ID}" />
+				<input type="hidden" class="form-control" name="REVIEW_GRADE" value="${modify.REVIEW_GRADE}" />
 			</form>
 		</div>
 	</div>
 	<script>
 		function reviewCheck() {
 				$("#review").submit();
-		}
+			}
 		
 	</script>
 	

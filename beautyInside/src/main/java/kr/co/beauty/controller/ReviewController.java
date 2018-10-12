@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,5 +50,21 @@ public class ReviewController {
 		reviewVO.setITEM_ID(ITEM_ID);
 		reviewService.reviewWrite(ITEM_ID, reviewVO);
 		return "redirect:/item/"+ITEM_ID; // 리뷰 등록 후 리다이렉트 -> 아이템 상세페이지로
+	}
+	
+	// (page link) 리뷰 수정 페이지
+	@GetMapping(value = "/modify/{REVIEW_ID}")
+	public ModelAndView reviewModifyPage(@PathVariable("REVIEW_ID") int REVIEW_ID) {
+		modelAndView = new ModelAndView();
+		reviewService.reviewModifyPage(REVIEW_ID);
+		return modelAndView;
+	}
+	
+	// 리뷰 수정 기능
+	@PatchMapping(value = "/modify/{REVIEW_ID}")
+	public String reviewModify(@PathVariable("REVIEW_ID") int REVIEW_ID, @ModelAttribute ReviewVO reviewVO) {
+		reviewVO.setREVIEW_ID(REVIEW_ID);
+		reviewService.reviewModify(reviewVO);
+		return "redirect:/item/"+reviewVO.getITEM_ID(); // 리뷰 수정 후 리다이렉트 -> 아이템 상세페이지로
 	}
 }

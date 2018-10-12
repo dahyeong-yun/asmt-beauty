@@ -9,7 +9,6 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.co.beauty.dao.ItemDAO;
 import kr.co.beauty.dao.ReviewDAO;
 import kr.co.beauty.vo.ItemVO;
-import kr.co.beauty.vo.LikedVO;
 import kr.co.beauty.vo.MemberVO;
 import kr.co.beauty.vo.ReviewVO;
 
@@ -25,6 +24,7 @@ public class ReviewService {
 	private ModelAndView modelAndView;
 	private ItemVO itemVO;
 	private MemberVO memberVO;
+	private ReviewVO reviewVO;
 	
 	
 	//리뷰 상세 페이지
@@ -61,12 +61,28 @@ public class ReviewService {
 
 	
 	public void reviewWrite(int ITEM_ID, ReviewVO reviewVO) {
-		
 		int result = reviewDAO.reviewWrite(reviewVO);
 		if(result==0) {
 			System.out.println("리뷰 등록 실패");
 		} else {
 			System.out.println("리뷰 등록 성공");
+		}
+	}
+
+	public ModelAndView reviewModifyPage(int REVIEW_ID) {
+		modelAndView = new ModelAndView();
+		reviewVO = reviewDAO.reviewDetail(REVIEW_ID);
+		modelAndView.addObject("modify", reviewVO);
+		modelAndView.setViewName("reviewModify");
+		return modelAndView;
+	}
+
+	public void reviewModify(ReviewVO reviewVO) {
+		int result = reviewDAO.reviewModify(reviewVO);
+		if(result==0) {
+			System.out.println("리뷰 수정 실패");
+		} else {
+			System.out.println("리뷰 수정 성공");
 		}
 	}
  }

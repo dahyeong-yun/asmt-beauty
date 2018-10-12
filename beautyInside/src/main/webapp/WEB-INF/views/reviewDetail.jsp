@@ -33,9 +33,16 @@
 				</form>
 			</c:otherwise>
 		</c:choose>
-			<div class="btn btn-primary ml-2">제품 구입</div>
-			<div class="btn btn-primary ml-2">찜 하기</div>
+		<c:choose>
+			<c:when test="${reviewDetail.MEM_ID eq loginMember.MEM_ID}">	
+			<button class="btn btn-primary ml-2" onclick="reviewmodify(${reviewDetail.REVIEW_ID})">리뷰 수정</button>
+			<div class="btn btn-primary ml-2">리뷰 삭제</div>
 			<div class="btn btn-primary ml-2">목록 가기</div>
+		</c:when>
+			<c:otherwise>
+			<div class="btn btn-primary ml-2">목록 가기</div>
+		</c:otherwise>
+		</c:choose>
 		</div>
 		
 		<!-- 리뷰 정보 -->
@@ -61,7 +68,11 @@
 			</table>
 		</div>
 	</div>
-	
+	<script>
+	function reviewmodify(REVIEW_ID){
+		location.href='/beauty/review/modify/'+REVIEW_ID;
+	}
+	</script>
 	<!-- 하단 -->
 	<%@include file="footer.jsp" %>
 </body>

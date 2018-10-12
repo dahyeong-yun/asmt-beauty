@@ -22,7 +22,6 @@ public class AdminService {
 	private AdminDAO adminDAO;
 	private ModelAndView modelAndView;
 	
-	private ItemVO itemVO;
 	//관리자 페이지에서 멤버 리스트
 	public ModelAndView adminPageMember() {
 		modelAndView = new ModelAndView();
