@@ -5,7 +5,9 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.servlet.ModelAndView;
 
+import kr.co.beauty.vo.LikedVO;
 import kr.co.beauty.vo.ReviewVO;
 
 @Repository
@@ -20,13 +22,17 @@ public class ReviewDAO {
 	}
 
 	// 리뷰 상세 보기
-	public ReviewVO reviewDetail(String REVIEW_ID) {
+	public ReviewVO reviewDetail(int REVIEW_ID) {
 		return sqlSession.selectOne("Review.reviewDetail", REVIEW_ID);
 	}
 
 	// 리뷰 작성 기능
 	public int reviewWrite(ReviewVO reviewVO) {
 		return sqlSession.insert("Review.reviewWrite", reviewVO);
+	}
+	// 리뷰 좋아요 리뷰테이블 좋아요수 올리기
+	public int reviewLIkeUp(int REVIEW_ID) {
+		return sqlSession.update("Review.reviewLIkeUp", REVIEW_ID);
 	}
 
 }
