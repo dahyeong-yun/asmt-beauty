@@ -9,7 +9,7 @@
 	</select>
 	
 	<!-- 리뷰 상세 정보 -->
-	<select id="reviewDetail" parameterType="String" resultType="Review">
+	<select id="reviewDetail" parameterType="int" resultType="Review">
 		SELECT * FROM REVIEW WHERE REVIEW_ID = #{REVIEW_ID}
 	</select>
 	
@@ -21,5 +21,10 @@
 	<!-- 리뷰 작성 -->
 	<insert id="reviewWrite" parameterType="Review">
 		INSERT INTO REVIEW(MEM_ID, REVIEW_TITLE, REVIEW_CONTENT, ITEM_ID, REVIEW_LIKE, REVIEW_GRADE) VALUES (#{MEM_ID}, #{REVIEW_TITLE}, #{REVIEW_CONTENT}, #{ITEM_ID}, #{REVIEW_LIKE}, #{REVIEW_GRADE})
+	</insert>
+	
+	<!-- 리뷰 좋아요수 올리기 -->
+	<insert id="reviewLIkeUp" parameterType="int">
+		UPDATE REVIEW SET REVIEW_LIKE = REVIEW_LIKE+1 WHERE REVIEW_ID = #{REVIEW_ID}
 	</insert>
 </mapper>

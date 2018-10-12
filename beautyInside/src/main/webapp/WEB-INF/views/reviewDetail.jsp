@@ -22,9 +22,9 @@
 		
 		<!-- 버튼  -->
 		<div class="row">
+			<button class="btn btn-primary" onclick="location.href='/beauty/liked/${reviewDetail.REVIEW_ID}'">리뷰 추천</button>
 			<div class="btn btn-primary ml-2">제품 구입</div>
 			<div class="btn btn-primary ml-2">찜 하기</div>
-			<div class="btn btn-primary ml-2">리뷰 추천</div>
 			<div class="btn btn-primary ml-2">목록 가기</div>
 		</div>
 		
