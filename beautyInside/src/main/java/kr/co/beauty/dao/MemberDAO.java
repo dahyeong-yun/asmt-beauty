@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.beauty.vo.FollowVO;
 import kr.co.beauty.vo.MemberVO;
 
 @Repository
@@ -39,6 +40,7 @@ public class MemberDAO {
 		return sqlSession.selectList("Member.memberFollowingList", memberVO);
 	}
 
+	// 아이디 중복체크
 	public MemberVO idOverlap(String MEM_ID) {
 		return sqlSession.selectOne("Member.idOverlap", MEM_ID);
 	}
@@ -51,6 +53,16 @@ public class MemberDAO {
 	// 회원 탈퇴
 	public void memberDrop(String MEM_ID) {
 		sqlSession.delete("Member.memberDrop", MEM_ID);
+	}
+
+	// 언팔로우
+	public void memberUnfollow(FollowVO followVO) {
+		sqlSession.delete("Member.memberUnfollow", followVO);
+		
+	}
+
+	public int memberfollow(FollowVO followVO) {
+		return sqlSession.insert("Member.memberFollow", followVO);
 	}
 
 }

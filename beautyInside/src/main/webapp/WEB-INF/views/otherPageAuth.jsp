@@ -39,7 +39,11 @@
 				<div class="p-4 bg-white rounded shadow-sm">
 					<div class="container" >
 						<p>팔로우 한 회원의 정보만 볼 수 있습니다</p>
-							<button class="btn btn-primary" onclick="location.href = '/beauty/member/doFollow/${otherMemberID}'">팔로우 하기</button>
+							<form action ="/beauty/member/follow/${otherMemberID}" method="post">
+								<input type="hidden" name="TARGET_MEM_ID" value="${otherMemberID}" />
+								<button type="submit" class="btn btn-primary">팔로우 하기</button>
+							</form>
+							
 					</div>
 				</div>
 			</div>

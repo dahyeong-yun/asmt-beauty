@@ -63,7 +63,7 @@
 											<td><a href="/beauty/member/follow/${following.MEM_ID}">${following.MEM_ID}</a></td>
 											<td>${following.MEM_NAME}<td>
 											<td>
-												<btn class="btn btn-warning" onclick="memberUnfollow()">Unfollow</btn>
+												<button type="button"class="btn btn-warning" id="button${following.MEM_ID}" onclick="javascript:memberUnfollow('button${following.MEM_ID}');">unfollow</button>
 											</td>
 										</tr>
 									</c:forEach>
@@ -81,10 +81,32 @@
 	<%@include file="footer.jsp" %>
 	
 	<script type="text/javascript">
-	function memberUnfollow() {
-		// 언팔을 하고
-		// 버튼을 비활성화
-	}
+	$( document ).ready(function() {
+		memberUnfollow = function (name) {
+			$("#"+name).on("click", function () {
+				var len = name.length;
+				var memId = name.slice(6,len);
+				$.ajax({
+					type : "DELETE",
+					url : "/beauty/member/follow/"+memId,
+					data : {
+						"id" : memId
+					},
+					datatype : "text",
+					success : function () {
+						$("#"+name).attr("disabled", true);
+					},
+					error : function(request) {
+						console.log("AJAX에러");
+						alert("code : " + request.stauts + "\n"
+								+ "message :" + request.responseText);
+					}
+				});
+			})
+		}
+	})
+			
+	
 	</script>
 </body>
 </html>

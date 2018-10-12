@@ -10,6 +10,7 @@
 		<typeAlias alias="Store" type="kr.co.beauty.vo.StoreVO" />
 		<typeAlias alias="Basket" type="kr.co.beauty.vo.BasketVO" />
 		<typeAlias alias="Payment" type="kr.co.beauty.vo.PaymentVO" />
+		<typeAlias alias="Follow" type="kr.co.beauty.vo.FollowVO" />
 	</typeAliases>
 </configuration>
 

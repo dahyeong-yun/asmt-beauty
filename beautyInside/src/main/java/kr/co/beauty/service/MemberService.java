@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.beauty.dao.ItemDAO;
 import kr.co.beauty.dao.MemberDAO;
+import kr.co.beauty.vo.FollowVO;
 import kr.co.beauty.vo.ItemVO;
 import kr.co.beauty.vo.MemberVO;
 
@@ -21,6 +22,7 @@ public class MemberService {
 	@Autowired
 	private MemberDAO memberDAO;
 	private MemberVO memberVO;
+	private FollowVO followVO;
 	
 	@Autowired
 	private ItemDAO itemDAO;
@@ -168,6 +170,41 @@ public class MemberService {
 	// 회원 탈퇴
 	public void memberDrop(String MEM_ID) {
 		memberDAO.memberDrop(MEM_ID);
+	}
+
+	// 팔로우
+	public ModelAndView memberFollow(HttpServletResponse response, String MEM_ID, String TARGET_MEM_ID) throws IOException {
+		// followVO 인스턴스 생성
+		followVO = new FollowVO();
+		followVO.setMEM_ID(MEM_ID);
+		followVO.setTARGET_MEM_ID(TARGET_MEM_ID);
+		int result = memberDAO.memberfollow(followVO);
+		
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		if (result == 0) { // 팔로우 성공 여부 검증
+			out.println("<script>");
+			out.println("alert('팔로우 실패');");
+			out.println("history.go(-1);");
+			out.println("</script>");
+			out.close(); // 팔로우 실패시
+		} else {
+			modelAndView.setViewName("otherPageReviewWrote"); // 팔로우 성공 시
+		}
+		
+		return modelAndView;
+	
+	}
+
+	// 언팔로우
+	public void memberUnFollow(String MEM_ID, String TARGET_MEM_ID) {
+		followVO = new FollowVO();
+		followVO.setMEM_ID(MEM_ID);
+		followVO.setTARGET_MEM_ID(TARGET_MEM_ID);
+		memberDAO.memberUnfollow(followVO);
+		
+		
 	}
 
 }

@@ -7,7 +7,7 @@
 		INSERT INTO MEMBER VALUES(#{MEM_ID}, #{MEM_PW}, #{MEM_NAME}, #{MEM_AGE}, #{MEM_EMAIL}, #{MEM_PROFILE},  #{GENDER_ID}, #{SKINTYPE_ID}, #{AGE_ID})
 	</insert>
 	
-	<!-- 회원가입 -->
+	<!-- 회원탈퇴 -->
 	<delete id="memberDrop" parameterType="String">
 		DELETE FROM MEMBER WHERE MEM_ID=#{MEM_ID}
 	</delete>
@@ -51,5 +51,15 @@
 	<select id="idNullCheck" parameterType="Member" resultType="String">
 		SELECT IFNULL(MEM_ID, 0) FROM MEMBER WHERE MEM_ID = #{MEM_ID}
 	</select>
+	
+		<!-- 회원가입 -->
+	<insert id="memberFollow" parameterType="Follow">
+		INSERT INTO FOLLOW(MEM_ID, TARGET_MEM_ID) VALUES(#{MEM_ID}, #{TARGET_MEM_ID})
+	</insert>
+	
+	<!-- 언팔로우 -->
+	<delete id="memberUnfollow" parameterType="Follow">
+		DELETE FROM FOLLOW WHERE MEM_ID=#{MEM_ID} AND TARGET_MEM_ID=#{TARGET_MEM_ID}
+	</delete>
 	
 </mapper>

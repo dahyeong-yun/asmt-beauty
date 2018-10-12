@@ -36,7 +36,7 @@
 			<div class="col-md-9">
 				<!-- <button class="btn btn-primary" onclick="">언팔 하기</button> -->
 				
-				
+				여기는 다른 사람이 작성한 리뷰 리스트
 			</div>
 			
 		</div>
