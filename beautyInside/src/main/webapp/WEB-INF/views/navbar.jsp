@@ -33,7 +33,7 @@
 		<!-- 메뉴 -->
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item">
-				<a class="nav-link" href="/beauty/itemz">item</a>
+				<a class="nav-link" href="/beauty/item">item</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="/beauty/tip?MEM_ID=${loginMember.MEM_ID}">tips</a>

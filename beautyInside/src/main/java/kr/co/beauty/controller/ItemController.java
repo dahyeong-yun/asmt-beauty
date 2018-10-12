@@ -61,6 +61,7 @@ public class ItemController {
 		return "basketPage";
 	}
 	
+	//결제완료
 	@RequestMapping(value = "/item/payment/complete", method = RequestMethod.POST)
 	public ModelAndView itemPaymentComplete(@ModelAttribute PaymentVO paymentVO){
 		modelAndView = new ModelAndView();

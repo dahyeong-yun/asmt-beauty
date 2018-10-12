@@ -24,6 +24,7 @@
 <div>
 <p>${itemInfo.ITEM_NAME}</p>
 <p>${itemInfo.ITEM_PRICE}원</p>
+<p>${itemInfo.PAY_AMOUNT}개</p>
 </div>
 </div>
 <div>
@@ -72,20 +73,35 @@ IMP.request_pay({
 	    	    "MEM_ADDR" : $('#MEM_ADDR').val(),
 	    	    "PAY_AMOUNT" : '${itemInfo.PAY_AMOUNT}',
 	    	    "PAY_MESSAGE" : $('#PAY_MESSAGE').val(),
-	    	    "PAY_METHOD" : 'card',
-	    	    "ITEM_IMAGE" : '${itemInfo.ITEM_IMAGE}'	    	    
+	    	    "PAY_METHOD" : 'card' 	    
 	    		//기타 필요한 데이터가 있으면 추가 전달
     		}
-    	})
-    } else {
-        var msg = '결제에 실패하였습니다.';
-        msg += '에러내용 : ' + rsp.error_msg;
-        
-        alert(msg);
-    }
-});
-})
-
+    	}).done(function(data) {
+            console.log('호출끝남');
+            //[2] 서버에서 REST API로 결제정보확인 및 서비스루틴이 정상적인 경우
+            if ( rsp.success ) {
+              var msg = '결제가 완료되었습니다.';
+              msg += '\n고유ID : ' + rsp.imp_uid;
+              msg += '\n상점 거래ID : ' + rsp.merchant_uid;
+              msg += '\n결제 금액 : ' + rsp.paid_amount;
+              msg += '카드 승인번호 : ' + rsp.apply_num;
+              alert(msg);
+              window.location = '/beauty/item'; //완료페이지로 이동
+            } else {
+              console.log('결제실패함');
+              //[3] 아직 제대로 결제가 되지 않았습니다.
+              //[4] 결제된 금액이 요청한 금액과 달라 결제를 자동취소처리하였습니다.
+            }
+          })
+        } else {
+		    console.log('결제취소');
+            var msg = '결제에 실패하였습니다.';
+            msg += '에러내용 : ' + rsp.error_msg;
+            alert(msg);
+            window.history.go(-4); //실패
+        }
+              });
+           });
 </script>
 
 	<!-- 하단 -->

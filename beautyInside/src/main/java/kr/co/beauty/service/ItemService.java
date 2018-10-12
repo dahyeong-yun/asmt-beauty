@@ -85,6 +85,7 @@ public class ItemService {
 	public ModelAndView itemInfo(PaymentVO paymentVO) {
 		modelAndView = new ModelAndView();
 		paymentVO = itemDAO.itemInfo(paymentVO);
+		paymentVO.setPAY_AMOUNT(1);
 		modelAndView.addObject("itemInfo",paymentVO);
 		modelAndView.setViewName("itemPayment");
 		return modelAndView;

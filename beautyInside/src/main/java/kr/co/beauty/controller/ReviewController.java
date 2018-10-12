@@ -1,5 +1,7 @@
 package kr.co.beauty.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,9 +24,12 @@ public class ReviewController {
 	@Autowired
 	private ReviewService reviewService;
 	
+	@Autowired
+	HttpSession session;
+	
 	// 리뷰 상세 보기
 	@RequestMapping(value = "/{REVIEW_ID}", method = RequestMethod.GET)
-	public ModelAndView reviewDetail(@PathVariable("REVIEW_ID") String REVIEW_ID) {
+	public ModelAndView reviewDetail(@PathVariable("REVIEW_ID") int REVIEW_ID) {
 		modelAndView = new ModelAndView();
 		modelAndView = reviewService.reviewDetail(REVIEW_ID);
 		return modelAndView;
@@ -44,6 +49,5 @@ public class ReviewController {
 		reviewVO.setITEM_ID(ITEM_ID);
 		reviewService.reviewWrite(ITEM_ID, reviewVO);
 		return "redirect:/item/"+ITEM_ID; // 리뷰 등록 후 리다이렉트 -> 아이템 상세페이지로
-
 	}
 }
