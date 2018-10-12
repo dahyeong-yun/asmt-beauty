@@ -24,7 +24,12 @@
 	</insert>
 	
 	<!-- 리뷰 좋아요수 올리기 -->
-	<insert id="reviewLIkeUp" parameterType="int">
+	<insert id="reviewLikeUp" parameterType="int">
 		UPDATE REVIEW SET REVIEW_LIKE = REVIEW_LIKE+1 WHERE REVIEW_ID = #{REVIEW_ID}
+	</insert>
+	
+	<!-- 리뷰 좋아요수 내리기 -->
+	<insert id="reviewLikeDown" parameterType="int">
+		UPDATE REVIEW SET REVIEW_LIKE = REVIEW_LIKE-1 WHERE REVIEW_ID = #{REVIEW_ID}
 	</insert>
 </mapper>

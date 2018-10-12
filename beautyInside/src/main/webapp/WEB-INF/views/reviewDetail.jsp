@@ -22,7 +22,17 @@
 		
 		<!-- 버튼  -->
 		<div class="row">
-			<button class="btn btn-primary" onclick="location.href='/beauty/liked/${reviewDetail.REVIEW_ID}'">리뷰 추천</button>
+		<c:choose>
+			<c:when test="${check eq 'A'}">	
+				<button class="btn btn-primary" onclick="location.href='/beauty/liked/${reviewDetail.REVIEW_ID}'">리뷰 추천</button>
+			</c:when>
+			<c:otherwise>
+				<form class="form mt-4" action="/beauty/liked/${reviewDetail.REVIEW_ID}" method="POST">
+					<input type="hidden" name="_method" value="delete" />
+					<button type="submit" class="btn btn-danger">리뷰 추천 취소</button>
+				</form>
+			</c:otherwise>
+		</c:choose>
 			<div class="btn btn-primary ml-2">제품 구입</div>
 			<div class="btn btn-primary ml-2">찜 하기</div>
 			<div class="btn btn-primary ml-2">목록 가기</div>

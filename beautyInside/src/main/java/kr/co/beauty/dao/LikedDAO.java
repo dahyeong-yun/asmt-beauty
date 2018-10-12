@@ -17,4 +17,10 @@ public class LikedDAO {
 	public int insertLiked(LikedVO likedVO) {
 		return sqlSession.insert("Liked.insertLiked", likedVO);
 	}
+
+
+	// 리뷰 좋아요 내리기
+	public int reviewLikeDown(String MEM_ID) {
+		return sqlSession.delete("Liked.likeDown", MEM_ID);
+	}
 }
