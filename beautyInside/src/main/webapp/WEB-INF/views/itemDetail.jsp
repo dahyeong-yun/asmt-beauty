@@ -93,18 +93,6 @@
 			hiddenField.setAttribute("value","${detail.ITEM_ID}");
 			form.appendChild(hiddenField);
 			
-			hiddenField = document.createElement("input");
-			hiddenField.setAttribute("type", "hidden");
-			hiddenField.setAttribute("name","MEM_ID");
-			hiddenField.setAttribute("value","${loginMember.MEM_ID}");
-			form.appendChild(hiddenField);
-			
-			hiddenField = document.createElement("input");
-			hiddenField.setAttribute("type", "hidden");
-			hiddenField.setAttribute("name","PAY_AMOUNT");
-			hiddenField.setAttribute("value",1);
-			form.appendChild(hiddenField);
-			
 			document.body.appendChild(form);
 			form.submit();
 
