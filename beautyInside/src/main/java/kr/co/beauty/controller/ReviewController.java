@@ -1,5 +1,8 @@
 package kr.co.beauty.controller;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +34,9 @@ public class ReviewController {
 	
 	// 리뷰 상세 보기
 	@RequestMapping(value = "/{REVIEW_ID}", method = RequestMethod.GET)
-	public ModelAndView reviewDetail(@PathVariable("REVIEW_ID") int REVIEW_ID, HttpSession session) {
+	public ModelAndView reviewDetail(@PathVariable("REVIEW_ID") int REVIEW_ID, HttpSession session, HttpServletResponse response) throws IOException {
 		modelAndView = new ModelAndView();
-		modelAndView = reviewService.reviewDetail(REVIEW_ID ,session);
+		modelAndView = reviewService.reviewDetail(REVIEW_ID ,session, response);
 		return modelAndView;
 	}
 	

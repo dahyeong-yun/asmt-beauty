@@ -1,5 +1,9 @@
 package kr.co.beauty.service;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +36,20 @@ public class ReviewService {
 	
 	
 	//리뷰 상세 페이지
-	public ModelAndView reviewDetail(int REVIEW_ID, HttpSession session) {
+	public ModelAndView reviewDetail(int REVIEW_ID, HttpSession session, HttpServletResponse response) throws IOException {
 		modelAndView = new ModelAndView();
 		memberVO = (MemberVO) session.getAttribute("loginMember");
+		
+		if(memberVO.getMEM_GRADE()==0) {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('등급이 낮아 리뷰를 조회할 수 없습니다.');");
+			out.println("history.go(-1);");
+			out.println("</script>");
+			out.close();
+		}
+		
 		//target_mem_id 값 얻기
 		String TARGET_MEM_ID = null;
 		TARGET_MEM_ID = reviewDAO.getTargetId(REVIEW_ID);
