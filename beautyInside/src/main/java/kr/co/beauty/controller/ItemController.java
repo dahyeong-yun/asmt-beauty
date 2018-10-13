@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.beauty.service.ItemService;
-import kr.co.beauty.vo.BasketVO;
 import kr.co.beauty.vo.ItemVO;
 import kr.co.beauty.vo.PaymentVO;
 

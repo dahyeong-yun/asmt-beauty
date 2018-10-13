@@ -9,7 +9,6 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.co.beauty.dao.ItemDAO;
 import kr.co.beauty.dao.ReviewDAO;
 import kr.co.beauty.vo.ItemVO;
-import kr.co.beauty.vo.LikedVO;
 import kr.co.beauty.vo.MemberVO;
 import kr.co.beauty.vo.ReviewVO;
 
@@ -22,18 +21,33 @@ public class ReviewService {
 	@Autowired
 	private ItemDAO itemDAO;
 	
-	@Autowired
-	private HttpSession session;
-	
 	private ModelAndView modelAndView;
 	private ItemVO itemVO;
 	private MemberVO memberVO;
+	private ReviewVO reviewVO;
 	
-	public ModelAndView reviewDetail(int REVIEW_ID) {
+	
+	//리뷰 상세 페이지
+	public ModelAndView reviewDetail(int REVIEW_ID, HttpSession session) {
 		modelAndView = new ModelAndView();
-		ReviewVO reviewDetail = reviewDAO.reviewDetail(REVIEW_ID);
-		modelAndView.addObject("reviewDetail", reviewDetail);
-		modelAndView.setViewName("reviewDetail");
+		memberVO = (MemberVO) session.getAttribute("loginMember");
+		
+		//target_mem_id 값 얻기
+		String TARGET_MEM_ID = reviewDAO.getTargetId(REVIEW_ID);
+
+		if(TARGET_MEM_ID == null) {
+			String check = "A";
+			ReviewVO reviewDetail = reviewDAO.reviewDetail(REVIEW_ID);
+			modelAndView.addObject("reviewDetail", reviewDetail);
+			modelAndView.addObject("check", check);
+			modelAndView.setViewName("reviewDetail");
+		} else if(TARGET_MEM_ID.equals(memberVO.getMEM_ID())) {
+			String check = "B";
+			ReviewVO reviewDetail = reviewDAO.reviewDetail(REVIEW_ID);
+			modelAndView.addObject("reviewDetail", reviewDetail);
+			modelAndView.addObject("check", check);
+			modelAndView.setViewName("reviewDetail");
+		} 
 		return modelAndView;
 	}
 
@@ -47,12 +61,28 @@ public class ReviewService {
 
 	
 	public void reviewWrite(int ITEM_ID, ReviewVO reviewVO) {
-		
 		int result = reviewDAO.reviewWrite(reviewVO);
 		if(result==0) {
 			System.out.println("리뷰 등록 실패");
 		} else {
 			System.out.println("리뷰 등록 성공");
+		}
+	}
+
+	public ModelAndView reviewModifyPage(int REVIEW_ID) {
+		modelAndView = new ModelAndView();
+		reviewVO = reviewDAO.reviewDetail(REVIEW_ID);
+		modelAndView.addObject("modify", reviewVO);
+		modelAndView.setViewName("reviewModify");
+		return modelAndView;
+	}
+
+	public void reviewModify(ReviewVO reviewVO) {
+		int result = reviewDAO.reviewModify(reviewVO);
+		if(result==0) {
+			System.out.println("리뷰 수정 실패");
+		} else {
+			System.out.println("리뷰 수정 성공");
 		}
 	}
  }

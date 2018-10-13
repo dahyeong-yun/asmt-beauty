@@ -7,4 +7,13 @@
 	<insert id="insertLiked" parameterType="Liked">
 		INSERT INTO LIKED (REVIEW_ID, MEM_ID, TARGET_MEM_ID) VALUES (#{REVIEW_ID}, #{MEM_ID}, #{TARGET_MEM_ID})
 	</insert>
+	
+	<!-- 좋아요 중복확인 위한 타겟 아이디 얻기 -->
+	<select id="getTargetId" parameterType="int" resultType="String">
+		SELECT TARGET_MEM_ID FROM LIKED WHERE REVIEW_ID = #{REVIEW_ID}
+	</select>
+	
+	<delete id="likeDown" parameterType="String">
+		DELETE FROM LIKED WHERE TARGET_MEM_ID = #{MEM_ID}
+	</delete>
 </mapper>

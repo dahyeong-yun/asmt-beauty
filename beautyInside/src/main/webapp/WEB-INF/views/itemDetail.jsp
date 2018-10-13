@@ -67,7 +67,7 @@
 					<tr>
 						<td>${review.REVIEW_ID}</td>
 						<td>
-							<a href="/beauty/review/${review.REVIEW_ID}">${review.REVIEW_TITLE}</a>
+							<a href="javascript:reviewDetail(${review.REVIEW_ID})">${review.REVIEW_TITLE}</a>
 						</td>
 						<td><a href="/beauty/member/follow/${review.MEM_ID}">${review.MEM_ID}</a></td>
 						<td>${review.REVIEW_LIKE}</td>
@@ -79,8 +79,16 @@
 		</div>
 	</div>
 	
-	<script type="text/javascript">		
-	function itemPayment(params) {
+	<script type="text/javascript">
+	function reviewDetail(REVIEW_ID){
+		if($("#LOGIN_MEM_ID").val() == ""){
+			alert("로그인한 사용자만 리뷰를 볼 수 있습니다."); 
+		}else{
+			location.href="/beauty/review/"+REVIEW_ID;
+		}
+	}
+	//구매 기능
+	function itemPayment() {
 		if($("#LOGIN_MEM_ID").val() == "") {
 				alert("로그인한 사용자만 구매할 수 있습니다.") 
 		} else {
@@ -95,7 +103,6 @@
 			
 			document.body.appendChild(form);
 			form.submit();
-
 		}
 	}
 		
@@ -127,14 +134,14 @@
 		 }
 		
 	}
+	//리뷰 작성
 	function reviewCheck(ITEM_ID) {
 			if($("#LOGIN_MEM_ID").val() == "") {
-				alert("로그인 한 사용자만 리뷰를 작성할 수 있습니다.");
+				alert("로그인한 사용자만 리뷰를 작성할 수 있습니다.");
 			} else {
 				location.href="/beauty/review/write/"+ITEM_ID
 			}
 		}
-		
 	</script>
 
 	<!-- 하단 -->

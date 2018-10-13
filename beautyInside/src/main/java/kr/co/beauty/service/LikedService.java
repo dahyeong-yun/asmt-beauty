@@ -25,24 +25,42 @@ public class LikedService {
 	private MemberVO memberVO;
 	
 	//리뷰 좋아요
-		public ModelAndView reviewLikeUp(int REVIEW_ID, HttpSession session) {
-			modelAndView = new ModelAndView();
-			LikedVO likedVO = new LikedVO();
-			memberVO = (MemberVO) session.getAttribute("loginMember");
-			ReviewVO reviewVO = reviewDAO.reviewDetail(REVIEW_ID);
-			likedVO.setREVIEW_ID(reviewVO.getREVIEW_ID());
-			likedVO.setMEM_ID(reviewVO.getMEM_ID());
-			likedVO.setTARGET_MEM_ID(memberVO.getMEM_ID());
-			int result = likedDAO.insertLiked(likedVO);
-			if(result==0) {
-				System.out.println("좋아요 올리기 실패");
-			} else {
-				System.out.println("좋아요 올리기 성공");
-				int LikeUp = reviewDAO.reviewLIkeUp(REVIEW_ID);
-				if(LikeUp != 0) {
-				modelAndView.setViewName("redirect:/item/"+reviewVO.getITEM_ID());
-				}
+	public ModelAndView reviewLikeUp(int REVIEW_ID, HttpSession session) {
+		modelAndView = new ModelAndView();
+		LikedVO likedVO = new LikedVO();
+		memberVO = (MemberVO) session.getAttribute("loginMember");
+		ReviewVO reviewVO = reviewDAO.reviewDetail(REVIEW_ID);
+		likedVO.setREVIEW_ID(reviewVO.getREVIEW_ID());
+		likedVO.setMEM_ID(reviewVO.getMEM_ID());
+		likedVO.setTARGET_MEM_ID(memberVO.getMEM_ID());
+		int result = likedDAO.insertLiked(likedVO);
+		if(result==0) {
+			System.out.println("좋아요 올리기 실패");
+		} else {
+			System.out.println("좋아요 올리기 성공");
+			int LikeUp = reviewDAO.reviewLikeUp(REVIEW_ID);
+			if(LikeUp != 0) {
+			modelAndView.setViewName("redirect:/item/"+reviewVO.getITEM_ID());
 			}
-			return modelAndView;
 		}
+		return modelAndView;
+	}
+
+	//리뷰 좋아요 취소
+	public ModelAndView reviewLikeDown(int REVIEW_ID, HttpSession session) {
+		modelAndView = new ModelAndView();
+		memberVO = (MemberVO) session.getAttribute("loginMember");
+		ReviewVO reviewVO = reviewDAO.reviewDetail(REVIEW_ID);
+		int result = likedDAO.reviewLikeDown(memberVO.getMEM_ID());
+		if(result==0) {
+			System.out.println("좋아요 내리기 실패");
+		} else {
+			System.out.println("좋아요 내리기 성공");
+			int LikeDown = reviewDAO.reviewLikeDown(REVIEW_ID);
+			if(LikeDown != 0) {
+			modelAndView.setViewName("redirect:/item/"+reviewVO.getITEM_ID());
+			}
+		}
+		return modelAndView;
+	}
 }
