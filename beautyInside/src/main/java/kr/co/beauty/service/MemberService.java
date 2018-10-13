@@ -16,6 +16,7 @@ import kr.co.beauty.dao.MemberDAO;
 import kr.co.beauty.vo.FollowVO;
 import kr.co.beauty.vo.ItemVO;
 import kr.co.beauty.vo.MemberVO;
+import kr.co.beauty.vo.ReviewVO;
 
 @Service
 public class MemberService {
@@ -205,6 +206,16 @@ public class MemberService {
 		memberDAO.memberUnfollow(followVO);
 		
 		
+	}
+
+	
+	//마이 페이지 내가 쓴 리뷰 페이지
+	public ModelAndView myPageReviewLists(String MEM_ID) {
+		modelAndView = new ModelAndView();
+		List<ReviewVO> reviewLists = memberDAO.myPageReviewLists(MEM_ID);
+		modelAndView.addObject("reviewLists", reviewLists);
+		modelAndView.setViewName("myPageReviewWrote");
+		return modelAndView;
 	}
 
 }

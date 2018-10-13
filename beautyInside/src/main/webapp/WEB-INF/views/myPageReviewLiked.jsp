@@ -40,9 +40,8 @@
 			<div class="col-md-9">
 				<div class="container" >
 					
-					<form action="/beauty/member/info/rivison/${loginMember.MEM_ID}" method="post" class="form-inline" style="text-align:center; margin: auto; max-width:350px; max-height:350px;">
 					
-					</form>
+					
 				</div>
 			</div>
 		
