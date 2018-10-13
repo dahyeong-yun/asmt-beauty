@@ -223,4 +223,15 @@ public class MemberService {
 		return modelAndView;
 	}
 
+
+	//마이 페이지 내가 좋아요한 리뷰 페이지
+	public ModelAndView myPageReviewLiked(String MEM_ID) {
+		modelAndView = new ModelAndView();
+		int REVIEW_ID = memberDAO.getReviewIdFromLiked(MEM_ID);
+		List<ReviewVO> myPageReviewLiked = memberDAO.myPageReviewLiked(REVIEW_ID);
+		modelAndView.addObject("myPageReviewLiked", myPageReviewLiked);
+		modelAndView.setViewName("myPageReviewLiked");
+		return modelAndView;
+	}
+
 }

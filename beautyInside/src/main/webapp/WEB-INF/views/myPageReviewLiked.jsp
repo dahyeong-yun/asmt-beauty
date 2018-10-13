@@ -39,9 +39,20 @@
 			<!-- 본문 -->
 			<div class="col-md-9">
 				<div class="container" >
-					
-					
-					
+					<table class="table table-striped table-bordered table-hover table-condensed">
+						<tr>
+							<th>리뷰번호</th>
+							<th>리뷰제목</th>
+							<th>좋아요 수</th>
+						</tr>
+						<c:forEach var="myPageReviewLiked" items="${myPageReviewLiked}">
+						<tr>
+							<td>${myPageReviewLiked.REVIEW_ID}</td>
+							<td><a href="/beauty/review/${myPageReviewLiked.REVIEW_ID}">${myPageReviewLiked.REVIEW_TITLE}</a></td>
+							<td>${myPageReviewLiked.REVIEW_LIKE}</td>
+						</tr>
+						</c:forEach>
+					</table>
 				</div>
 			</div>
 		

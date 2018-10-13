@@ -39,7 +39,6 @@
 			<!-- 본문 -->
 			<div class="col-md-9">
 				<div class="container" >
-					
 					<table class="table table-striped table-bordered table-hover table-condensed">
 						<tr>
 							<th>리뷰번호</th>
