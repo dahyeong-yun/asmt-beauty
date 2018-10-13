@@ -37,4 +37,9 @@
 	<update id="reviewModify" parameterType="Review">
 		UPDATE REVIEW SET REVIEW_TITLE=#{REVIEW_TITLE}, REVIEW_CONTENT=#{REVIEW_CONTENT}, REVIEW_GRADE=#{REVIEW_GRADE} WHERE REVIEW_ID = #{REVIEW_ID}		
 	</update>
+	
+	<!-- 리뷰 삭제 -->
+	<delete id="reviewDelete" parameterType="int">
+		DELETE FROM REVIEW WHERE REVIEW_ID = #{REVIEW_ID} 
+	</delete>
 </mapper>

@@ -28,9 +28,10 @@
 		
 		<!-- 리뷰 작성 -->
 		<div class="row mt-3">
-			<form class="form" action="/beauty/review/modify/${modify.REVIEW_ID}" id="review">
+			<form class="form" action="/beauty/review/${modify.REVIEW_ID}" method="post" id="review">
 				<div class="form-group">
 					<label for="REVIEW_TITLE">리뷰 제목</label>
+					<input type="hidden" name="_method" value="put" />
 					<input type="text" class="form-control" id="REVIEW_TITLE" name="REVIEW_TITLE" value="${modify.REVIEW_TITLE}" />
 				</div>
 				
@@ -47,7 +48,6 @@
 		function reviewCheck() {
 				$("#review").submit();
 			}
-		
 	</script>
 	
 	<!-- 하단 -->
