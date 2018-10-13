@@ -28,10 +28,10 @@
 			<div class="col-md-3">
 				<div class="list-group">
 					<a href="/beauty/adminPage/dashboard" class="list-group-item">대쉬보드</a>
-					<a href="/beauty/adminPage/member" class="list-group-item active">회원관리</a>
+					<a href="/beauty/adminPage/member" class="list-group-item">회원관리</a>
 					<a href="/beauty/adminPage/item" class="list-group-item">제품관리</a>
 					<a href="/beauty/adminPage/tip" class="list-group-item">팁관리</a>
-					<a href="/beauty/adminPage/review" class="list-group-item">리뷰관리</a>
+					<a href="/beauty/adminPage/review" class="list-group-item active">리뷰관리</a>
 					<a href="/beauty/adminPage/ads" class="list-group-item">광고관리</a>
 				</div>
 			</div>
