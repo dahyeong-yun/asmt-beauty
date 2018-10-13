@@ -12,6 +12,28 @@ public class MemberVO {
 	private int AGE_ID;
 	private String MEM_ADDR;
 	private String MEM_PHONE;
+	private int MEM_POINT;
+	private int MEM_GRADE;
+	
+	public MemberVO() {
+	}
+	
+	public MemberVO(String mEM_ID, String mEM_PW, String mEM_NAME, int mEM_AGE, String mEM_EMAIL, String mEM_PROFILE,
+			int gENDER_ID, int sKINTYPE_ID, int aGE_ID, String mEM_ADDR, String mEM_PHONE, int mEM_POINT, int mEM_GRADE) {
+		MEM_ID = mEM_ID;
+		MEM_PW = mEM_PW;
+		MEM_NAME = mEM_NAME;
+		MEM_AGE = mEM_AGE;
+		MEM_EMAIL = mEM_EMAIL;
+		MEM_PROFILE = mEM_PROFILE;
+		GENDER_ID = gENDER_ID;
+		SKINTYPE_ID = sKINTYPE_ID;
+		AGE_ID = aGE_ID;
+		MEM_ADDR = mEM_ADDR;
+		MEM_PHONE = mEM_PHONE;
+		MEM_POINT = mEM_POINT;
+		MEM_GRADE = mEM_GRADE;
+	}
 	
 	public String getMEM_ADDR() {
 		return MEM_ADDR;
@@ -34,30 +56,6 @@ public class MemberVO {
 	}
 
 	public void setMEM_POINT(int mEM_POINT) {
-		MEM_POINT = mEM_POINT;
-	}
-
-	private int MEM_POINT;
-	
-
-	public MemberVO() {
-	}
-
-
-	public MemberVO(String mEM_ID, String mEM_PW, String mEM_NAME, int mEM_AGE, String mEM_EMAIL, String mEM_PROFILE,
-			int gENDER_ID, int sKINTYPE_ID, int aGE_ID, String mEM_ADDR, String mEM_PHONE, int mEM_POINT) {
-		super();
-		MEM_ID = mEM_ID;
-		MEM_PW = mEM_PW;
-		MEM_NAME = mEM_NAME;
-		MEM_AGE = mEM_AGE;
-		MEM_EMAIL = mEM_EMAIL;
-		MEM_PROFILE = mEM_PROFILE;
-		GENDER_ID = gENDER_ID;
-		SKINTYPE_ID = sKINTYPE_ID;
-		AGE_ID = aGE_ID;
-		MEM_ADDR = mEM_ADDR;
-		MEM_PHONE = mEM_PHONE;
 		MEM_POINT = mEM_POINT;
 	}
 
@@ -132,9 +130,13 @@ public class MemberVO {
 	public void setAGE_ID(int aGE_ID) {
 		AGE_ID = aGE_ID;
 	}
-	
-	
-	
-	
+
+	public int getMEM_GRADE() {
+		return MEM_GRADE;
+	}
+
+	public void setMEM_GRADE(int mEM_GRADE) {
+		MEM_GRADE = mEM_GRADE;
+	}
 	
 }

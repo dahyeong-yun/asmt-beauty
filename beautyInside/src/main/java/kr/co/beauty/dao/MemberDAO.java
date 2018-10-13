@@ -62,10 +62,22 @@ public class MemberDAO {
 		
 	}
 
+	// 팔로우
 	public int memberfollow(FollowVO followVO) {
 		return sqlSession.insert("Member.memberFollow", followVO);
 	}
-
+	
+	// 포인트 증가
+	public void memberPlusPoint(MemberVO memberVO) {
+		sqlSession.update("Member.memberPlusPoint", memberVO);
+	}
+	
+	// 회원 등급 상승
+	public void memberUpgrade(MemberVO memberVO) {
+		sqlSession.update("Member.memberUpgrade", memberVO);
+		
+	}
+	
 	// 마이페이지 리뷰 리스트
 	public List<ReviewVO> myPageReviewLists(String MEM_ID) {
 		return sqlSession.selectList("Review.myPageReviewLists", MEM_ID);

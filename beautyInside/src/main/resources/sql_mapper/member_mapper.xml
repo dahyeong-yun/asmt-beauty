@@ -4,7 +4,8 @@
 <mapper namespace="Member">
 	<!-- 회원가입 -->
 	<insert id="memberJoin" parameterType="Member">
-		INSERT INTO MEMBER VALUES(#{MEM_ID}, #{MEM_PW}, #{MEM_NAME}, #{MEM_AGE}, #{MEM_EMAIL}, #{MEM_PROFILE},  #{GENDER_ID}, #{SKINTYPE_ID}, #{AGE_ID})
+		INSERT INTO MEMBER VALUES(#{MEM_ID}, #{MEM_PW}, #{MEM_NAME}, #{MEM_AGE}, #{MEM_EMAIL},
+		 #{MEM_PROFILE}, #{GENDER_ID}, #{SKINTYPE_ID}, #{AGE_ID}, #{MEM_ADDR}, #{MEM_PHONE}, #{MEM_POINT}, #{MEM_GRADE})
 	</insert>
 	
 	<!-- 회원탈퇴 -->
@@ -52,7 +53,7 @@
 		SELECT IFNULL(MEM_ID, 0) FROM MEMBER WHERE MEM_ID = #{MEM_ID}
 	</select>
 	
-		<!-- 회원가입 -->
+	<!-- 팔로우 -->
 	<insert id="memberFollow" parameterType="Follow">
 		INSERT INTO FOLLOW(MEM_ID, TARGET_MEM_ID) VALUES(#{MEM_ID}, #{TARGET_MEM_ID})
 	</insert>
@@ -62,4 +63,13 @@
 		DELETE FROM FOLLOW WHERE MEM_ID=#{MEM_ID} AND TARGET_MEM_ID=#{TARGET_MEM_ID}
 	</delete>
 	
+	<!-- 포인트 추가  -->
+	<update id="memberPlusPoint" parameterType="Member">
+		UPDATE MEMBER SET MEM_POINT = #{MEM_POINT} WHERE MEM_ID = #{MEM_ID}
+	</update>
+	
+	<!-- 회원 등급 상승  -->
+	<update id="memberUpgrade" parameterType="Member">
+		UPDATE MEMBER SET MEM_GRADE = #{MEM_GRADE} WHERE MEM_ID = #{MEM_ID}
+	</update>
 </mapper>
