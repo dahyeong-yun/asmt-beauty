@@ -26,7 +26,6 @@
 		INSERT INTO STORE(MEM_ID, ITEM_ID) VALUES (#{MEM_ID}, #{ITEM_ID})
 	</insert>
 	
-	
 	<!-- 메인페이지_(비로그인시)인기 아이템 리스트 -->
 	<select id="trendItems" resultType="Item">
 		SELECT * FROM ITEM ORDER BY ITEM_ID LIMIT 4
