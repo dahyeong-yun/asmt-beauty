@@ -29,7 +29,7 @@ public class ReviewController {
 	
 	// 리뷰 상세 보기
 	@RequestMapping(value = "/{REVIEW_ID}", method = RequestMethod.GET)
-	public ModelAndView reviewDetail(@PathVariable("REVIEW_ID") int REVIEW_ID) {
+	public ModelAndView reviewDetail(@PathVariable("REVIEW_ID") int REVIEW_ID, HttpSession session) {
 		modelAndView = new ModelAndView();
 		modelAndView = reviewService.reviewDetail(REVIEW_ID);
 		return modelAndView;
