@@ -8,7 +8,7 @@
 		
 	<!-- 가져온 개인정보로 팁리스트 필터링 -->	
 	<select id="tipList" parameterType="Member" resultType="Tip">	
-		SELECT * FROM TIP WHERE AGE_ID = #{AGE_ID} OR GENDER_ID = #{GENDER_ID} OR SKINTYPE_ID = #{SKINTYPE_ID}	
+		SELECT * FROM TIP WHERE AGE_ID = #{AGE_ID} AND GENDER_ID = #{GENDER_ID} AND SKINTYPE_ID = #{SKINTYPE_ID}	
 	</select>	
 	<select id="tipListAll" parameterType="Tip" resultType="Tip">	
 		SELECT * FROM TIP	
