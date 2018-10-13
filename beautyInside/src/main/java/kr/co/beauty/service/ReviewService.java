@@ -59,13 +59,13 @@ public class ReviewService {
 			ReviewVO reviewDetail = reviewDAO.reviewDetail(REVIEW_ID);
 			modelAndView.addObject("reviewDetail", reviewDetail);
 			modelAndView.addObject("check", check);
-			modelAndView.setViewName("redirect:/review/"+REVIEW_ID);
+			modelAndView.setViewName("reviewDetail");
 		} else if(TARGET_MEM_ID.equals(memberVO.getMEM_ID())) {
 			check = "B";
 			ReviewVO reviewDetail = reviewDAO.reviewDetail(REVIEW_ID);
 			modelAndView.addObject("reviewDetail", reviewDetail);
 			modelAndView.addObject("check", check);
-			modelAndView.setViewName("redirect:/review/"+REVIEW_ID);
+			modelAndView.setViewName("reviewDetail");
 		} 
 		return modelAndView;
 	}

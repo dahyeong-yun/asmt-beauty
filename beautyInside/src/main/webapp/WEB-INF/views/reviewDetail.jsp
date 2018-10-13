@@ -36,7 +36,7 @@
 		<c:choose>
 			<c:when test="${reviewDetail.MEM_ID eq loginMember.MEM_ID}">	
 			<button class="btn btn-primary ml-2" onclick="javascript:reviewmodify(${reviewDetail.REVIEW_ID})">리뷰 수정</button>
-			<form action="/beauty/review/${reviewDetail.REVIEW_ID}" method="POST">
+			<form action="/beauty/review/${reviewDetail.REVIEW_ID}" method="POST" onsubmit="return reviewdelte()">
 			<input type="hidden" name="_method" value="delete"/>
 			<button class="btn btn-primary ml-2" type="submit">리뷰 삭제</button>
 			</form>
@@ -71,6 +71,10 @@
 	<script>
 	function reviewmodify(REVIEW_ID){
 		location.href='/beauty/review/modify/'+REVIEW_ID;
+	}
+	function reviewdelte(){
+		var answer = confirm('리뷰를 삭제하시겠습니까?');
+		return answer;
 	}
 	</script>
 	<!-- 하단 -->
