@@ -69,6 +69,7 @@ public class ReviewController {
 		return "redirect:/item/"+reviewVO.getITEM_ID(); // 리뷰 수정 후 리다이렉트 -> 아이템 상세페이지로
 	}
 	
+	//리뷰 삭제 기능
 	@DeleteMapping(value = "/{REVIEW_ID}")
 	public ModelAndView reviewDelete(@PathVariable("REVIEW_ID") int REVIEW_ID) {
 		modelAndView = new ModelAndView();
