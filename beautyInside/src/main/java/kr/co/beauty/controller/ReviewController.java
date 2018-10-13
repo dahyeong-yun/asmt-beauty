@@ -4,11 +4,12 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -61,10 +62,17 @@ public class ReviewController {
 	}
 	
 	// 리뷰 수정 기능
-	@PatchMapping(value = "/modify/{REVIEW_ID}")
-	public String reviewModify(@PathVariable("REVIEW_ID") int REVIEW_ID, @ModelAttribute ReviewVO reviewVO) {
+	@PutMapping(value = "/{REVIEW_ID}")
+	public String reviewModify(@PathVariable("REVIEW_ID")int REVIEW_ID, @ModelAttribute ReviewVO reviewVO) {
 		reviewVO.setREVIEW_ID(REVIEW_ID);
 		reviewService.reviewModify(reviewVO);
 		return "redirect:/item/"+reviewVO.getITEM_ID(); // 리뷰 수정 후 리다이렉트 -> 아이템 상세페이지로
+	}
+	
+	@DeleteMapping(value = "/{REVIEW_ID}")
+	public ModelAndView reviewDelete(@PathVariable("REVIEW_ID") int REVIEW_ID) {
+		modelAndView = new ModelAndView();
+		modelAndView = reviewService.reviewDelete(REVIEW_ID);
+		return modelAndView;
 	}
 }

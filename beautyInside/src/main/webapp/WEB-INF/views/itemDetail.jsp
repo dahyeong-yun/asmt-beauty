@@ -80,6 +80,7 @@
 	</div>
 	
 	<script type="text/javascript">
+	//리뷰 상세
 	function reviewDetail(REVIEW_ID){
 		if($("#LOGIN_MEM_ID").val() == ""){
 			alert("로그인한 사용자만 리뷰를 볼 수 있습니다."); 

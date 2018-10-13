@@ -36,13 +36,13 @@
 		<c:choose>
 			<c:when test="${reviewDetail.MEM_ID eq loginMember.MEM_ID}">	
 			<button class="btn btn-primary ml-2" onclick="reviewmodify(${reviewDetail.REVIEW_ID})">리뷰 수정</button>
-			<div class="btn btn-primary ml-2">리뷰 삭제</div>
-			<div class="btn btn-primary ml-2">목록 가기</div>
+			<form action="/beauty/review/${reviewDetail.REVIEW_ID}" method="POST">
+			<input type="hidden" name="_method" value="delete"/>
+			<button class="btn btn-primary ml-2" type="submit">리뷰 삭제</button>
+			</form>
 		</c:when>
-			<c:otherwise>
-			<div class="btn btn-primary ml-2">목록 가기</div>
-		</c:otherwise>
 		</c:choose>
+			<button class="btn btn-primary ml-2" onclick="location.href='/beauty/item/${reviewDetail.ITEM_ID}'">목록 가기</button>
 		</div>
 		
 		<!-- 리뷰 정보 -->

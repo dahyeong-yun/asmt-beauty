@@ -48,4 +48,9 @@ public class ReviewDAO {
 		return sqlSession.update("Review.reviewModify", reviewVO);
 	}
 
+	public int reviewDelete(int REVIEW_ID) {
+		return sqlSession.delete("Review.reviewDelete", REVIEW_ID);
+		
+	}
+
 }
