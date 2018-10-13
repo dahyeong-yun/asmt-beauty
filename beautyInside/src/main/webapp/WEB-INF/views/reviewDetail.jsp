@@ -35,7 +35,7 @@
 		</c:choose>
 		<c:choose>
 			<c:when test="${reviewDetail.MEM_ID eq loginMember.MEM_ID}">	
-			<button class="btn btn-primary ml-2" onclick="reviewmodify(${reviewDetail.REVIEW_ID})">리뷰 수정</button>
+			<button class="btn btn-primary ml-2" onclick="javascript:reviewmodify(${reviewDetail.REVIEW_ID})">리뷰 수정</button>
 			<form action="/beauty/review/${reviewDetail.REVIEW_ID}" method="POST">
 			<input type="hidden" name="_method" value="delete"/>
 			<button class="btn btn-primary ml-2" type="submit">리뷰 삭제</button>
