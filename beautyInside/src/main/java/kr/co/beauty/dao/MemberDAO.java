@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.beauty.vo.FollowVO;
 import kr.co.beauty.vo.MemberVO;
+import kr.co.beauty.vo.ReviewVO;
 
 @Repository
 public class MemberDAO {
@@ -63,6 +64,11 @@ public class MemberDAO {
 
 	public int memberfollow(FollowVO followVO) {
 		return sqlSession.insert("Member.memberFollow", followVO);
+	}
+
+	// 마이페이지 리뷰 리스트
+	public List<ReviewVO> myPageReviewLists(String MEM_ID) {
+		return sqlSession.selectList("Review.myPageReviewLists", MEM_ID);
 	}
 
 }

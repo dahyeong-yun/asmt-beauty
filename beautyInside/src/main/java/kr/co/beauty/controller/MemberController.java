@@ -99,10 +99,12 @@ public class MemberController {
 		return "myPageItemOrder";
 	}
 
-	// (page link) 마이페이지_내가 쓴 리뷰 페이지
-	@RequestMapping(value = "/member/reviews/*", method = RequestMethod.GET)
-	public String myPageReviewWrote() {
-		return "myPageReviewWrote";
+	// 마이페이지_내가 쓴 리뷰 페이지
+	@RequestMapping(value = "/member/reviews/{MEM_ID}", method = RequestMethod.GET)
+	public ModelAndView myPageReviewWrote(@PathVariable("MEM_ID") String MEM_ID) {
+		modelAndView = new ModelAndView();
+		modelAndView = memberService.myPageReviewLists(MEM_ID);
+		return modelAndView;
 	}
 	
 	// (page link) 마이페이지_좋아요 한 리뷰

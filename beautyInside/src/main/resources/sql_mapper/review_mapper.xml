@@ -42,4 +42,9 @@
 	<delete id="reviewDelete" parameterType="int">
 		DELETE FROM REVIEW WHERE REVIEW_ID = #{REVIEW_ID} 
 	</delete>
+	
+	<!-- 마이페이지 내가 쓴 리뷰 리스트 -->
+	<select id="myPageReviewLists" parameterType="String" resultType="Review">
+		SELECT * FROM REVIEW WHERE MEM_ID = #{MEM_ID}
+	</select>
 </mapper>
