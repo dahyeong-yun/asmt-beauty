@@ -70,14 +70,21 @@ public class MemberService {
 		String idNullCheck = memberDAO.idNullCheck(memberVO);
 		MemberVO loginMember = memberDAO.memberLogin(memberVO);
 		
-		if(idNullCheck == null) {
+		if(idNullCheck == null) { // 아이디 결과값이 없을 경우
 			out.println("<script>");
 			out.println("alert('없는 아이디!');");
 			out.println("history.go(-1);");
 			out.println("</script>");
 			out.close();
 		}else {
-			if (memberVO.getMEM_PW().equals(loginMember.getMEM_PW())) {
+			if (memberVO.getMEM_PW().equals(loginMember.getMEM_PW())) { // 비밀번호가 일치 -> 로그인 성공
+				// 포인트 1점 추가
+				int originPoint = loginMember.getMEM_POINT();
+				memberVO.setMEM_POINT(originPoint + 1);
+				
+				memberDAO.memberPlusPoint(memberVO);
+				
+				// 로그인 정보 세션 값으로 저장
 				session.setAttribute("loginMember", loginMember);
 				modelAndView.setViewName("redirect:/main");
 			} else {

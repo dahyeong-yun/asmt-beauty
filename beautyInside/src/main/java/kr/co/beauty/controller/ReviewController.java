@@ -47,9 +47,9 @@ public class ReviewController {
 	
 	// 리뷰 작성 기능
 	@PostMapping(value = "/write/{ITEM_ID}")
-	public String reviewWrite(@PathVariable("ITEM_ID") int ITEM_ID, @ModelAttribute ReviewVO reviewVO) {
+	public String reviewWrite(@PathVariable("ITEM_ID") int ITEM_ID, @ModelAttribute ReviewVO reviewVO, HttpSession session) {
 		reviewVO.setITEM_ID(ITEM_ID);
-		reviewService.reviewWrite(ITEM_ID, reviewVO);
+		reviewService.reviewWrite(ITEM_ID, reviewVO, session);
 		return "redirect:/item/"+ITEM_ID; // 리뷰 등록 후 리다이렉트 -> 아이템 상세페이지로
 	}
 	

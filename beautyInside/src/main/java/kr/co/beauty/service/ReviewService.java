@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.beauty.dao.ItemDAO;
+import kr.co.beauty.dao.MemberDAO;
 import kr.co.beauty.dao.ReviewDAO;
 import kr.co.beauty.vo.ItemVO;
 import kr.co.beauty.vo.MemberVO;
@@ -20,6 +21,9 @@ public class ReviewService {
 	
 	@Autowired
 	private ItemDAO itemDAO;
+	
+	@Autowired
+	private MemberDAO memberDAO;
 	
 	private ModelAndView modelAndView;
 	private ItemVO itemVO;
@@ -54,11 +58,28 @@ public class ReviewService {
 		return modelAndView;
 	}
 	
-	public void reviewWrite(int ITEM_ID, ReviewVO reviewVO) {
+	// 리뷰 작성
+	public void reviewWrite(int ITEM_ID, ReviewVO reviewVO, HttpSession session) {
 		int result = reviewDAO.reviewWrite(reviewVO);
 		if(result==0) {
 			System.out.println("리뷰 등록 실패");
 		} else {
+			// 리뷰 작성시 포인트 100점 추가, 등급 상승
+			memberVO = (MemberVO) session.getAttribute("loginMember");
+			
+			// 포인트 100점 추가
+			int originPoint = memberVO.getMEM_POINT();
+			memberVO.setMEM_POINT(originPoint+100); 
+			memberDAO.memberPlusPoint(memberVO);
+			
+			if(memberVO.getMEM_GRADE()==0) {// 리뷰 작성이 처음 이라면 등급 상승 
+				// 회원 등급 상승
+				memberVO.setMEM_GRADE(1); // 0둥급 -> 1등급
+				memberDAO.memberUpgrade(memberVO);
+			}
+			
+			session.setAttribute("loginMember", memberVO);
+			
 			System.out.println("리뷰 등록 성공");
 		}
 	}
@@ -80,6 +101,7 @@ public class ReviewService {
 		}
 	}
 
+	// 리뷰 삭제
 	public ModelAndView reviewDelete(int REVIEW_ID) {
 		modelAndView = new ModelAndView();
 		reviewVO = new ReviewVO();

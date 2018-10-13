@@ -52,6 +52,18 @@
 				</div>
 			</div>
 			
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="MEM_ADDR">주소</label>
+				<input type="text"
+					class="form-control" id="MEM_ADDR" name="MEM_ADDR" placeholder="주소를 입력하세요" required="required">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="MEM_PHONE">이메일</label>
+					<input type="text" class="form-control" id="MEM_PHONE" name="MEM_PHONE" placeholder="전화번호를 '-' 빼고 입력하세요" required="required">
+				</div>
+			</div>
+			
 			<div class="form-row mt-4">
 				<div class="form-group col-md-4">
 						<label for="MEM_AGE">나이</label>
@@ -85,7 +97,8 @@
 				</div>
 				
 			</div>
-			<input type="hidden" name="MEM_PROFILE" value="3asd" /> 
+			<input type="hidden" name="MEM_PROFILE" value="3asd" />
+			<input type="hidden" name="MEM_GRADE" value="0" />  
 			<button type="submit" class="btn btn-primary">가입하기</button>
 		</form>
 		
