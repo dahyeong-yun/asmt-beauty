@@ -107,10 +107,12 @@ public class MemberController {
 		return modelAndView;
 	}
 	
-	// (page link) 마이페이지_좋아요 한 리뷰
-	@RequestMapping(value = "/member/liked/*", method = RequestMethod.GET)
-	public String myPageReviewLiked() {
-		return "myPageReviewLiked";
+	// 마이페이지_좋아요 한 리뷰
+	@RequestMapping(value = "/member/liked/{MEM_ID}", method = RequestMethod.GET)
+	public ModelAndView myPageReviewLiked(@PathVariable("MEM_ID") String MEM_ID) {
+		modelAndView = new ModelAndView();
+		modelAndView = memberService.myPageReviewLiked(MEM_ID);
+		return modelAndView;
 	}
 	
 	// 마이페이지_제품 찜 목록

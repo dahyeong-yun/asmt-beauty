@@ -13,7 +13,13 @@
 		SELECT TARGET_MEM_ID FROM LIKED WHERE REVIEW_ID = #{REVIEW_ID}
 	</select>
 	
+	<!-- 좋아요 테이블 좋아요취소시 튜플 삭제 -->
 	<delete id="likeDown" parameterType="String">
 		DELETE FROM LIKED WHERE TARGET_MEM_ID = #{MEM_ID}
 	</delete>
+	
+	<!-- 내가 좋아요요한 리뷰 리스트위한 리뷰 아이디값 얻기 -->
+	<select id="getReviewId" parameterType="String" resultType="int">
+		SELECT REVIEW_ID FROM LIKED WHERE TARGET_MEM_ID = #{MEM_ID}
+	</select>
 </mapper>

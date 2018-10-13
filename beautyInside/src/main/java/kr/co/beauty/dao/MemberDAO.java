@@ -66,9 +66,19 @@ public class MemberDAO {
 		return sqlSession.insert("Member.memberFollow", followVO);
 	}
 
-	// 마이페이지 리뷰 리스트
+	// 마이페이지 내가 작성한 리뷰 리스트
 	public List<ReviewVO> myPageReviewLists(String MEM_ID) {
 		return sqlSession.selectList("Review.myPageReviewLists", MEM_ID);
+	}
+
+	// 마이페이지 내가 좋아요한 리뷰 위한 리뷰 아이디값 얻기
+	public int getReviewIdFromLiked(String MEM_ID) {
+		return sqlSession.selectOne("Liked.getReviewId", MEM_ID);
+	}
+
+	// 마이 페이지 내가 좋아요한 리뷰 리스트
+	public List<ReviewVO> myPageReviewLiked(int REVIEW_ID) {
+		return sqlSession.selectList("Review.myPageReviewLiked", REVIEW_ID);
 	}
 
 }
