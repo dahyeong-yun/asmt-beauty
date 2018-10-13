@@ -36,17 +36,22 @@ public class ReviewService {
 		modelAndView = new ModelAndView();
 		memberVO = (MemberVO) session.getAttribute("loginMember");
 		//target_mem_id 값 얻기
-		String TARGET_MEM_ID = reviewDAO.getTargetId(REVIEW_ID);
+		String TARGET_MEM_ID = null;
+		TARGET_MEM_ID = reviewDAO.getTargetId(REVIEW_ID);
 		String check = null;
 		if(TARGET_MEM_ID == null) {
 			check = "A";
+			ReviewVO reviewDetail = reviewDAO.reviewDetail(REVIEW_ID);
+			modelAndView.addObject("reviewDetail", reviewDetail);
+			modelAndView.addObject("check", check);
+			modelAndView.setViewName("redirect:/review/"+REVIEW_ID);
 		} else if(TARGET_MEM_ID.equals(memberVO.getMEM_ID())) {
-			check = "B";		
-			} 
-		ReviewVO reviewDetail = reviewDAO.reviewDetail(REVIEW_ID);
-		modelAndView.addObject("reviewDetail", reviewDetail);
-		modelAndView.addObject("check", check);
-		modelAndView.setViewName("reviewDetail");
+			check = "B";
+			ReviewVO reviewDetail = reviewDAO.reviewDetail(REVIEW_ID);
+			modelAndView.addObject("reviewDetail", reviewDetail);
+			modelAndView.addObject("check", check);
+			modelAndView.setViewName("redirect:/review/"+REVIEW_ID);
+		} 
 		return modelAndView;
 	}
 
