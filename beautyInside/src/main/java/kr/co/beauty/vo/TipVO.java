@@ -9,7 +9,7 @@ public class TipVO {
 	private int SKINTYPE_ID;
 	private int GENDER_ID;
 	
-	TipVO(){
+	public TipVO(){
 		
 	}
 	

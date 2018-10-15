@@ -65,9 +65,9 @@ public class ApiController {
 	}
 	
 	// 팁 정보
-	@RequestMapping("/tip/{ITEM_ID}")
-	public @ResponseBody Map<String , String> getJsonByTip(@PathVariable("TIP_ID") int TIP_ID) {
-		Map<String, String> jsonObject = apiService.tipInfoApi(TIP_ID);
+	@RequestMapping("/tip")
+	public @ResponseBody Map<String , Object> getJsonByTip() {
+		Map<String, Object> jsonObject = apiService.tipInfoApi();
 		return jsonObject;
 	}
 }
