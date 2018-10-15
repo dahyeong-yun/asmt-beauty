@@ -58,10 +58,43 @@
 								</td>
 								<td>${myPageItemOrder.ITEM_PRICE} 원</td>
 								<td>
-								<button type="button" class="btn btn-danger" style="width: 150px;">배송조회</button><br>
-								<button type="button" class="btn btn-primary" style="width: 150px; ">구매후기</button>
-								</td>
+								<button type="button" class="btn btn-primary" style="width: 150px;">배송조회</button>
+								
+								
+								<button class="btn btn btn-danger" data-toggle="modal" data-target="#orderCancel">주문취소모달</button><br><br>
 							</tr>
+							
+							<!-- 주문취소 modal -->
+							<div class="modal" id="orderCancel">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										
+										<!-- header -->
+										<div class="modal-header">
+											<h4 class="modal-title">주문취소</h4>
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+										</div>
+										
+										<!-- body -->
+										<div class="modal-body">
+											<form class="form mt-4" action="/beauty/member/orders/${myPageItemOrder.PAY_ID}" method="POST">
+												취소사유<br>
+												<select name="ITEM_CATEGORY" class="form-control" id="reasonForCancel">
+													<option value="expensivePrice">비싼가격</option>
+													<option value="lateDelivery">지연배송</option>
+													<option value="mistake">주문실수</option>
+													<option value="etc">기타 사유</option>
+												</select>
+												<input type="hidden" name="_method" value="delete" />
+												<button type="submit" class="btn btn-danger" style="float: right;">주문취소</button>
+											</form>
+										</div>
+										
+										<!-- footer -->
+										<div class="modal-footer"></div>
+									</div>
+								</div>
+							</div>
 							</c:forEach>
 					</table>
 				</div>
@@ -69,6 +102,8 @@
 		
 		</div>
 	</div>
+	
+	
 	
 	<!-- 하단 -->
 	<%@include file="footer.jsp" %>

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -100,7 +101,15 @@ public class MemberController {
 		modelAndView = memberService.myPageItemOrder(MEM_ID);
 		return modelAndView;
 	}
-
+	
+	// 마이페이지_주문목록/ 배송조회 페이지 주문취소
+	@DeleteMapping(value = "/member/orders/{PAY_ID}")
+	public ModelAndView myPageOrderCancel(@PathVariable("PAY_ID") int PAY_ID) {
+		modelAndView = new ModelAndView();
+		modelAndView = memberService.myPageOrderCancel(PAY_ID);
+		return modelAndView;
+	}
+	
 	// 마이페이지_내가 쓴 리뷰 페이지
 	@RequestMapping(value = "/member/reviews/{MEM_ID}", method = RequestMethod.GET)
 	public ModelAndView myPageReviewWrote(@PathVariable("MEM_ID") String MEM_ID) {

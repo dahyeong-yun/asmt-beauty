@@ -44,12 +44,10 @@
 
 		<form class="form-inline mx-auto" action="/beauty/item" method="get" onsubmit="return send()">
 			<select name="ITEM_CATEGORY" class="form-control" id="category">
-
 				<option value="">카테고리</option>
 				<option value="A">A</option>
 				<option value="hair">헤어</option>
 				<option value="skincare">스킨케어</option>
-				<option value="cleansing">클렌징</option>
 				<option value="perfume">향수</option>
 				<option value="마스카라">마스카라</option>
 			</select>

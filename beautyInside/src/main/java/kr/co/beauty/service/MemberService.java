@@ -243,5 +243,20 @@ public class MemberService {
 		modelAndView.setViewName("myPageItemOrder");
 		return modelAndView;
 	}
+	
+	//마이 페이지 주문 취소
+	public ModelAndView myPageOrderCancel(int PAY_ID) {
+		modelAndView = new ModelAndView();
+		int result = memberDAO.myPageOrderCancel(PAY_ID);
+		System.out.println(PAY_ID);
+		System.out.println("=========================");
+		if(result==0) {
+			System.out.println("주문취소 실패");
+		} else {
+			System.out.println("주문취소 성공");
+		}
+		modelAndView.setViewName("redirect:/main");
+		return modelAndView;
+	}
 
 }
