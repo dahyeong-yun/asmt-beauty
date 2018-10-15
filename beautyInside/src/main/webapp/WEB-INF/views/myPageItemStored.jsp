@@ -51,19 +51,18 @@
 				<div class="container" >
 				
 					<h3>찜한 상품</h3><div style="text-align: right;">찜한 상품 내역이 제공됩니다. </div>
-					
 						<table class="table table-striped table-bordered table-hover table-condensed">
 							<tr>
-								<td><input type="checkbox" name="checkAll" id="th_checkAll" onclick="checkAll();" value=""></td>
-								<td><button type="button" class="btn btn-danger">선택상품 삭제</button></td>
-								<td colspan="4">
+								<th><input type="checkbox" name="checkAll" id="th_checkAll" onclick="checkAll();" value=""></th>
+								<th><button type="button" class="btn btn-danger">선택상품 삭제</button></th>
+								<th colspan="4">
 									<select class="form-control" id="#">
 										<option>최근 등록순</option>
 										<option>낮은 가격순</option>
 										<option>높은 가격순</option>
 										<option>리뷰 많은순</option>
 									</select>
-								</td>
+								</th>
 							</tr>
 							<c:forEach var="memberStoredList" items="${memberStoredList}">
 							<tr>

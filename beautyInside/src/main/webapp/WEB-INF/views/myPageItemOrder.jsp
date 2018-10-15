@@ -39,10 +39,31 @@
 			<!-- 본문 -->
 			<div class="col-md-9">
 				<div class="container" >
-					
-					<form action="/beauty/member/info/rivison/${loginMember.MEM_ID}" method="post" class="form-inline" style="text-align:center; margin: auto; max-width:350px; max-height:350px;">
-					
-					</form>
+					<table class="table table-striped table-bordered table-hover table-condensed">
+							<tr>
+								<th>주문일(결제번호)</th>
+								<th>상품/옵션정보</th>
+								<th>결제금액</th>
+								<th>상태</th>
+							</tr>
+							<c:forEach var="myPageItemOrder" items="${myPageItemOrder}">
+							<tr>
+								<td>
+								${myPageItemOrder.PAY_DATE}<br>
+								${myPageItemOrder.PAY_NUM}
+								</td>
+								<td>
+								<img src="${myPageItemOrder.ITEM_IMAGE}" style="width: 50px; height: 50px;"><br>
+								${myPageItemOrder.ITEM_NAME}
+								</td>
+								<td>${myPageItemOrder.ITEM_PRICE} 원</td>
+								<td>
+								<button type="button" class="btn btn-danger" style="width: 150px;">배송조회</button><br>
+								<button type="button" class="btn btn-primary" style="width: 150px; ">구매후기</button>
+								</td>
+							</tr>
+							</c:forEach>
+					</table>
 				</div>
 			</div>
 		

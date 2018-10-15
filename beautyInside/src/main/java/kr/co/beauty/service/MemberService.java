@@ -16,6 +16,7 @@ import kr.co.beauty.dao.MemberDAO;
 import kr.co.beauty.vo.FollowVO;
 import kr.co.beauty.vo.ItemVO;
 import kr.co.beauty.vo.MemberVO;
+import kr.co.beauty.vo.PaymentVO;
 import kr.co.beauty.vo.ReviewVO;
 
 @Service
@@ -231,6 +232,15 @@ public class MemberService {
 		List<ReviewVO> myPageReviewLiked = memberDAO.myPageReviewLiked(REVIEW_ID);
 		modelAndView.addObject("myPageReviewLiked", myPageReviewLiked);
 		modelAndView.setViewName("myPageReviewLiked");
+		return modelAndView;
+	}
+
+	//마이 페이지 주문 결제 정보
+	public ModelAndView myPageItemOrder(String MEM_ID) {
+		modelAndView = new ModelAndView();
+		List<PaymentVO> myPageItemOrder = memberDAO.myPageItemOrder(MEM_ID);
+		modelAndView.addObject("myPageItemOrder", myPageItemOrder);
+		modelAndView.setViewName("myPageItemOrder");
 		return modelAndView;
 	}
 

@@ -93,10 +93,12 @@ public class MemberController {
 		return "main";
 	}	
 	
-	// (page link) 마이페이지_주문목록/배송조회 페이지
-	@RequestMapping(value = "/member/orders/*", method = RequestMethod.GET)
-	public String myPageItemOrder() {
-		return "myPageItemOrder";
+	// 마이페이지_주문목록/배송조회 페이지
+	@RequestMapping(value = "/member/orders/{MEM_ID}", method = RequestMethod.GET)
+	public ModelAndView myPageItemOrder(@PathVariable("MEM_ID") String MEM_ID) {
+		modelAndView = new ModelAndView();
+		modelAndView = memberService.myPageItemOrder(MEM_ID);
+		return modelAndView;
 	}
 
 	// 마이페이지_내가 쓴 리뷰 페이지

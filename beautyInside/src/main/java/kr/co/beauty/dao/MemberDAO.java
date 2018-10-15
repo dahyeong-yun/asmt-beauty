@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.beauty.vo.FollowVO;
 import kr.co.beauty.vo.MemberVO;
+import kr.co.beauty.vo.PaymentVO;
 import kr.co.beauty.vo.ReviewVO;
 
 @Repository
@@ -91,6 +92,11 @@ public class MemberDAO {
 	// 마이 페이지 내가 좋아요한 리뷰 리스트
 	public List<ReviewVO> myPageReviewLiked(int REVIEW_ID) {
 		return sqlSession.selectList("Review.myPageReviewLiked", REVIEW_ID);
+	}
+
+	// 마이 페이지 내가 주문 결제한 아이템 리스트
+	public List<PaymentVO> myPageItemOrder(String MEM_ID) {
+		return sqlSession.selectList("Payment.myPageItemOrder", MEM_ID);
 	}
 
 }
