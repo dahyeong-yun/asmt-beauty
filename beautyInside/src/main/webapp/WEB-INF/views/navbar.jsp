@@ -36,7 +36,7 @@
 				<a class="nav-link" href="/beauty/item">item</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="/beauty/tip?MEM_ID=${loginMember.MEM_ID}">tips</a>
+				<a class="nav-link" href="/beauty/tip">tips</a>
 			</li>
 		</ul>
 				
