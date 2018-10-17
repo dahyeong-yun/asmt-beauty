@@ -17,6 +17,12 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
+	<!-- ajax JSON parsing -->
+	<beans:bean id="jsonView" class="net.sf.json.spring.web.servlet.view.JsonView">
+	</beans:bean>
+	<beans:bean id="viewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
+	    <beans:property name="order" value="0"></beans:property>
+	</beans:bean>
 	
 	<resources mapping="/resources/**" location="/resources/" />
 	

@@ -1,7 +1,9 @@
 package kr.co.beauty.service;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -95,6 +97,17 @@ public class ItemService {
 		itemDAO.itemPaymetComplete(paymentVO);
 		modelAndView.addObject("paynum",paymentVO.getPAY_NUM());
 		modelAndView.setViewName("itemPaymentComplete");
+		return modelAndView;
+	}
+
+	public ModelAndView itemFilter(ItemVO itemVO) {
+		modelAndView = new ModelAndView();
+		List<ItemVO> list = itemDAO.search(itemVO);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("filterResult", list);
+		modelAndView.addAllObjects(map);
+		modelAndView.setViewName("jsonView");
+		System.out.println(list.toString());
 		return modelAndView;
 	}
  }

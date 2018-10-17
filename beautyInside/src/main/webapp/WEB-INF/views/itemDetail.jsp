@@ -85,7 +85,7 @@
 		if($("#LOGIN_MEM_ID").val() == ""){
 			alert("로그인한 사용자만 리뷰를 볼 수 있습니다."); 
 		}else{
-			location.href="/beauty/review/"+REVIEW_ID;
+			window.location="/beauty/review/"+REVIEW_ID;
 		}
 	}
 	//구매 기능

@@ -13,6 +13,24 @@
 			<if test="ITEM_NAME != null">
 				AND ITEM_NAME LIKE CONCAT('%',#{ITEM_NAME},'%') OR ITEM_BRAND LIKE CONCAT('%',#{ITEM_NAME},'%')
 			</if>
+			<if test="filterGENDER != null">
+				AND GENDER_ID IN
+				<foreach collection="filterGENDER" item="filterGENDER" index="index" open="(" close=")" separator=",">
+					#{filterGENDER}
+				</foreach>
+			</if>
+			<if test="filterAGE != null">
+				AND AGE_ID IN
+				<foreach collection="filterAGE" item="filterAGE" index="index" open="(" close=")" separator=",">
+					#{filterAGE}
+				</foreach>
+			</if>
+			<if test="filterSKINTYPE != null">
+				AND SKINTYPE_ID IN
+				<foreach collection="filterSKINTYPE" item="filterSKINTYPE" index="index" open="(" close=")" separator=",">
+					#{filterSKINTYPE}
+				</foreach>
+			</if>
 		</where>
 	</select>
 	

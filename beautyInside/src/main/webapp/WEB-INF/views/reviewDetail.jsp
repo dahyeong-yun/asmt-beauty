@@ -70,7 +70,7 @@
 	</div>
 	<script>
 	function reviewmodify(REVIEW_ID){
-		location.href='/beauty/review/modify/'+REVIEW_ID;
+		window.location='/beauty/review/modify/'+REVIEW_ID;
 	}
 	function reviewdelte(){
 		var answer = confirm('리뷰를 삭제하시겠습니까?');
