@@ -13,7 +13,6 @@
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<title>:: Beauty Inside ::</title>
 
-<title>:: Beauty Inside ::</title>
 <style>
 </style>
 </head>
@@ -30,42 +29,38 @@
 				<div class="card p-3">
 					<form id="searchFilter">
 						<h2>성별</h2>
- 							<label for="male" class="btn btn-primary" onclick="searchFilter()">남자</label>
-   							<input type="radio" name="GENDER_ID" id="male" autocomplete="off" value="남자">
+ 							<label for="male" class="btn btn-primary">
+   							<input type="radio" name="filterGENDER" id="male" autocomplete="off" value="1">남자</label>
  							
-							<label for="female" class="btn btn-primary" onclick="searchFilter()">여자</label>
-							<input type="radio" name="GENDER_ID" id="female" autocomplete="off" value="여자">
+							<label for="female" class="btn btn-primary">
+							<input type="radio" name="filterGENDER" id="female" autocomplete="off" value="2">여자</label>
 							
 						<h2>연령대</h2>
-							<label for="teenage" class="btn btn-primary">10대</label>
-								<input type="checkbox" name="AGE_ID" autocomplete="off" value="1" id="teenage">
-							
-							<label for="twenty" class="btn btn-primary"><input type="checkbox" name="AGE_ID" autocomplete="off" value="2" id="twenty">20대</label>
-							<label for="thirty" class="btn btn-primary"><input type="checkbox" name="AGE_ID" autocomplete="off" value="3" id="thirty">30대</label>
-							<label for="forty" class="btn btn-primary"><input type="checkbox" name="AGE_ID" autocomplete="off" value="4" id="forty">40대</label>
-							<label for="fifty" class="btn btn-primary"><input type="checkbox" name="AGE_ID" autocomplete="off" value="5" id="fifty">40대 이상</label>
+							<label for="teenage" class="btn btn-primary"><input type="checkbox" name="filterAGE" autocomplete="off" value="1" id="teenage">10대</label>
+							<label for="twenty" class="btn btn-primary"><input type="checkbox" name="filterAGE" autocomplete="off" value="2" id="twenty">20대</label>
+							<label for="thirty" class="btn btn-primary"><input type="checkbox" name="filterAGE" autocomplete="off" value="3" id="thirty">30대</label>
+							<label for="forty" class="btn btn-primary"><input type="checkbox" name="filterAGE" autocomplete="off" value="4" id="forty">40대</label>
+							<label for="fifty" class="btn btn-primary"><input type="checkbox" name="filterAGE" autocomplete="off" value="5" id="fifty">40대 이상</label>
 							
 						<h2>피부타입</h2>
-							<label for="severely dry" class="btn btn-primary"><input type="checkbox" autocomplete="off" name="SKINTYPE_ID" value="1" id="severely dry">악건성</label>
-							<label for="dry" class="btn btn-primary"><input type="checkbox" autocomplete="off" name="SKINTYPE_ID" value="2" id="dry">건성</label>
-							<label for="normal" class="btn btn-primary"><input type="checkbox" autocomplete="off" name="SKINTYPE_ID" value="3" id="normal">중성</label>
-							<label for="oily" class="btn btn-primary"><input type="checkbox" autocomplete="off" name="SKINTYPE_ID" value="4" id="oily">지성</label>
-							<label for="severely oily" class="btn btn-primary"><input type="checkbox" autocomplete="off" name="SKINTYPE_ID" value="5" id="severely oily">악지성</label>
-							<label for="combination" class="btn btn-primary"><input type="checkbox" autocomplete="off" name="SKINTYPE_ID" value="6" id="combination">복합성</label>
-							
+							<label for="dry" class="btn btn-primary"><input type="checkbox" autocomplete="off" name="filterSKINTYPE" value="1" id="dry">건성</label>
+							<label for="normal" class="btn btn-primary"><input type="checkbox" autocomplete="off" name="filterSKINTYPE" value="2" id="normal">중성</label>
+							<label for="oily" class="btn btn-primary"><input type="checkbox" autocomplete="off" name="filterSKINTYPE" value="3" id="oily">지성</label>
+							<label for="combination" class="btn btn-primary"><input type="checkbox" autocomplete="off" name="filterSKINTYPE" value="4" id="combination">복합성</label>
+						<input type="hidden" value="${param.ITEM_CATEGORY}" name="ITEM_CATEGORY" id="ITEM_CATEGORY">
+						<input type="hidden" value="${param.ITEM_NAME}" name="ITEM_NAME" id="ITEM_NAME">
 						<br>
-						<button type="submit" class="btn btn-primary">Submit</button>
 					</form>
 				</div>
 			</div>		
 
 			<!-- 검색 결과  -->
-			<div class="col-sm-6 col-md-8">
+			<div class="col-sm-6 col-md-8" id="itemlist">
 				<table>
 					<c:forEach var="list" items="${searchResult}">
 							<tr onclick="location.href='/beauty/item/${list.ITEM_ID}'">
 								<td><img src="${list.ITEM_IMAGE}" style="max-width: 180px;height: auto"/></td>
-								<td>${list.ITEM_BRAND} ${list.ITEM_NAME} ${list.ITEM_PRICE}원</td>
+								<td>${list.ITEM_BRAND} ${list.ITEM_NAME} ${list.ITEM_CAPA } ${list.ITEM_PRICE}원</td>
 							</tr>
 					</c:forEach>
 				</table>
@@ -77,21 +72,25 @@
 	<%@include file="footer.jsp" %>
 	
 	<script type="text/javascript">
-/* 		function filtering() {
+ 		$('input:checkbox').click(function() {
+ 			var obj = document.getElementById("ITEM_CATEGORY");
+ 			var n = document.getElementById("ITEM_NAME");
+ 			if(n.value.length<=0){
+ 				n.setAttribute("disabled","disabled");
+ 			}
+ 			if(obj.value=="") {
+ 				obj.setAttribute("disabled","disabled");
+ 			}
+ 			var f = $('#searchFilter').serialize();
 			$.ajax({
 				type : "get",
-				url : "/beauty/item",
-				data : {
-					"GENDER_ID" : $("#GENDER_ID").val(),
-					"AGE_ID" : $("#AGE_ID").val(),
-					"SKINTYPE_ID" : $("#SKINTYPE_ID").val()
-				},
-				datatype : "text",
+				url : "/beauty/item/filter.do",
+				data : f,
+				datatype : "json",
+				contentType : "application/json; charset=utf-8",
 				success: function(data) {
-					if(data==) {
-					} else {
-		
-					}
+					console.log(data.filterResult);
+					itemList(data.filterResult);
 				},
 				error : function(request) {
 					console.log("AJAX에러");
@@ -99,7 +98,19 @@
 							+ "message :" + request.responseText);
 				}
 			});
-		} */
+		});
+ 		
+ 		function itemList(item){
+ 			html = '<table>';
+ 			for (var i = 0; i<item.length; i++){
+	 			html += '<tr onclick="location.href=\'/beauty/item/'+item[i].ITEM_ID+'\'"><td><img src="'
+	 			+item[i].ITEM_IMAGE+'" style="max-width: 180px;height: auto"/></td><td>'+item[i].ITEM_BRAND+' '
+	 			+item[i].ITEM_NAME+' '+item[i].ITEM_CAPA+' '+item[i].ITEM_PRICE+'원</td></tr>'
+	 		}
+			html += '</table>'; 
+			$('table').remove();
+			$('#itemlist').append(html);
+ 		}
 	</script>
 </body>
 </html>

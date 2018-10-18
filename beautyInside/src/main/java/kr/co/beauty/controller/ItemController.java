@@ -32,6 +32,15 @@ public class ItemController {
 		return modelAndView;
 	}
 	
+	// 아이템 필터링 기능
+		@RequestMapping(value = "/item/filter.do", method = RequestMethod.GET, produces = "application/json; charset=utf8")
+		public ModelAndView itemFilter(@ModelAttribute ItemVO itemVO) {
+			modelAndView = new ModelAndView();
+			modelAndView = itemService.itemFilter(itemVO);
+			return modelAndView;
+			
+	}
+		
 	// 아이템 상세 페이지
 	@RequestMapping(value = "/item/{ITEM_ID}", method = RequestMethod.GET)
 	public ModelAndView itemDetail(@PathVariable("ITEM_ID") int ITEM_ID) {

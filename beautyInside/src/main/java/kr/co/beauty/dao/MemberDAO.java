@@ -99,4 +99,8 @@ public class MemberDAO {
 		return sqlSession.selectList("Payment.myPageItemOrder", MEM_ID);
 	}
 
+	public int myPageOrderCancel(int PAY_ID) {
+		return sqlSession.delete("Payment.myPageOrderCancel", PAY_ID);
+	}
+
 }

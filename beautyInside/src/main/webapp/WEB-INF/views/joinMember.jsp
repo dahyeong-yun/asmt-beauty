@@ -59,7 +59,7 @@
 					class="form-control" id="MEM_ADDR" name="MEM_ADDR" placeholder="주소를 입력하세요" required="required">
 				</div>
 				<div class="form-group col-md-6">
-					<label for="MEM_PHONE">이메일</label>
+					<label for="MEM_PHONE">전화번호</label>
 					<input type="text" class="form-control" id="MEM_PHONE" name="MEM_PHONE" placeholder="전화번호를 '-' 빼고 입력하세요" required="required">
 				</div>
 			</div>
@@ -85,13 +85,16 @@
 					<p>피부타입</p>
 					<div class="btn-group" data-toggle="buttons">
 						<label class="btn btn-secondary active">
-							<input type="radio" name="SKINTYPE_ID" value="1" required="required"> 지성
+							<input type="radio" name="SKINTYPE_ID" value="1" required="required"> 건성
 						</label>
 						<label class="btn btn-secondary">
-							<input type="radio" name="SKINTYPE_ID" value="2" required="required"> 건성
+							<input type="radio" name="SKINTYPE_ID" value="2" required="required"> 중성
 						</label>
 						<label class="btn btn-secondary">
-							<input type="radio" name="SKINTYPE_ID" value="3" required="required"> 복합성
+							<input type="radio" name="SKINTYPE_ID" value="3" required="required"> 지성
+						</label>
+						<label class="btn btn-secondary">
+							<input type="radio" name="SKINTYPE_ID" value="4" required="required"> 복합성
 						</label>
 					</div>
 				</div>
@@ -99,7 +102,7 @@
 			</div>
 			<input type="hidden" name="MEM_PROFILE" value="3asd" />
 			<input type="hidden" name="MEM_GRADE" value="0" />  
-			<button type="submit" class="btn btn-primary">가입하기</button>
+			<button type="submit" class="btn btn-primary" onclick="return idOverlapCheck();">가입하기</button>
 		</form>
 		
 	</div>
@@ -130,6 +133,14 @@
 						+ "message :" + request.responseText);
 			}
 		});
+	}
+	function idOverlapCheck(){
+		if(idcheck==0){
+			alert("아이디 중복확인을 해주세요.");
+			return false;
+		}else{
+			return true;
+		}
 	}
 	
  	
