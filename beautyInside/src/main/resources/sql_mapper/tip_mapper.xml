@@ -9,9 +9,15 @@
 	<!-- 가져온 개인정보로 팁리스트 필터링 -->	
 	<select id="tipList" parameterType="Member" resultType="Tip">	
 		SELECT * FROM TIP WHERE AGE_ID = #{AGE_ID} AND GENDER_ID = #{GENDER_ID} AND SKINTYPE_ID = #{SKINTYPE_ID}	
-	</select>	
-	<select id="tipListAll" parameterType="Tip" resultType="Tip">	
+	</select>
+		
+	<select id="tipListAll" resultType="Tip">	
 		SELECT * FROM TIP	
+	</select>
+	
+	<!-- 전체 팁 갯수 세기 -->
+	<select id="tipCountAll" resultType="int">	
+		SELECT COUNT(TIP_ID) FROM TIP
 	</select>	
 		
 	<!-- 관리자 페이지 팁리스트 -->	

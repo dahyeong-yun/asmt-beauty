@@ -16,6 +16,7 @@ public class TipController {
 	private TipService TipService;
 	
 	private ModelAndView modelAndView;
+	
 	// 팁 리스트 처리
 	@RequestMapping(value="/tip", method = RequestMethod.GET)
 	public ModelAndView tipList(@RequestParam("MEM_ID") String MEM_ID) {

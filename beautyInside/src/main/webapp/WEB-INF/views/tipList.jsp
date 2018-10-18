@@ -20,6 +20,7 @@
 	<!-- 팁 -->
 	<div class="container">
 		<h2>TIP!</h2>
+		<p>전체 갯수: ${numOftip.numOftip}</p>
 		<div class="row">
 			<c:forEach var="tipList" items="${tipList}">
 				<div class="col-md-4">

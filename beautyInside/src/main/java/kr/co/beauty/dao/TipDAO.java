@@ -28,4 +28,9 @@ public class TipDAO {
 	public List<TipVO> tipListAll() {
 		return sqlSession.selectList("Tip.tipListAll");
 	}
+	
+	// 전테 팁 갯수 세기
+	public int tipCountAll() {
+		return sqlSession.selectOne("Tip.tipCountAll");
+	}
 }

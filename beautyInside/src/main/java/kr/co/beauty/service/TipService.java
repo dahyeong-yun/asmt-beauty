@@ -32,6 +32,8 @@ public class TipService {
 		} else {
 			//로그인 안하면 팁 리스트 모두 보여주기 
 			list = tipDAO.tipListAll();
+			int numOfTip = tipDAO.tipCountAll();
+			modelAndView.addObject("numOfTip", numOfTip);
 		}
 		modelAndView.addObject("tipList", list);
 		modelAndView.setViewName("tipList");
